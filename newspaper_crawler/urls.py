@@ -14,13 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from crawler import views
 urlpatterns = [
-    #path('admin/', admin.site.urls),
-    path('search/<str:terms>/<int:top_results>', views.SNETnews.search_news),
-    path('getnews/<str:sort_type>/<int:results>', views.SNETnews.get_news),
-    path('trending', views.SNETnews.trending_topics),
-    path('startrefresh', views.SNETnews.start_auto_refresh),
-    path('stoprefresh', views.SNETnews.stop_auto_refresh),
-]
+	path('admin/', admin.site.urls),
+	path('', include('crawler.urls')),]

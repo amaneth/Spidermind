@@ -11,6 +11,7 @@ import datetime
 import json
 
 import newspaper as nwp
+import feedparser as fp
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -34,8 +35,10 @@ class SNETnews:
         self.papers = []
         self.number_of_sites=0
         self.source_sites = []
+        self.rss_sites= ['http://rss.cnn.com/rss/cnn_topstories.rss']
         self.search_index = {}
         self.articles = []
+        self.rss_articles =[]
         self.article_tags = {}
         self.article_sources = {}
         self.op_mode = 0 # 0 -> download & nlp + 1, 1 -> title + summary + tags
@@ -88,7 +91,12 @@ class SNETnews:
         if config_f.sections().count('NumberOfSites') == 1:
             site_n = config_f['NumberOfSites']
             self.number_of_sites = int(site_n.get("sites", 10))
-            self.source_sites= ['http://washingtonindependent.com', 'http://drudgereport.com']
+            self.source_sites= ['http://www.suntimes.com','http://www.businessinsider.com']
+        if config_f.sections().count('RSSFeedList') == 1:
+            rss_l = config_f['RSSFeedList']
+            #self.rss_sites = rss.get("rss").replace(" ","").replace("\n", "").split(",")
+            self.rss_sites = ['http://rss.cnn.com/rss/cnn_topstories.rss']
+
 
        # if config_f.sections().count('SiteList') == 1:
        #     site_l = config_f['SiteList']
@@ -214,3 +222,23 @@ class SNETnews:
             raise Exception("No Event Loop Timer Registered")
         self.auto_refresh_timer.cancel()
         self.continue_auto_refresh = False
+    def get_rss_feed(self, sort_type="title", results=10):
+        self.rss_papers= [ fp.parse(site) for site in self.rss_sites]
+        self.rss_articles = [x for y in [n.entries for n in self.rss_papers] for x in y]
+        logger.info("Done parsing news, No Articles" + str(len(self.rss_articles)))
+        logger.info("Get News - Sort Type: " \
+                + str(sort_type) \
+                + " -Results: " \
+                + str(results))
+        if sort_type == "title":
+            logger.info("Sort Type: title, No Articles : " + str(len(self.articles)))
+            return sorted(self.rss_articles,
+                    key=lambda x : x.title)[:min(results, len(self.rss_articles))]
+        if sort_type == "date":
+            return sorted(self.rss_articles,\
+                    key = lambda x : x.published.timestamp() \
+                                            if isinstance(x.published, datetime.datetime) \
+                                               and type(x.published) != 'str' \
+                                               else 0.0, \
+                                               reverse=True)[:min(results, len(self.rss_articles))]
+

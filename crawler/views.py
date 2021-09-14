@@ -55,3 +55,17 @@ def trending_topics(request):
 			article_model.save()
 		article_serialized = ArticleSerializer(Article.objects.all(), many=True)
 		return JSONResponse(article_serialized.data, safe=False)
+def get_rss_feed(request, sort_type="title", results=10):
+    if request.method == 'GET':
+        s = SNETnews('./news.ini')
+        #s.download_news()
+        articles = s.get_rss_feed(sort_type, results)
+        for article in articles:
+            article_model = Article(title= article.title, 
+                                    description = article.summary,
+                                    date = str(article.published),
+                                    link = article.link)
+            article_model.save()
+        article_serialized = ArticleSerializer(Article.objects.all(), many = True)
+        return JsonResponse(article_serialized.data, safe = False)
+

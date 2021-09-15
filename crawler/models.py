@@ -7,5 +7,5 @@ class Article(models.Model):
     authors = models.CharField(max_length=40, blank=True, default='')
     date = models.CharField(max_length=20, blank=True, default='')
     link = models.CharField(max_length=400, blank=True, default='')
-    search_terms= models.CharField(max_length=100)
+    source_type = models.CharField(max_length=100)
 

@@ -5,9 +5,32 @@ from crawler.models import Article
 from crawler.serializers import ArticleSerializer
 from crawler.utils.news import SNETnews
 
+@csrf_exempt
+def download(request):
+    if request.method == 'GET':
+        s= SNETnews('./news.ini')
+        articles= s.download_news()
+        for article in articles:
+            if (article['source_type'] == 'crawl'):
+                article_model = Article(title = article['title'],
+                                description = article['summary'],
+                                authors = article['authors'],
+                                date = str(article['publish_date']),
+                                link = article['url'],
+                                source_type = 'crawl')
+                article_model.save()
+            elif (article['source_type'] == 'rss'):
+                if all(a in article for a in ['title','link','summary','published']):
+                    article_model = Article(title= article.title,
+                                    description = article.summary,
+                                    date = str(article.published),
+                                    link = article.link,
+                                    source_type = 'rss')
+                    article_model.save()
+        article_serialized = ArticleSerializer(Article.objects.all(), many = True)
+    return JsonResponse(article_serialized.data, safe = False)
 
 @csrf_exempt
-
 def get_news(request, sort_type="title", results=10):
 	if request.method == 'GET':	
 		s= SNETnews('./news.ini')

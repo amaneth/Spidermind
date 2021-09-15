@@ -23,8 +23,11 @@ loghandle.setFormatter(
     logging.Formatter("%(asctime)s %(message)s"))
 logger.addHandler(loghandle)
 
-NLP_MODE = 0
-NONLP_MODE = 1
+NLP_MODE = 1
+NO_NLP_MODE = 0
+RSS_ONLY_MODE = 2
+RSS_WITH_NLP_MODE = 3
+EXHAUSTIVE_MODE = 4
 
 
 class SNETnews:
@@ -41,7 +44,7 @@ class SNETnews:
         self.rss_articles =[]
         self.article_tags = {}
         self.article_sources = {}
-        self.op_mode = 0 # 0 -> download & nlp + 1, 1 -> title + summary + tags
+        self.op_mode = 2 # 0 -> download & nlp + 1, 1 -> title + summary + tags
         self.refresh_rate = 0
         self.auto_refresh_timer = None
         self.continue_auto_refresh = True
@@ -59,6 +62,7 @@ class SNETnews:
             self.n_config.MAX_AUTHORS = int(article_c.get("max_authors", 10))
             self.n_config.MAX_SUMMARY = int(article_c.get("max_summary", 5000))
             self.n_config.MAX_SUMMARY_SENT = int(article_c.get("max_summary_sentence", 5))
+            #self.n_config.memoize_articles=False
         else:
             print("Warning: Couldn't find 'Article' section in config file")
             logger.warning("Warning: Couldn't find 'Article' section in config file")
@@ -66,8 +70,8 @@ class SNETnews:
         if config_f.sections().count('Sources') == 1:
             source_c = config_f['Sources']
             self.n_config.MAX_FILE_MEMO = int(source_c.get("max_cache_item", 20000))
-            self.n_config.memoize_articles = bool(source_c.get("cache_articles", True))
-            self.n_config.fetch_images = bool(source_c.get("fetch_images", True))
+            self.n_config.memoize_articles = bool(config_f.get("Sources","cache_articles"))
+            self.n_config.fetch_images = bool(config_f.get("Sources","fetch_images"))
             self.n_config.image_dimension_ration = \
                         (float(source_c.get("image_dimension_width", 16)) / \
                         float(source_c.get("image_dimension_height", 9)))
@@ -91,7 +95,7 @@ class SNETnews:
         if config_f.sections().count('NumberOfSites') == 1:
             site_n = config_f['NumberOfSites']
             self.number_of_sites = int(site_n.get("sites", 10))
-            self.source_sites= ['http://www.suntimes.com','http://www.businessinsider.com']
+            self.source_sites= ['http://cnn.com']
         if config_f.sections().count('RSSFeedList') == 1:
             rss_l = config_f['RSSFeedList']
             #self.rss_sites = rss.get("rss").replace(" ","").replace("\n", "").split(",")
@@ -106,47 +110,65 @@ class SNETnews:
         logger.info("Done Initialization")
 
     def download_news(self):
+        self.n_config.memoize_articles = False
+        self.n_config.fetch_images = False
+        self.op_mode=4
         logger.info("Retrieving news from sites. Op Mode: " \
                     + "NLP Mode" if self.op_mode == 0 else "NO NLP Mode")
-        self.papers = [nwp.build(site, config=self.n_config) for site in self.source_sites]
-        logger.info("   Papers:" + str(self.papers))
-        if(self.op_mode == NLP_MODE):
-            nwp.news_pool.set(self.papers, threads_per_source=2)
-            nwp.news_pool.join()
-            logger.info("Done Downloading News. No Articles: " \
-                + str(len(sum([n.articles for n in self.papers], []))))
-            self.articles = [a for a in sum([n.articles for n in self.papers],
+        if((self.op_mode != RSS_ONLY_MODE)):
+            self.papers = [nwp.build(site, config=self.n_config) for site in self.source_sites]
+            logger.info("   Papers:" + str(self.papers))
+            if((self.op_mode != NO_NLP_MODE)):
+                nwp.news_pool.set(self.papers, threads_per_source=2)
+                nwp.news_pool.join()
+                logger.info("Done Downloading News. No Articles: " \
+                    + str(len(sum([n.articles for n in self.papers], []))))
+                self.articles = [a for a in sum([n.articles for n in self.papers],
                                             self.articles) \
-                if a.title != None and len(a.html) > self.min_html_chars]
-            logger.info("Done Filtering. No Articles: " + str(len(self.articles)))
-            for article in self.articles:
-                article.parse()
-                article.nlp()
-                self.search_index[article] = article.keywords \
-                    + article.title.translate(
-                        str.maketrans(
-                            '', '', string.punctuation)).split(" ") \
-                    + article.summary.translate(
-                        str.maketrans(
-                            '', '', string.punctuation)).split(" ")
-        else:
-            self.articles = \
-                [a for a in sum([n.articles for n in self.papers], self.articles) \
-                    if a.title != None]
-            logger.info("Done Filtering NONLP. No Articles: " \
-                        + str(len(self.articles)))
-            for article in self.articles:
-                if article.title != None and article.summary != None:
-                    self.search_index[article] = \
-                        article.title.translate(
+                    if a.title != None and len(a.html) > self.min_html_chars]
+                logger.info("Done Filtering. No Articles: " + str(len(self.articles)))
+                #self.articles = [ a.__dict__ for a in self.articles]
+                for article in self.articles:
+                    #article['source_type'] = 'crawl'
+                    article.parse()
+                    article.nlp()
+                self.articles = [ a.__dict__ for a in self.articles]
+                for article in self.articles:
+                    article['aource_type'] = 'crawl'
+                ''' self.search_index[article] = article.keywords \
+                        + article.title.translate(
                             str.maketrans(
                                 '', '', string.punctuation)).split(" ") \
                         + article.summary.translate(
                             str.maketrans(
-                                '', '', string.punctuation)).split(" ")
-
+                                '', '', string.punctuation)).split(" ")'''
+            else:
+                self.articles = \
+                    [a for a in sum([n.articles for n in self.papers], self.articles) \
+                        if a.title != None]
+                logger.info("Done Filtering NONLP. No Articles: " \
+                            + str(len(self.articles)))
+                self.articles = [ a.__dict__ for a in self.articles]
+                for article in self.articles:
+                    article['source_type'] = 'crawl'
+            '''     if article.title != None and article.summary != None:
+                        self.search_index[article] = \
+                            article.title.translate(
+                                str.maketrans(
+                                    '', '', string.punctuation)).split(" ") \
+                            + article.summary.translate(
+                                str.maketrans(
+                                    '', '', string.punctuation)).split(" ")'''
+        if((self.op_mode != NLP_MODE) and (self.op_mode != NO_NLP_MODE)):
+            self.rss_papers= [ fp.parse(site) for site in self.rss_sites]
+            self.rss_articles = [x for y in [n.entries for n in self.rss_papers] for x in y]
+            for article in self.rss_articles:
+                article['source_type']='rss'
+        logger.info("Done parsing news, No Articles" + str(len(self.rss_articles)))
+        self.articles  += self.rss_articles # concatinating the two articles
         logger.info("Done retrieving news from sites")
         logger.info("Search Index Built: " + str(sys.getsizeof(self.search_index)))
+        return self.articles
 
     def search_news(self, terms, top_results=1):
         logger.info("Starting Search for " + str(len(terms)) + " and top results: " + str(top_results))

@@ -1211,3 +1211,497 @@
 2021-09-14 13:59:02,924 Search Index Built: 1192
 2021-09-14 13:59:02,924 Get News - Sort Type: title - Results: 1
 2021-09-14 13:59:02,924 Sort Type: title, No Articles: 31
+2021-09-15 08:10:23,943 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 08:10:24,019 Done Initialization
+2021-09-15 08:10:24,019 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 08:11:05,685    Papers:[<newspaper.source.Source object at 0x7f246ac1a450>, <newspaper.source.Source object at 0x7f247321e550>]
+2021-09-15 08:18:42,137 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 08:18:42,139 Done Initialization
+2021-09-15 08:18:42,139 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 08:19:20,658    Papers:[<newspaper.source.Source object at 0x7fedfd6f6390>, <newspaper.source.Source object at 0x7fedfd74cb10>]
+2021-09-15 08:19:23,237 Done Downloading News. No Articles: 1
+2021-09-15 08:19:23,238 Done Filtering. No Articles: 1
+2021-09-15 08:24:50,584 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 08:24:50,586 Done Initialization
+2021-09-15 08:24:50,586 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 08:25:28,123    Papers:[<newspaper.source.Source object at 0x7f4692098390>, <newspaper.source.Source object at 0x7f4690fa7e10>]
+2021-09-15 08:25:30,402 Done Downloading News. No Articles: 2
+2021-09-15 08:25:30,402 Done Filtering. No Articles: 2
+2021-09-15 08:25:47,097 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 08:25:47,098 Done Initialization
+2021-09-15 08:25:47,098 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 08:26:15,257    Papers:[<newspaper.source.Source object at 0x7f4690fb0c10>, <newspaper.source.Source object at 0x7f46920d9610>]
+2021-09-15 08:26:25,221 Done Downloading News. No Articles: 1
+2021-09-15 08:26:25,221 Done Filtering. No Articles: 1
+2021-09-15 09:06:35,886 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 09:06:35,887 Done Initialization
+2021-09-15 09:06:35,887 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 09:07:14,335    Papers:[<newspaper.source.Source object at 0x7f91989757d0>, <newspaper.source.Source object at 0x7f919806a9d0>]
+2021-09-15 09:07:32,058 Done Downloading News. No Articles: 8
+2021-09-15 09:07:32,058 Done Filtering. No Articles: 7
+2021-09-15 09:09:55,827 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 09:09:55,829 Done Initialization
+2021-09-15 09:09:55,829 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 09:10:36,425    Papers:[<newspaper.source.Source object at 0x7f5b2b71f950>, <newspaper.source.Source object at 0x7f5b29edc9d0>]
+2021-09-15 09:10:37,243 Done Downloading News. No Articles: 0
+2021-09-15 09:10:37,243 Done Filtering. No Articles: 0
+2021-09-15 09:10:38,200 Done parsing news, No Articles69
+2021-09-15 09:10:38,200 Done retrieving news from sites
+2021-09-15 09:10:38,200 Search Index Built: 248
+2021-09-15 09:14:08,919 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 09:14:08,920 Done Initialization
+2021-09-15 09:14:08,921 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 09:14:51,073    Papers:[<newspaper.source.Source object at 0x7f89780f9f50>, <newspaper.source.Source object at 0x7f89781c02d0>]
+2021-09-15 09:14:53,079 Done Downloading News. No Articles: 0
+2021-09-15 09:14:53,079 Done Filtering. No Articles: 0
+2021-09-15 09:14:53,955 Done parsing news, No Articles69
+2021-09-15 09:14:53,956 Done retrieving news from sites
+2021-09-15 09:14:53,956 Search Index Built: 248
+2021-09-15 09:18:31,304 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 09:18:31,306 Done Initialization
+2021-09-15 09:18:31,307 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 09:19:01,469    Papers:[<newspaper.source.Source object at 0x7f015d36f790>, <newspaper.source.Source object at 0x7f0157baba50>]
+2021-09-15 09:19:02,549 Done Downloading News. No Articles: 0
+2021-09-15 09:19:02,549 Done Filtering. No Articles: 0
+2021-09-15 09:19:03,403 Done parsing news, No Articles69
+2021-09-15 09:19:03,403 Done retrieving news from sites
+2021-09-15 09:19:03,403 Search Index Built: 248
+2021-09-15 09:19:57,568 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 09:19:57,570 Done Initialization
+2021-09-15 09:19:57,570 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 09:20:28,637    Papers:[<newspaper.source.Source object at 0x7f056c51af90>, <newspaper.source.Source object at 0x7f056c51f8d0>]
+2021-09-15 09:20:29,714 Done Downloading News. No Articles: 0
+2021-09-15 09:20:29,714 Done Filtering. No Articles: 0
+2021-09-15 09:20:30,301 Done parsing news, No Articles69
+2021-09-15 09:20:30,301 Done retrieving news from sites
+2021-09-15 09:20:30,301 Search Index Built: 248
+2021-09-15 09:21:58,450 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 09:21:58,452 Done Initialization
+2021-09-15 09:21:58,452 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 09:22:30,427    Papers:[<newspaper.source.Source object at 0x7fb3cb1d1d90>, <newspaper.source.Source object at 0x7fb3cb1dda10>]
+2021-09-15 09:22:31,247 Done Downloading News. No Articles: 0
+2021-09-15 09:22:31,247 Done Filtering. No Articles: 0
+2021-09-15 09:22:32,123 Done parsing news, No Articles69
+2021-09-15 09:22:32,123 Done retrieving news from sites
+2021-09-15 09:22:32,123 Search Index Built: 248
+2021-09-15 09:24:32,074 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 09:24:32,075 Done Initialization
+2021-09-15 09:24:32,076 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 09:25:07,080    Papers:[<newspaper.source.Source object at 0x7f9bc5ac7350>, <newspaper.source.Source object at 0x7f9bc64dd0d0>]
+2021-09-15 09:33:28,554 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 09:33:28,556 Done Initialization
+2021-09-15 09:33:28,556 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 09:33:36,032 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 09:33:36,034 Done Initialization
+2021-09-15 09:33:36,034 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 09:33:49,319 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 09:33:49,485 Done Initialization
+2021-09-15 09:33:49,549 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 09:33:55,784    Papers:[<newspaper.source.Source object at 0x7fa3c1515250>]
+2021-09-15 09:33:55,989    Papers:[<newspaper.source.Source object at 0x7fa3c00e5fd0>]
+2021-09-15 09:34:15,103    Papers:[<newspaper.source.Source object at 0x7fa3c03cda10>]
+2021-09-15 09:39:04,115 Done Downloading News. No Articles: 249
+2021-09-15 09:39:04,115 Done Filtering. No Articles: 207
+2021-09-15 09:39:04,395 Done Downloading News. No Articles: 250
+2021-09-15 09:39:04,395 Done Filtering. No Articles: 207
+2021-09-15 09:39:04,771 Done Downloading News. No Articles: 249
+2021-09-15 09:39:04,771 Done Filtering. No Articles: 207
+2021-09-15 09:39:04,898 Done parsing news, No Articles69
+2021-09-15 09:39:04,898 Done retrieving news from sites
+2021-09-15 09:39:04,898 Search Index Built: 248
+2021-09-15 09:39:06,217 Done parsing news, No Articles69
+2021-09-15 09:39:06,222 Done retrieving news from sites
+2021-09-15 09:39:06,227 Search Index Built: 248
+2021-09-15 09:39:06,765 Done parsing news, No Articles69
+2021-09-15 09:39:06,766 Done retrieving news from sites
+2021-09-15 09:39:06,766 Search Index Built: 248
+2021-09-15 09:58:53,676 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 09:58:53,677 Done Initialization
+2021-09-15 09:58:53,677 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 09:59:05,159    Papers:[<newspaper.source.Source object at 0x7f44cb27fc90>]
+2021-09-15 10:03:07,115 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 10:03:07,116 Done Initialization
+2021-09-15 10:03:07,116 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 10:03:18,147    Papers:[<newspaper.source.Source object at 0x7fb631eadf90>]
+2021-09-15 10:05:01,715 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 10:05:01,716 Done Initialization
+2021-09-15 10:05:01,716 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 10:05:07,397 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 10:05:07,399 Done Initialization
+2021-09-15 10:05:07,399 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 10:05:13,047    Papers:[<newspaper.source.Source object at 0x7fd69f193a10>]
+2021-09-15 10:05:19,177    Papers:[<newspaper.source.Source object at 0x7fd69c4a6850>]
+2021-09-15 10:13:39,908 Done Downloading News. No Articles: 509
+2021-09-15 10:13:39,909 Done Filtering. No Articles: 228
+2021-09-15 10:13:40,161 Done Downloading News. No Articles: 509
+2021-09-15 10:13:40,161 Done Filtering. No Articles: 228
+2021-09-15 10:13:40,811 Done parsing news, No Articles69
+2021-09-15 10:13:40,811 Done retrieving news from sites
+2021-09-15 10:13:40,811 Search Index Built: 248
+2021-09-15 10:13:40,997 Done parsing news, No Articles69
+2021-09-15 10:13:40,997 Done retrieving news from sites
+2021-09-15 10:13:40,997 Search Index Built: 248
+2021-09-15 10:50:39,446 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 10:50:39,448 Done Initialization
+2021-09-15 10:50:39,448 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 10:50:52,665    Papers:[<newspaper.source.Source object at 0x7fd69c422d10>]
+2021-09-15 10:50:58,895 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 10:50:58,896 Done Initialization
+2021-09-15 10:50:58,896 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 10:50:58,907 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 10:50:58,910 Done Initialization
+2021-09-15 10:50:58,910 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 10:51:10,521    Papers:[<newspaper.source.Source object at 0x7f3ae802d7d0>]
+2021-09-15 10:51:13,073    Papers:[<newspaper.source.Source object at 0x7f3ae9975890>]
+2021-09-15 10:59:47,862 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 10:59:47,863 Done Initialization
+2021-09-15 10:59:47,863 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 10:59:59,571    Papers:[<newspaper.source.Source object at 0x7f4e9d70da50>]
+2021-09-15 11:00:18,695 Done Downloading News. No Articles: 20
+2021-09-15 11:00:18,695 Done Filtering. No Articles: 9
+2021-09-15 11:00:19,501 Done parsing news, No Articles69
+2021-09-15 11:00:19,501 Done retrieving news from sites
+2021-09-15 11:00:19,501 Search Index Built: 248
+2021-09-15 11:02:07,775 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:02:07,776 Done Initialization
+2021-09-15 11:02:07,776 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:02:19,045    Papers:[<newspaper.source.Source object at 0x7f4e72711f10>]
+2021-09-15 11:02:19,046 Done Downloading News. No Articles: 0
+2021-09-15 11:02:19,046 Done Filtering. No Articles: 0
+2021-09-15 11:02:19,630 Done parsing news, No Articles69
+2021-09-15 11:02:19,631 Done retrieving news from sites
+2021-09-15 11:02:19,631 Search Index Built: 248
+2021-09-15 11:03:25,616 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:03:25,618 Done Initialization
+2021-09-15 11:03:25,618 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:03:37,575    Papers:[<newspaper.source.Source object at 0x7f4e97b4fa50>]
+2021-09-15 11:03:37,576 Done Downloading News. No Articles: 0
+2021-09-15 11:03:37,576 Done Filtering. No Articles: 0
+2021-09-15 11:03:38,145 Done parsing news, No Articles69
+2021-09-15 11:03:38,145 Done retrieving news from sites
+2021-09-15 11:03:38,145 Search Index Built: 248
+2021-09-15 11:05:41,463 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:05:41,465 Done Initialization
+2021-09-15 11:05:41,465 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:05:52,636    Papers:[<newspaper.source.Source object at 0x7f24d698ee50>]
+2021-09-15 11:05:52,637 Done Downloading News. No Articles: 0
+2021-09-15 11:05:52,637 Done Filtering. No Articles: 0
+2021-09-15 11:05:53,371 Done parsing news, No Articles69
+2021-09-15 11:05:53,371 Done retrieving news from sites
+2021-09-15 11:05:53,371 Search Index Built: 248
+2021-09-15 11:06:01,225 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:06:01,226 Done Initialization
+2021-09-15 11:06:01,226 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:06:12,263    Papers:[<newspaper.source.Source object at 0x7f24d50d20d0>]
+2021-09-15 11:06:12,264 Done Downloading News. No Articles: 0
+2021-09-15 11:06:12,264 Done Filtering. No Articles: 0
+2021-09-15 11:06:12,827 Done parsing news, No Articles69
+2021-09-15 11:06:12,827 Done retrieving news from sites
+2021-09-15 11:06:12,827 Search Index Built: 248
+2021-09-15 11:12:04,525 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:12:04,526 Done Initialization
+2021-09-15 11:12:04,526 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:12:15,441    Papers:[<newspaper.source.Source object at 0x7f70e068b610>]
+2021-09-15 11:12:15,442 Done Downloading News. No Articles: 0
+2021-09-15 11:12:15,442 Done Filtering. No Articles: 0
+2021-09-15 11:12:16,427 Done parsing news, No Articles69
+2021-09-15 11:12:16,427 Done retrieving news from sites
+2021-09-15 11:12:16,427 Search Index Built: 248
+2021-09-15 11:12:59,235 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:12:59,237 Done Initialization
+2021-09-15 11:12:59,237 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:13:10,392    Papers:[<newspaper.source.Source object at 0x7fc001b53410>]
+2021-09-15 11:13:10,393 Done Downloading News. No Articles: 0
+2021-09-15 11:13:10,393 Done Filtering. No Articles: 0
+2021-09-15 11:13:10,948 Done parsing news, No Articles69
+2021-09-15 11:13:10,948 Done retrieving news from sites
+2021-09-15 11:13:10,948 Search Index Built: 248
+2021-09-15 11:15:07,166 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:15:07,167 Done Initialization
+2021-09-15 11:15:07,168 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:15:13,384    Papers:[<newspaper.source.Source object at 0x7f6537c8cf10>]
+2021-09-15 11:17:47,063 Done Downloading News. No Articles: 137
+2021-09-15 11:17:47,063 Done Filtering. No Articles: 137
+2021-09-15 11:17:47,994 Done parsing news, No Articles69
+2021-09-15 11:17:47,994 Done retrieving news from sites
+2021-09-15 11:17:47,994 Search Index Built: 248
+2021-09-15 11:19:54,683 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:19:54,686 Done Initialization
+2021-09-15 11:19:54,686 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:19:59,681    Papers:[<newspaper.source.Source object at 0x7f653447d690>]
+2021-09-15 11:19:59,682 Done Downloading News. No Articles: 0
+2021-09-15 11:19:59,682 Done Filtering. No Articles: 0
+2021-09-15 11:20:00,266 Done parsing news, No Articles69
+2021-09-15 11:20:00,267 Done retrieving news from sites
+2021-09-15 11:20:00,267 Search Index Built: 248
+2021-09-15 11:20:09,048 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:20:09,050 Done Initialization
+2021-09-15 11:20:09,050 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:20:13,619    Papers:[<newspaper.source.Source object at 0x7f65343c71d0>]
+2021-09-15 11:20:13,620 Done Downloading News. No Articles: 0
+2021-09-15 11:20:13,621 Done Filtering. No Articles: 0
+2021-09-15 11:20:14,051 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:20:14,053 Done Initialization
+2021-09-15 11:20:14,053 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:20:14,504 Done parsing news, No Articles69
+2021-09-15 11:20:14,504 Done retrieving news from sites
+2021-09-15 11:20:14,505 Search Index Built: 248
+2021-09-15 11:20:18,978    Papers:[<newspaper.source.Source object at 0x7f65362d6490>]
+2021-09-15 11:20:18,979 Done Downloading News. No Articles: 0
+2021-09-15 11:20:18,979 Done Filtering. No Articles: 0
+2021-09-15 11:20:19,576 Done parsing news, No Articles69
+2021-09-15 11:20:19,576 Done retrieving news from sites
+2021-09-15 11:20:19,576 Search Index Built: 248
+2021-09-15 11:27:29,579 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:27:29,581 Done Initialization
+2021-09-15 11:27:29,582 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:27:34,810    Papers:[<newspaper.source.Source object at 0x7f975a1f5050>]
+2021-09-15 11:27:34,811 Done Downloading News. No Articles: 0
+2021-09-15 11:27:34,811 Done Filtering. No Articles: 0
+2021-09-15 11:27:35,673 Done parsing news, No Articles69
+2021-09-15 11:27:35,673 Done retrieving news from sites
+2021-09-15 11:27:35,673 Search Index Built: 248
+2021-09-15 11:40:33,006 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:40:33,007 Done Initialization
+2021-09-15 11:40:33,008 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:40:38,233    Papers:[<newspaper.source.Source object at 0x7f1d223b1d10>]
+2021-09-15 11:40:38,233 Done Downloading News. No Articles: 0
+2021-09-15 11:40:38,233 Done Filtering. No Articles: 0
+2021-09-15 11:40:39,029 Done parsing news, No Articles69
+2021-09-15 11:40:39,029 Done retrieving news from sites
+2021-09-15 11:40:39,029 Search Index Built: 248
+2021-09-15 11:40:40,779 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:40:40,781 Done Initialization
+2021-09-15 11:40:40,781 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:40:45,735    Papers:[<newspaper.source.Source object at 0x7f1d20398f90>]
+2021-09-15 11:40:45,735 Done Downloading News. No Articles: 0
+2021-09-15 11:40:45,735 Done Filtering. No Articles: 0
+2021-09-15 11:40:46,334 Done parsing news, No Articles69
+2021-09-15 11:40:46,335 Done retrieving news from sites
+2021-09-15 11:40:46,335 Search Index Built: 248
+2021-09-15 11:42:49,004 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:42:49,006 Done Initialization
+2021-09-15 11:42:49,006 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:42:53,858    Papers:[<newspaper.source.Source object at 0x7f6579eb4090>]
+2021-09-15 11:42:53,859 Done Downloading News. No Articles: 0
+2021-09-15 11:42:53,859 Done Filtering. No Articles: 0
+2021-09-15 11:42:54,748 Done parsing news, No Articles69
+2021-09-15 11:42:54,748 Done retrieving news from sites
+2021-09-15 11:42:54,748 Search Index Built: 248
+2021-09-15 11:43:56,140 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:43:56,142 Done Initialization
+2021-09-15 11:43:56,142 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:44:00,732    Papers:[<newspaper.source.Source object at 0x7fdd11c94e10>]
+2021-09-15 11:46:10,795 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:46:10,797 Done Initialization
+2021-09-15 11:46:10,797 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:46:20,497 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:46:20,498 Done Initialization
+2021-09-15 11:46:20,498 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:46:22,821    Papers:[<newspaper.source.Source object at 0x7f3239148050>]
+2021-09-15 11:46:27,272    Papers:[<newspaper.source.Source object at 0x7f32300be0d0>]
+2021-09-15 11:49:01,576 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:49:01,578 Done Initialization
+2021-09-15 11:49:01,578 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:49:16,691    Papers:[<newspaper.source.Source object at 0x7f6a97456150>]
+2021-09-15 11:49:41,415 Done Downloading News. No Articles: 19
+2021-09-15 11:49:41,415 Done Filtering. No Articles: 15
+2021-09-15 11:49:42,390 Done parsing news, No Articles69
+2021-09-15 11:49:42,390 Done retrieving news from sites
+2021-09-15 11:49:42,390 Search Index Built: 248
+2021-09-15 11:50:49,765 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:50:49,767 Done Initialization
+2021-09-15 11:50:49,767 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:51:11,305    Papers:[<newspaper.source.Source object at 0x7f6a96308190>]
+2021-09-15 11:51:11,306 Done Downloading News. No Articles: 0
+2021-09-15 11:51:11,306 Done Filtering. No Articles: 0
+2021-09-15 11:51:11,849 Done parsing news, No Articles69
+2021-09-15 11:51:11,849 Done retrieving news from sites
+2021-09-15 11:51:11,849 Search Index Built: 248
+2021-09-15 11:52:22,812 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:52:22,813 Done Initialization
+2021-09-15 11:52:22,813 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:52:36,377    Papers:[<newspaper.source.Source object at 0x7ff4f6013f50>]
+2021-09-15 11:52:58,240 Done Downloading News. No Articles: 19
+2021-09-15 11:52:58,240 Done Filtering. No Articles: 15
+2021-09-15 11:52:59,110 Done parsing news, No Articles69
+2021-09-15 11:52:59,110 Done retrieving news from sites
+2021-09-15 11:52:59,111 Search Index Built: 248
+2021-09-15 11:54:15,517 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:54:15,518 Done Initialization
+2021-09-15 11:54:15,519 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:54:19,298 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:54:19,299 Done Initialization
+2021-09-15 11:54:19,299 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:54:33,401    Papers:[<newspaper.source.Source object at 0x7f8f44ac5550>]
+2021-09-15 11:54:37,573    Papers:[<newspaper.source.Source object at 0x7f8f44ac8a90>]
+2021-09-15 11:54:53,545 Done Downloading News. No Articles: 19
+2021-09-15 11:54:53,545 Done Filtering. No Articles: 15
+2021-09-15 11:54:54,144 Done parsing news, No Articles69
+2021-09-15 11:54:54,145 Done retrieving news from sites
+2021-09-15 11:54:54,145 Search Index Built: 248
+2021-09-15 11:54:56,702 Done Downloading News. No Articles: 19
+2021-09-15 11:54:56,703 Done Filtering. No Articles: 15
+2021-09-15 11:54:57,271 Done parsing news, No Articles69
+2021-09-15 11:54:57,271 Done retrieving news from sites
+2021-09-15 11:54:57,271 Search Index Built: 248
+2021-09-15 11:55:34,910 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:55:34,911 Done Initialization
+2021-09-15 11:55:34,911 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:55:52,615    Papers:[<newspaper.source.Source object at 0x7f8f440b1f50>]
+2021-09-15 11:56:11,487 Done Downloading News. No Articles: 19
+2021-09-15 11:56:11,487 Done Filtering. No Articles: 15
+2021-09-15 11:56:12,418 Done parsing news, No Articles69
+2021-09-15 11:56:12,418 Done retrieving news from sites
+2021-09-15 11:56:12,418 Search Index Built: 248
+2021-09-15 11:59:02,461 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 11:59:02,462 Done Initialization
+2021-09-15 11:59:02,462 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 11:59:14,814    Papers:[<newspaper.source.Source object at 0x7f9b847bc790>]
+2021-09-15 12:09:36,971 Done Downloading News. No Articles: 509
+2021-09-15 12:09:36,971 Done Filtering. No Articles: 228
+2021-09-15 12:09:38,212 Done parsing news, No Articles69
+2021-09-15 12:09:38,212 Done retrieving news from sites
+2021-09-15 12:09:38,212 Search Index Built: 248
+2021-09-15 12:22:25,252 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 12:22:25,254 Done Initialization
+2021-09-15 12:22:25,254 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 12:22:31,101 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 12:22:31,102 Done Initialization
+2021-09-15 12:22:31,102 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 12:22:39,829    Papers:[<newspaper.source.Source object at 0x7f2c806bb350>]
+2021-09-15 12:22:42,763    Papers:[<newspaper.source.Source object at 0x7f2c7ac3f490>]
+2021-09-15 12:27:41,440 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 12:27:41,441 Done Initialization
+2021-09-15 12:27:41,441 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 12:27:49,941 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 12:27:49,941 Done Initialization
+2021-09-15 12:27:49,941 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 12:27:53,628    Papers:[<newspaper.source.Source object at 0x7fc87f3a7050>]
+2021-09-15 12:27:53,628 Done Filtering NONLP. No Articles: 241
+2021-09-15 12:27:54,386 Done parsing news, No Articles69
+2021-09-15 12:27:54,387 Done retrieving news from sites
+2021-09-15 12:27:54,388 Search Index Built: 248
+2021-09-15 12:28:01,537    Papers:[<newspaper.source.Source object at 0x7fc87c5f7e10>]
+2021-09-15 12:28:01,537 Done Filtering NONLP. No Articles: 241
+2021-09-15 12:28:02,112 Done parsing news, No Articles69
+2021-09-15 12:28:02,112 Done retrieving news from sites
+2021-09-15 12:28:02,112 Search Index Built: 248
+2021-09-15 12:28:38,895 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 12:28:38,897 Done Initialization
+2021-09-15 12:28:38,897 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 12:28:49,380    Papers:[<newspaper.source.Source object at 0x7fbed443c450>]
+2021-09-15 12:28:49,381 Done Filtering NONLP. No Articles: 241
+2021-09-15 12:28:49,984 Done parsing news, No Articles69
+2021-09-15 12:28:49,985 Done retrieving news from sites
+2021-09-15 12:28:49,985 Search Index Built: 248
+2021-09-15 12:30:11,338 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 12:30:11,340 Done Initialization
+2021-09-15 12:30:11,340 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 12:30:21,506    Papers:[<newspaper.source.Source object at 0x7fbeceb1a250>]
+2021-09-15 12:30:21,506 Done Filtering NONLP. No Articles: 241
+2021-09-15 12:30:22,083 Done parsing news, No Articles69
+2021-09-15 12:30:22,083 Done retrieving news from sites
+2021-09-15 12:30:22,083 Search Index Built: 248
+2021-09-15 12:31:14,078 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 12:31:14,079 Done Initialization
+2021-09-15 12:31:14,079 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 12:31:24,867    Papers:[<newspaper.source.Source object at 0x7fbed40302d0>]
+2021-09-15 12:31:24,867 Done Filtering NONLP. No Articles: 241
+2021-09-15 12:31:25,719 Done parsing news, No Articles69
+2021-09-15 12:31:25,719 Done retrieving news from sites
+2021-09-15 12:31:25,719 Search Index Built: 248
+2021-09-15 12:36:39,518 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 12:36:39,520 Done Initialization
+2021-09-15 12:36:39,520 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 12:36:51,656    Papers:[<newspaper.source.Source object at 0x7fa0fe372e10>]
+2021-09-15 12:36:51,657 Done Filtering NONLP. No Articles: 241
+2021-09-15 12:36:52,481 Done parsing news, No Articles69
+2021-09-15 12:36:52,481 Done retrieving news from sites
+2021-09-15 12:36:52,481 Search Index Built: 248
+2021-09-15 12:43:10,844 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 12:43:10,846 Done Initialization
+2021-09-15 12:43:10,846 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 12:43:21,903    Papers:[<newspaper.source.Source object at 0x7f2818df3bd0>]
+2021-09-15 12:43:21,903 Done Filtering NONLP. No Articles: 241
+2021-09-15 12:43:21,904 Done parsing news, No Articles0
+2021-09-15 12:43:21,904 Done retrieving news from sites
+2021-09-15 12:43:21,904 Search Index Built: 248
+2021-09-15 12:48:32,181 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 12:48:32,182 Done Initialization
+2021-09-15 12:48:32,183 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 12:48:44,170    Papers:[<newspaper.source.Source object at 0x7f3c76b97dd0>]
+2021-09-15 12:48:44,171 Done Filtering NONLP. No Articles: 241
+2021-09-15 12:48:45,140 Done parsing news, No Articles69
+2021-09-15 12:48:45,140 Done retrieving news from sites
+2021-09-15 12:48:45,140 Search Index Built: 248
+2021-09-15 13:23:06,546 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 13:23:06,548 Done Initialization
+2021-09-15 13:23:06,548 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 13:23:18,091    Papers:[<newspaper.source.Source object at 0x7f938afe4d50>]
+2021-09-15 13:23:18,091 Done Filtering NONLP. No Articles: 242
+2021-09-15 13:23:18,919 Done parsing news, No Articles69
+2021-09-15 13:23:18,919 Done retrieving news from sites
+2021-09-15 13:23:18,919 Search Index Built: 248
+2021-09-15 13:45:21,325 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 13:45:21,328 Done Initialization
+2021-09-15 13:45:21,328 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 13:45:32,708    Papers:[<newspaper.source.Source object at 0x7f8a83213250>]
+2021-09-15 13:45:32,708 Done Filtering NONLP. No Articles: 242
+2021-09-15 13:45:33,667 Done parsing news, No Articles69
+2021-09-15 13:45:33,667 Done retrieving news from sites
+2021-09-15 13:45:33,667 Search Index Built: 248
+2021-09-15 13:49:30,268 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 13:49:30,270 Done Initialization
+2021-09-15 13:49:30,270 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 13:49:43,153    Papers:[<newspaper.source.Source object at 0x7f3845a99990>]
+2021-09-15 13:49:43,153 Done Filtering NONLP. No Articles: 239
+2021-09-15 13:49:43,153 Done parsing news, No Articles0
+2021-09-15 13:49:43,153 Done retrieving news from sites
+2021-09-15 13:49:43,153 Search Index Built: 248
+2021-09-15 13:51:56,434 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 13:51:56,435 Done Initialization
+2021-09-15 13:51:56,435 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 13:52:10,648    Papers:[<newspaper.source.Source object at 0x7f3844248650>]
+2021-09-15 13:52:10,648 Done Filtering NONLP. No Articles: 239
+2021-09-15 13:52:10,648 Done parsing news, No Articles0
+2021-09-15 13:52:10,648 Done retrieving news from sites
+2021-09-15 13:52:10,648 Search Index Built: 248
+2021-09-15 13:56:09,964 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 13:56:09,965 Done Initialization
+2021-09-15 13:56:09,965 NO NLP Mode
+2021-09-15 13:56:10,928 Done parsing news, No Articles69
+2021-09-15 13:56:10,928 Done retrieving news from sites
+2021-09-15 13:56:10,928 Search Index Built: 248
+2021-09-15 14:00:08,459 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 14:00:08,459 Done Initialization
+2021-09-15 14:00:08,460 NO NLP Mode
+2021-09-15 14:00:09,330 Done parsing news, No Articles69
+2021-09-15 14:00:09,330 Done retrieving news from sites
+2021-09-15 14:00:09,330 Search Index Built: 248
+2021-09-15 14:08:33,749 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 14:08:33,750 Done Initialization
+2021-09-15 14:08:33,750 Retrieving news from sites. Op Mode: NLP Mode
+2021-09-15 14:08:45,232    Papers:[<newspaper.source.Source object at 0x7f17efa84250>]
+2021-09-15 14:08:45,232 Done Filtering NONLP. No Articles: 239
+2021-09-15 14:08:45,232 Done parsing news, No Articles0
+2021-09-15 14:08:45,233 Done retrieving news from sites
+2021-09-15 14:08:45,233 Search Index Built: 248
+2021-09-15 14:13:31,456 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 14:13:31,458 Done Initialization
+2021-09-15 14:13:31,458 NO NLP Mode
+2021-09-15 14:13:43,287    Papers:[<newspaper.source.Source object at 0x7f4c05b94e50>]
+2021-09-15 14:23:58,146 Done Downloading News. No Articles: 506
+2021-09-15 14:23:58,146 Done Filtering. No Articles: 226
+2021-09-15 14:23:58,918 Done parsing news, No Articles69
+2021-09-15 14:23:58,918 Done retrieving news from sites
+2021-09-15 14:23:58,918 Search Index Built: 248
+2021-09-15 14:35:41,777 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 14:35:41,779 Done Initialization
+2021-09-15 14:35:41,779 NO NLP Mode
+2021-09-15 14:35:52,168    Papers:[<newspaper.source.Source object at 0x7f7436e93210>]
+2021-09-15 14:43:54,838 Done Downloading News. No Articles: 501
+2021-09-15 14:43:54,839 Done Filtering. No Articles: 221
+2021-09-15 14:44:27,006 Done parsing news, No Articles69
+2021-09-15 14:44:27,006 Done retrieving news from sites
+2021-09-15 14:44:27,006 Search Index Built: 248

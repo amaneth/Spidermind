@@ -1705,3 +1705,1069 @@
 2021-09-15 14:44:27,006 Done parsing news, No Articles69
 2021-09-15 14:44:27,006 Done retrieving news from sites
 2021-09-15 14:44:27,006 Search Index Built: 248
+2021-09-15 14:49:47,909 Initializing SNETnews. Conf file: ./news.ini
+2021-09-15 14:49:47,910 Done Initialization
+2021-09-15 14:49:47,910 NO NLP Mode
+2021-09-15 14:49:57,110    Papers:[<newspaper.source.Source object at 0x7ff7bd93af50>]
+2021-09-16 06:16:33,152 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 06:16:33,184 Done Initialization
+2021-09-16 06:16:33,184 NO NLP Mode
+2021-09-16 06:16:43,347    Papers:[<newspaper.source.Source object at 0x7f258a5096d0>]
+2021-09-16 06:29:13,994 Done Downloading News. No Articles: 483
+2021-09-16 06:29:13,994 Done Filtering. No Articles: 216
+2021-09-16 06:29:49,318 Done parsing news, No Articles69
+2021-09-16 06:29:49,318 Done retrieving news from sites
+2021-09-16 06:29:49,318 Search Index Built: 248
+2021-09-16 07:36:52,652 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 07:36:52,655 Done with configuration for Article section MIN word cout: 300
+2021-09-16 07:36:52,655 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 07:36:52,655 Done with configuration for MISC: OP MODE 0
+2021-09-16 07:36:52,655  Done with configuration for number of sites: 10
+2021-09-16 07:36:52,656 Done Initialization
+2021-09-16 07:36:52,656 Retrieving news from sites. RSS WITH NONLP Mode: 
+2021-09-16 07:37:06,564  Crawler is done with building source  Papers:1
+2021-09-16 07:38:38,523 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 07:38:38,524 Done with configuration for Article section MIN word cout: 300
+2021-09-16 07:38:38,524 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 07:38:38,524 Done with configuration for MISC: OP MODE 0
+2021-09-16 07:38:38,524  Done with configuration for number of sites: 10
+2021-09-16 07:38:38,524 Done Initialization
+2021-09-16 07:38:38,524 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 07:38:49,571 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 07:38:49,572 Done with configuration for Article section MIN word cout: 300
+2021-09-16 07:38:49,572 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 07:38:49,572 Done with configuration for MISC: OP MODE 0
+2021-09-16 07:38:49,572  Done with configuration for number of sites: 10
+2021-09-16 07:38:49,572 Done Initialization
+2021-09-16 07:38:49,573 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 07:38:53,887 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 07:38:53,888 Done with configuration for Article section MIN word cout: 300
+2021-09-16 07:38:53,889 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 07:38:53,889 Done with configuration for MISC: OP MODE 0
+2021-09-16 07:38:53,889  Done with configuration for number of sites: 10
+2021-09-16 07:38:53,889 Done Initialization
+2021-09-16 07:38:53,889 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 07:39:03,944  Crawler is done with building source  Papers:1
+2021-09-16 07:39:05,807  Crawler is done with building source  Papers:1
+2021-09-16 07:48:15,474 Done Downloading News.NLP: No Articles: 503
+2021-09-16 07:48:15,475 Done Filtering. No Articles: 221
+2021-09-16 07:48:15,480 Done Downloading News.NLP: No Articles: 503
+2021-09-16 07:48:15,480 Done Filtering. No Articles: 221
+2021-09-16 08:19:59,109 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 08:19:59,111 Done with configuration for Article section MIN word cout: 300
+2021-09-16 08:19:59,111 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 08:19:59,111 Done with configuration for MISC: OP MODE 1
+2021-09-16 08:19:59,111  Done with configuration for number of sites: 10
+2021-09-16 08:19:59,111  Done with configuration for RSS feed list: 1
+2021-09-16 08:19:59,111 Done Initialization
+2021-09-16 08:19:59,111 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 08:20:10,289  Crawler is done with building source  Papers:1
+2021-09-16 08:30:20,986 Done Downloading News.NLP: No Articles: 503
+2021-09-16 08:30:20,987 Done Filtering. No Articles: 221
+2021-09-16 08:30:21,101 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:21,837 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:22,140 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:22,265 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:22,391 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:22,487 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:22,603 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:22,730 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:22,875 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:22,976 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:23,083 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:23,230 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:23,332 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:23,445 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:23,562 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:23,695 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:23,804 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:23,950 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:24,071 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:24,179 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:24,365 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:24,507 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:24,652 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:24,796 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:24,940 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:25,087 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:25,232 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:25,384 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:25,530 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:25,649 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:25,792 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:25,929 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:26,058 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:26,178 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:26,323 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:26,507 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:26,657 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:26,803 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:26,948 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:27,091 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:27,235 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:27,378 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:27,527 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:27,673 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:27,817 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:27,960 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:28,065 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:28,210 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:28,353 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:28,463 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:28,522 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:28,591 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:28,662 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:28,731 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:28,829 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:28,933 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:29,077 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:29,220 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:29,364 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:29,508 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:29,669 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:29,814 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:29,958 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:30,056 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:30,144 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:30,287 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:30,429 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:30,573 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:30,675 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:30,821 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:30,964 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:31,107 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:31,250 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:31,393 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:31,521 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:31,664 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:31,826 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:31,965 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:32,088 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:32,272 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:32,401 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:32,547 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:32,690 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:32,881 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:32,990 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:33,101 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:33,212 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:33,356 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:33,503 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:33,647 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:33,743 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:33,857 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:33,975 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:34,117 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:34,261 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:34,372 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:34,506 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:34,653 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:34,756 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:34,904 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:35,011 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:35,116 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:35,231 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:35,352 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:35,493 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:35,607 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:35,742 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:35,850 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:35,958 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:36,076 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:36,185 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:36,297 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:36,433 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:36,551 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:36,673 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:36,798 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:36,949 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:37,034 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:37,135 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:37,216 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:37,361 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:37,460 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:37,541 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:37,640 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:37,720 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:37,862 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:37,958 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,026 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,105 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,183 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,252 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,331 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,407 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,499 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,570 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,648 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,725 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,791 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,864 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,922 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:38,984 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:39,065 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:39,156 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:39,236 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:39,318 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:39,410 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:39,506 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:39,609 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:39,677 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:39,756 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:39,832 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:39,927 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:40,018 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:40,110 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:40,192 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:40,268 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:40,348 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:40,408 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:40,499 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:40,580 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:40,722 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:40,863 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:41,049 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:41,293 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:41,485 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:41,629 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:41,763 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:41,988 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:42,177 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:42,330 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:42,528 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:42,766 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:42,968 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:43,555 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:43,759 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:43,979 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:44,171 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:44,306 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:44,520 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:44,698 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:44,847 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:45,034 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:45,244 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:45,451 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:45,595 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:45,737 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:45,952 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:46,091 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:46,232 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:46,436 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:46,624 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:46,775 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:46,986 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:47,124 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:47,310 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:47,445 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:47,652 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:47,828 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:48,044 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:48,279 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:48,502 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:48,716 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:48,959 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:49,142 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:49,367 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:49,614 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:49,781 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:50,194 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:50,431 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:50,582 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:50,839 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:51,063 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:51,305 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:51,537 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:51,779 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:51,957 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:52,093 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:52,272 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:52,440 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:52,614 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:52,719 Done with NLP: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:52,720 Done with building a dict: keyword example: ['cnn', 'latest', 'headlines', 'business']
+2021-09-16 08:30:52,720 Done with inserting tag NO NLP: example: crawl
+2021-09-16 08:30:53,508 Done parsing news, No Articles69
+2021-09-16 08:30:53,508 Done building a source tag rss, examplerss
+2021-09-16 08:30:53,508  Done merging the rss and the crawled: 290
+2021-09-16 08:30:53,508 Done retrieving news from sites
+2021-09-16 08:30:53,508 Search Index Built: 248
+2021-09-16 08:54:03,553 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 08:54:03,556 Done with configuration for Article section MIN word cout: 300
+2021-09-16 08:54:03,556 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 08:54:03,556 Done with configuration for MISC: OP MODE 1
+2021-09-16 08:54:03,556  Done with configuration for number of sites: 10
+2021-09-16 08:54:03,556  Done with configuration for RSS feed list: 1
+2021-09-16 08:54:03,556 Done Initialization
+2021-09-16 08:54:03,556 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 08:54:23,035  Crawler is done with building source  Papers:1
+2021-09-16 09:04:49,471 Done Downloading News.NLP: No Articles: 499
+2021-09-16 09:04:49,472 Done Filtering. No Articles: 222
+2021-09-16 09:05:21,203 Done with NLP: keyword example: ['latest', 'cnn', 'business', 'headlines']
+2021-09-16 09:05:21,203 Done with building a dict: keyword example: ['latest', 'cnn', 'business', 'headlines']
+2021-09-16 09:05:21,203 Done with inserting tag NO NLP: example: crawl
+2021-09-16 09:05:22,008 Done parsing news, No Articles69
+2021-09-16 09:05:22,008 Done building a source tag rss, examplerss
+2021-09-16 09:05:22,009  Done merging the rss and the crawled: 291
+2021-09-16 09:05:22,009 Done retrieving news from sites
+2021-09-16 09:05:22,009 Search Index Built: 248
+2021-09-16 09:30:00,427 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 09:30:00,428 Done with configuration for Article section MIN word cout: 300
+2021-09-16 09:30:00,428 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 09:30:00,429 Done with configuration for MISC: OP MODE 1
+2021-09-16 09:30:00,429  Done with configuration for number of sites: 10
+2021-09-16 09:30:00,429  Done with configuration for RSS feed list: 1
+2021-09-16 09:30:00,429 Done Initialization
+2021-09-16 09:30:00,429 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 09:30:11,632  Crawler is done with building source  Papers:1
+2021-09-16 09:38:51,019 Done Downloading News.NLP: No Articles: 505
+2021-09-16 09:38:51,019 Done Filtering. No Articles: 223
+2021-09-16 09:39:23,670 Done with NLP: keyword example: ['latest', 'headlines', 'business', 'cnn']
+2021-09-16 09:39:23,670 Done with building a dict: keyword example: ['latest', 'headlines', 'business', 'cnn']
+2021-09-16 09:39:23,670 Done with inserting tag NO NLP: example: crawl
+2021-09-16 09:39:24,470 Done parsing news, No Articles69
+2021-09-16 09:39:24,470 Done building a source tag rss, examplerss
+2021-09-16 09:39:24,470  Done merging the rss and the crawled: 292
+2021-09-16 09:39:24,470 Done retrieving news from sites
+2021-09-16 09:39:24,470 Search Index Built: 248
+2021-09-16 09:42:13,835 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 09:42:13,836 Done with configuration for Article section MIN word cout: 300
+2021-09-16 09:42:13,836 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 09:42:13,836 Done with configuration for MISC: OP MODE 1
+2021-09-16 09:42:13,836  Done with configuration for number of sites: 10
+2021-09-16 09:42:13,837  Done with configuration for RSS feed list: 1
+2021-09-16 09:42:13,837 Done Initialization
+2021-09-16 09:42:13,837 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 09:42:24,590  Crawler is done with building source  Papers:1
+2021-09-16 09:42:24,590 Done Downloading News.NLP: No Articles: 548
+2021-09-16 09:42:24,590 Done Filtering. No Articles: 0
+2021-09-16 09:47:40,888 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 09:47:40,890 Done with configuration for Article section MIN word cout: 300
+2021-09-16 09:47:40,890 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 09:47:40,890 Done with configuration for MISC: OP MODE 1
+2021-09-16 09:47:40,890  Done with configuration for number of sites: 10
+2021-09-16 09:47:40,890  Done with configuration for RSS feed list: 1
+2021-09-16 09:47:40,890 Done Initialization
+2021-09-16 09:47:40,891 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 09:47:51,444  Crawler is done with building source  Papers:1
+2021-09-16 09:47:51,445 Done Downloading News.NLP: No Articles: 548
+2021-09-16 09:47:51,445 Done Filtering. No Articles: 0
+2021-09-16 09:51:36,450 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 09:51:36,451 Done with configuration for Article section MIN word cout: 300
+2021-09-16 09:51:36,451 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 09:51:36,451 Done with configuration for MISC: OP MODE 1
+2021-09-16 09:51:36,451  Done with configuration for number of sites: 10
+2021-09-16 09:51:36,451  Done with configuration for RSS feed list: 1
+2021-09-16 09:51:36,451 Done Initialization
+2021-09-16 09:51:36,451 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 09:51:46,864  Crawler is done with building source  Papers:1
+2021-09-16 09:51:46,864 Done Downloading News.NLP: No Articles: 548
+2021-09-16 09:51:46,864 Done Filtering. No Articles: 548
+2021-09-16 09:54:48,842 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 09:54:48,845 Done with configuration for Article section MIN word cout: 300
+2021-09-16 09:54:48,846 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 09:54:48,846 Done with configuration for MISC: OP MODE 1
+2021-09-16 09:54:48,846  Done with configuration for number of sites: 10
+2021-09-16 09:54:48,847  Done with configuration for RSS feed list: 1
+2021-09-16 09:54:48,847 Done Initialization
+2021-09-16 09:54:48,847 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 09:54:59,397  Crawler is done with building source  Papers:1
+2021-09-16 10:02:35,071 Done Downloading News.NLP: No Articles: 505
+2021-09-16 10:02:35,071 Done Filtering. No Articles: 223
+2021-09-16 10:06:38,353 Done with NLP: keyword example: ['business', 'latest', 'cnn', 'headlines']
+2021-09-16 10:06:38,353 Done with building a dict: keyword example: ['business', 'latest', 'cnn', 'headlines']
+2021-09-16 10:06:38,353 Done with inserting tag NO NLP: example: crawl
+2021-09-16 10:06:39,151 Done parsing news, No Articles69
+2021-09-16 10:06:39,151 Done building a source tag rss, examplerss
+2021-09-16 10:06:39,151  Done merging the rss and the crawled: 292
+2021-09-16 10:06:39,151 Done retrieving news from sites
+2021-09-16 10:06:39,151 Search Index Built: 248
+2021-09-16 10:13:27,982 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 10:13:27,984 Done with configuration for Article section MIN word cout: 300
+2021-09-16 10:13:27,984 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 10:13:27,985 Done with configuration for MISC: OP MODE 1
+2021-09-16 10:13:27,985  Done with configuration for number of sites: 10
+2021-09-16 10:13:27,985  Done with configuration for RSS feed list: 1
+2021-09-16 10:13:27,986 Done Initialization
+2021-09-16 10:13:27,986 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 10:13:37,912  Crawler is done with building source  Papers:1
+2021-09-16 10:13:37,913 Done Downloading News.NLP: No Articles: 546
+2021-09-16 10:13:37,913 Done Filtering. No Articles: 234
+2021-09-16 10:17:15,020 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 10:17:15,021 Done with configuration for Article section MIN word cout: 300
+2021-09-16 10:17:15,022 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 10:17:15,022 Done with configuration for MISC: OP MODE 1
+2021-09-16 10:17:15,022  Done with configuration for number of sites: 10
+2021-09-16 10:17:15,022  Done with configuration for RSS feed list: 1
+2021-09-16 10:17:15,022 Done Initialization
+2021-09-16 10:17:15,022 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 10:17:25,747  Crawler is done with building source  Papers:1
+2021-09-16 10:17:25,747 Done Downloading News.NLP: No Articles: 544
+2021-09-16 10:17:25,747 Done Filtering. No Articles: 0
+2021-09-16 10:17:47,648 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 10:17:47,650 Done with configuration for Article section MIN word cout: 300
+2021-09-16 10:17:47,650 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 10:17:47,650 Done with configuration for MISC: OP MODE 1
+2021-09-16 10:17:47,650  Done with configuration for number of sites: 10
+2021-09-16 10:17:47,650  Done with configuration for RSS feed list: 1
+2021-09-16 10:17:47,650 Done Initialization
+2021-09-16 10:17:47,651 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 10:17:58,585  Crawler is done with building source  Papers:1
+2021-09-16 10:17:58,586 Done Downloading News.NLP: No Articles: 507
+2021-09-16 10:17:58,586 Done Filtering. No Articles: 0
+2021-09-16 10:18:24,908 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 10:18:24,912 Done with configuration for Article section MIN word cout: 300
+2021-09-16 10:18:24,912 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 10:18:24,913 Done with configuration for MISC: OP MODE 1
+2021-09-16 10:18:24,913  Done with configuration for number of sites: 10
+2021-09-16 10:18:24,913  Done with configuration for RSS feed list: 1
+2021-09-16 10:18:24,913 Done Initialization
+2021-09-16 10:18:24,913 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 10:18:36,855  Crawler is done with building source  Papers:1
+2021-09-16 10:18:36,855 Done Downloading News.NLP: No Articles: 544
+2021-09-16 10:18:36,855 Done Filtering. No Articles: 0
+2021-09-16 10:19:10,071 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 10:19:10,073 Done with configuration for Article section MIN word cout: 300
+2021-09-16 10:19:10,073 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 10:19:10,073 Done with configuration for MISC: OP MODE 1
+2021-09-16 10:19:10,073  Done with configuration for number of sites: 10
+2021-09-16 10:19:10,073  Done with configuration for RSS feed list: 1
+2021-09-16 10:19:10,073 Done Initialization
+2021-09-16 10:19:10,073 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 10:19:21,349  Crawler is done with building source  Papers:1
+2021-09-16 10:19:21,349 Done Downloading News.NLP: No Articles: 544
+2021-09-16 10:19:21,350 Done Filtering. No Articles: 234
+2021-09-16 11:01:20,564 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 11:01:20,567 Done with configuration for Article section MIN word cout: 300
+2021-09-16 11:01:20,568 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 11:01:20,568 Done with configuration for MISC: OP MODE 1
+2021-09-16 11:01:20,568  Done with configuration for number of sites: 10
+2021-09-16 11:01:20,568  Done with configuration for RSS feed list: 1
+2021-09-16 11:01:20,568 Done Initialization
+2021-09-16 11:01:20,568 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 11:01:31,165  Crawler is done with building source  Papers:1
+2021-09-16 11:01:31,165 Done Downloading News.NLP: No Articles: 543
+2021-09-16 11:01:31,165 Done Filtering. No Articles: 234
+2021-09-16 11:06:21,489 Done with NLP: keyword example: ['cnn', 'latest', 'business', 'headlines']
+2021-09-16 11:06:21,489 Done with building a dict: keyword example: ['cnn', 'latest', 'business', 'headlines']
+2021-09-16 11:06:21,489 Done with inserting tag NO NLP: example: crawl
+2021-09-16 11:06:22,235 Done parsing news, No Articles69
+2021-09-16 11:06:22,235 Done building a source tag rss, examplerss
+2021-09-16 11:06:22,235  Done merging the rss and the crawled: 303
+2021-09-16 11:06:22,235 Done retrieving news from sites
+2021-09-16 11:06:22,235 Search Index Built: 248
+2021-09-16 11:09:32,553 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 11:09:32,554 Done with configuration for Article section MIN word cout: 300
+2021-09-16 11:09:32,554 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 11:09:32,555 Done with configuration for MISC: OP MODE 1
+2021-09-16 11:09:32,555  Done with configuration for number of sites: 10
+2021-09-16 11:09:32,555  Done with configuration for RSS feed list: 1
+2021-09-16 11:09:32,555 Done Initialization
+2021-09-16 11:09:32,555 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 11:09:45,143  Crawler is done with building source  Papers:1
+2021-09-16 11:09:45,143 Done Downloading News.NLP: No Articles: 544
+2021-09-16 11:09:45,143 Done Filtering. No Articles: 234
+2021-09-16 11:13:50,369 Done with NLP: keyword example: ['headlines', 'business', 'cnn', 'latest']
+2021-09-16 11:13:50,369 Done with building a dict: keyword example: ['headlines', 'business', 'cnn', 'latest']
+2021-09-16 11:13:50,369 Done with inserting tag NO NLP: example: crawl
+2021-09-16 11:13:51,173 Done parsing news, No Articles69
+2021-09-16 11:13:51,173 Done building a source tag rss, examplerss
+2021-09-16 11:13:51,173  Done merging the rss and the crawled: 303
+2021-09-16 11:13:51,173 Done retrieving news from sites
+2021-09-16 11:13:51,173 Search Index Built: 248
+2021-09-16 11:33:38,618 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 11:33:38,619 Done with configuration for Article section MIN word cout: 300
+2021-09-16 11:33:38,620 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 11:33:38,620 Done with configuration for MISC: OP MODE 1
+2021-09-16 11:33:38,620  Done with configuration for number of sites: 10
+2021-09-16 11:33:38,620  Done with configuration for RSS feed list: 1
+2021-09-16 11:33:38,620 Done Initialization
+2021-09-16 11:33:38,620 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 11:33:50,681  Crawler is done with building source  Papers:1
+2021-09-16 11:33:50,682 Done Downloading News.NLP: No Articles: 544
+2021-09-16 11:33:50,682 Done Filtering. No Articles: 234
+2021-09-16 11:33:50,693 Done building a source back for filtered articles: 234
+2021-09-16 11:37:56,599 done building a source
+2021-09-16 11:47:01,821 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 11:47:01,822 Done with configuration for Article section MIN word cout: 300
+2021-09-16 11:47:01,822 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 11:47:01,822 Done with configuration for MISC: OP MODE 1
+2021-09-16 11:47:01,822  Done with configuration for number of sites: 10
+2021-09-16 11:47:01,822  Done with configuration for RSS feed list: 1
+2021-09-16 11:47:01,822 Done Initialization
+2021-09-16 11:47:01,822 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 11:48:08,357 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 11:48:08,358 Done with configuration for Article section MIN word cout: 300
+2021-09-16 11:48:08,358 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 11:48:08,358 Done with configuration for MISC: OP MODE 1
+2021-09-16 11:48:08,358  Done with configuration for number of sites: 10
+2021-09-16 11:48:08,358  Done with configuration for RSS feed list: 1
+2021-09-16 11:48:08,358 Done Initialization
+2021-09-16 11:48:08,358 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 11:48:21,745  Crawler is done with building source  Papers:1
+2021-09-16 11:48:21,746 Done Downloading News.NLP: No Articles: 544
+2021-09-16 11:48:21,746 Done Filtering. No Articles: 234
+2021-09-16 11:52:27,835 13 articles with bad url has jumped
+2021-09-16 11:52:27,835 Done with NLP: keyword example: ['headlines', 'business', 'cnn', 'latest']
+2021-09-16 11:52:27,835 Done with building a dict: keyword example: ['headlines', 'business', 'cnn', 'latest']
+2021-09-16 11:52:27,835 Done with inserting tag NO NLP: example: crawl
+2021-09-16 11:52:28,906 Done parsing news, No Articles69
+2021-09-16 11:52:28,906 Done building a source tag rss, examplerss
+2021-09-16 11:52:28,906  Done merging the rss and the crawled: 303
+2021-09-16 11:52:28,906 Done retrieving news from sites
+2021-09-16 11:52:28,906 Search Index Built: 248
+2021-09-16 12:05:49,253 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 12:05:49,254 Done with configuration for Article section MIN word cout: 300
+2021-09-16 12:05:49,254 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 12:05:49,254 Done with configuration for MISC: OP MODE 1
+2021-09-16 12:05:49,254  Done with configuration for number of sites: 10
+2021-09-16 12:05:49,254  Done with configuration for RSS feed list: 1
+2021-09-16 12:05:49,255 Done Initialization
+2021-09-16 12:05:49,255 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 12:06:00,596  Crawler is done with building source  Papers:1
+2021-09-16 12:06:00,596 Done Downloading News.NLP: No Articles: 543
+2021-09-16 12:06:00,596 Done Filtering. No Articles: 233
+2021-09-16 12:12:23,492 13 articles with bad url has jumped
+2021-09-16 12:12:23,492 Done with NLP: keyword example: ['headlines', 'latest', 'cnn', 'business']
+2021-09-16 12:12:23,492 Done with building a dict: keyword example: ['headlines', 'latest', 'cnn', 'business']
+2021-09-16 12:12:23,493 Done with inserting tag NO NLP: example: crawl
+2021-09-16 12:12:25,137 Done parsing news, No Articles69
+2021-09-16 12:12:25,137 Done building a source tag rss, examplerss
+2021-09-16 12:12:25,137  Done merging the rss and the crawled: 302
+2021-09-16 12:12:25,137 Done retrieving news from sites
+2021-09-16 12:12:25,137 Search Index Built: 248
+2021-09-16 12:12:25,221 Done with populating the model for rss source
+2021-09-16 12:12:25,312 Done with populating the model for rss source
+2021-09-16 12:12:25,395 Done with populating the model for rss source
+2021-09-16 12:12:25,479 Done with populating the model for rss source
+2021-09-16 12:12:25,591 Done with populating the model for rss source
+2021-09-16 12:12:25,671 Done with populating the model for rss source
+2021-09-16 12:12:25,754 Done with populating the model for rss source
+2021-09-16 12:12:25,867 Done with populating the model for rss source
+2021-09-16 12:12:25,946 Done with populating the model for rss source
+2021-09-16 12:12:26,029 Done with populating the model for rss source
+2021-09-16 12:12:26,179 Done with populating the model for rss source
+2021-09-16 12:12:26,294 Done with populating the model for rss source
+2021-09-16 12:12:26,387 Done with populating the model for rss source
+2021-09-16 12:12:26,471 Done with populating the model for rss source
+2021-09-16 12:12:26,589 Done with populating the model for rss source
+2021-09-16 12:12:26,654 Done with populating the model for rss source
+2021-09-16 12:12:26,729 Done with populating the model for rss source
+2021-09-16 12:12:26,812 Done with populating the model for rss source
+2021-09-16 12:12:26,941 Done with populating the model for rss source
+2021-09-16 12:12:27,021 Done with populating the model for rss source
+2021-09-16 12:12:27,104 Done with populating the model for rss source
+2021-09-16 12:12:27,217 Done with populating the model for rss source
+2021-09-16 12:12:27,304 Done with populating the model for rss source
+2021-09-16 12:12:27,396 Done with populating the model for rss source
+2021-09-16 12:12:27,479 Done with populating the model for rss source
+2021-09-16 12:12:27,563 Done with populating the model for rss source
+2021-09-16 12:12:27,646 Done with populating the model for rss source
+2021-09-16 12:12:27,761 Done with populating the model for rss source
+2021-09-16 12:12:27,846 Done with populating the model for rss source
+2021-09-16 12:12:27,929 Done with populating the model for rss source
+2021-09-16 12:12:28,013 Done with populating the model for rss source
+2021-09-16 12:12:28,096 Done with populating the model for rss source
+2021-09-16 12:12:28,204 Done with populating the model for rss source
+2021-09-16 12:12:28,288 Done with populating the model for rss source
+2021-09-16 12:12:28,371 Done with populating the model for rss source
+2021-09-16 12:12:28,454 Done with populating the model for rss source
+2021-09-16 12:12:28,597 Done with populating the model for rss source
+2021-09-16 12:12:28,679 Done with populating the model for rss source
+2021-09-16 12:12:28,754 Done with populating the model for rss source
+2021-09-16 12:12:28,854 Done with populating the model for rss source
+2021-09-16 12:12:28,957 Done with populating the model for rss source
+2021-09-16 12:12:29,039 Done with populating the model for rss source
+2021-09-16 12:12:29,113 Done with populating the model for rss source
+2021-09-16 12:12:29,196 Done with populating the model for rss source
+2021-09-16 12:12:29,300 Done with populating the model for rss source
+2021-09-16 12:12:29,413 Done with populating the model for rss source
+2021-09-16 12:12:29,488 Done with populating the model for rss source
+2021-09-16 12:12:29,571 Done with populating the model for rss source
+2021-09-16 12:12:29,694 Done with populating the model for rss source
+2021-09-16 12:12:29,780 Done with populating the model for rss source
+2021-09-16 12:12:29,863 Done with populating the model for rss source
+2021-09-16 12:12:29,995 Done with populating the model for rss source
+2021-09-16 12:12:30,088 Done with populating the model for rss source
+2021-09-16 12:12:30,197 Done with populating the model for rss source
+2021-09-16 12:12:30,296 Done with populating the model for rss source
+2021-09-16 12:12:30,371 Done with populating the model for rss source
+2021-09-16 12:12:30,446 Done with populating the model for rss source
+2021-09-16 12:12:30,547 Done with populating the model for rss source
+2021-09-16 12:12:30,622 Done with populating the model for rss source
+2021-09-16 12:12:30,696 Done with populating the model for rss source
+2021-09-16 12:12:30,780 Done with populating the model for rss source
+2021-09-16 12:12:30,899 Done with populating the model for rss source
+2021-09-16 12:12:30,963 Done with populating the model for rss source
+2021-09-16 12:12:31,030 Done with populating the model for rss source
+2021-09-16 12:12:31,169 Done with populating the model for rss source
+2021-09-16 12:12:31,550 Done with populating the model for rss source
+2021-09-16 12:12:31,638 Done with populating the model for rss source
+2021-09-16 12:12:31,705 Done with populating the model for rss source
+2021-09-16 12:12:31,772 Done with populating the model for rss source
+2021-09-16 12:12:31,868 Done with populating the model for rss source
+2021-09-16 12:12:31,955 Done with populating the model for rss source
+2021-09-16 12:12:32,055 Done with populating the model for rss source
+2021-09-16 12:12:32,138 Done with populating the model for rss source
+2021-09-16 12:12:32,222 Done with populating the model for rss source
+2021-09-16 12:12:32,325 Done with populating the model for rss source
+2021-09-16 12:12:32,454 Done with populating the model for rss source
+2021-09-16 12:12:32,530 Done with populating the model for rss source
+2021-09-16 12:12:32,613 Done with populating the model for rss source
+2021-09-16 12:12:32,730 Done with populating the model for rss source
+2021-09-16 12:12:32,872 Done with populating the model for rss source
+2021-09-16 12:12:32,955 Done with populating the model for rss source
+2021-09-16 12:12:33,038 Done with populating the model for rss source
+2021-09-16 12:12:33,122 Done with populating the model for rss source
+2021-09-16 12:12:33,240 Done with populating the model for rss source
+2021-09-16 12:12:33,305 Done with populating the model for rss source
+2021-09-16 12:12:33,422 Done with populating the model for rss source
+2021-09-16 12:12:33,497 Done with populating the model for rss source
+2021-09-16 12:12:33,608 Done with populating the model for rss source
+2021-09-16 12:12:33,672 Done with populating the model for rss source
+2021-09-16 12:12:33,755 Done with populating the model for rss source
+2021-09-16 12:12:33,855 Done with populating the model for rss source
+2021-09-16 12:12:34,026 Done with populating the model for rss source
+2021-09-16 12:12:34,122 Done with populating the model for rss source
+2021-09-16 12:12:34,197 Done with populating the model for rss source
+2021-09-16 12:12:34,272 Done with populating the model for rss source
+2021-09-16 12:12:34,378 Done with populating the model for rss source
+2021-09-16 12:12:34,480 Done with populating the model for rss source
+2021-09-16 12:12:34,555 Done with populating the model for rss source
+2021-09-16 12:12:34,639 Done with populating the model for rss source
+2021-09-16 12:12:34,754 Done with populating the model for rss source
+2021-09-16 12:12:34,839 Done with populating the model for rss source
+2021-09-16 12:12:34,922 Done with populating the model for rss source
+2021-09-16 12:12:35,006 Done with populating the model for rss source
+2021-09-16 12:12:35,139 Done with populating the model for rss source
+2021-09-16 12:12:35,244 Done with populating the model for rss source
+2021-09-16 12:12:35,348 Done with populating the model for rss source
+2021-09-16 12:12:35,507 Done with populating the model for rss source
+2021-09-16 12:12:35,581 Done with populating the model for rss source
+2021-09-16 12:12:35,672 Done with populating the model for rss source
+2021-09-16 12:12:35,764 Done with populating the model for rss source
+2021-09-16 12:12:35,917 Done with populating the model for rss source
+2021-09-16 12:12:35,989 Done with populating the model for rss source
+2021-09-16 12:12:36,114 Done with populating the model for rss source
+2021-09-16 12:12:36,206 Done with populating the model for rss source
+2021-09-16 12:12:36,421 Done with populating the model for rss source
+2021-09-16 12:12:36,553 Done with populating the model for rss source
+2021-09-16 12:12:36,648 Done with populating the model for rss source
+2021-09-16 12:12:36,741 Done with populating the model for rss source
+2021-09-16 12:12:36,806 Done with populating the model for rss source
+2021-09-16 12:12:36,898 Done with populating the model for rss source
+2021-09-16 12:12:36,973 Done with populating the model for rss source
+2021-09-16 12:12:37,048 Done with populating the model for rss source
+2021-09-16 12:12:37,123 Done with populating the model for rss source
+2021-09-16 12:12:37,223 Done with populating the model for rss source
+2021-09-16 12:12:37,298 Done with populating the model for rss source
+2021-09-16 12:12:37,472 Done with populating the model for rss source
+2021-09-16 12:12:37,564 Done with populating the model for rss source
+2021-09-16 12:12:37,648 Done with populating the model for rss source
+2021-09-16 12:12:37,748 Done with populating the model for rss source
+2021-09-16 12:12:37,873 Done with populating the model for rss source
+2021-09-16 12:12:37,956 Done with populating the model for rss source
+2021-09-16 12:12:38,074 Done with populating the model for rss source
+2021-09-16 12:12:38,156 Done with populating the model for rss source
+2021-09-16 12:12:38,248 Done with populating the model for rss source
+2021-09-16 12:12:38,359 Done with populating the model for rss source
+2021-09-16 12:12:38,468 Done with populating the model for rss source
+2021-09-16 12:12:38,540 Done with populating the model for rss source
+2021-09-16 12:12:38,631 Done with populating the model for rss source
+2021-09-16 12:12:38,744 Done with populating the model for rss source
+2021-09-16 12:12:38,823 Done with populating the model for rss source
+2021-09-16 12:12:38,906 Done with populating the model for rss source
+2021-09-16 12:12:39,057 Done with populating the model for rss source
+2021-09-16 12:12:39,156 Done with populating the model for rss source
+2021-09-16 12:12:39,240 Done with populating the model for rss source
+2021-09-16 12:12:39,354 Done with populating the model for rss source
+2021-09-16 12:12:39,440 Done with populating the model for rss source
+2021-09-16 12:12:39,523 Done with populating the model for rss source
+2021-09-16 12:12:39,622 Done with populating the model for rss source
+2021-09-16 12:12:39,731 Done with populating the model for rss source
+2021-09-16 12:12:39,806 Done with populating the model for rss source
+2021-09-16 12:12:39,940 Done with populating the model for rss source
+2021-09-16 12:12:40,073 Done with populating the model for rss source
+2021-09-16 12:12:40,156 Done with populating the model for rss source
+2021-09-16 12:12:40,232 Done with populating the model for rss source
+2021-09-16 12:12:40,315 Done with populating the model for rss source
+2021-09-16 12:12:40,466 Done with populating the model for rss source
+2021-09-16 12:12:40,548 Done with populating the model for rss source
+2021-09-16 12:12:40,640 Done with populating the model for rss source
+2021-09-16 12:12:40,732 Done with populating the model for rss source
+2021-09-16 12:12:40,884 Done with populating the model for rss source
+2021-09-16 12:12:40,957 Done with populating the model for rss source
+2021-09-16 12:12:41,057 Done with populating the model for rss source
+2021-09-16 12:12:41,165 Done with populating the model for rss source
+2021-09-16 12:12:41,278 Done with populating the model for rss source
+2021-09-16 12:12:41,357 Done with populating the model for rss source
+2021-09-16 12:12:41,449 Done with populating the model for rss source
+2021-09-16 12:12:41,523 Done with populating the model for rss source
+2021-09-16 12:12:41,626 Done with populating the model for rss source
+2021-09-16 12:12:41,707 Done with populating the model for rss source
+2021-09-16 12:12:41,790 Done with populating the model for rss source
+2021-09-16 12:12:41,873 Done with populating the model for rss source
+2021-09-16 12:12:41,957 Done with populating the model for rss source
+2021-09-16 12:12:42,040 Done with populating the model for rss source
+2021-09-16 12:12:42,140 Done with populating the model for rss source
+2021-09-16 12:12:42,232 Done with populating the model for rss source
+2021-09-16 12:12:42,324 Done with populating the model for rss source
+2021-09-16 12:12:42,440 Done with populating the model for rss source
+2021-09-16 12:12:42,565 Done with populating the model for rss source
+2021-09-16 12:12:42,657 Done with populating the model for rss source
+2021-09-16 12:12:42,782 Done with populating the model for rss source
+2021-09-16 12:12:42,949 Done with populating the model for rss source
+2021-09-16 12:12:43,032 Done with populating the model for rss source
+2021-09-16 12:12:43,124 Done with populating the model for rss source
+2021-09-16 12:12:43,259 Done with populating the model for rss source
+2021-09-16 12:12:43,340 Done with populating the model for rss source
+2021-09-16 12:12:43,424 Done with populating the model for rss source
+2021-09-16 12:12:43,507 Done with populating the model for rss source
+2021-09-16 12:12:43,643 Done with populating the model for rss source
+2021-09-16 12:12:43,716 Done with populating the model for rss source
+2021-09-16 12:12:43,869 Done with populating the model for rss source
+2021-09-16 12:12:44,003 Done with populating the model for rss source
+2021-09-16 12:12:44,166 Done with populating the model for rss source
+2021-09-16 12:12:44,257 Done with populating the model for rss source
+2021-09-16 12:12:44,379 Done with populating the model for rss source
+2021-09-16 12:12:44,491 Done with populating the model for rss source
+2021-09-16 12:12:44,607 Done with populating the model for rss source
+2021-09-16 12:12:44,738 Done with populating the model for rss source
+2021-09-16 12:12:44,816 Done with populating the model for rss source
+2021-09-16 12:12:44,916 Done with populating the model for rss source
+2021-09-16 12:12:45,098 Done with populating the model for rss source
+2021-09-16 12:12:45,191 Done with populating the model for rss source
+2021-09-16 12:12:45,282 Done with populating the model for rss source
+2021-09-16 12:12:45,399 Done with populating the model for rss source
+2021-09-16 12:12:45,474 Done with populating the model for rss source
+2021-09-16 12:12:45,574 Done with populating the model for rss source
+2021-09-16 12:12:45,658 Done with populating the model for rss source
+2021-09-16 12:12:45,791 Done with populating the model for rss source
+2021-09-16 12:12:45,891 Done with populating the model for rss source
+2021-09-16 12:12:46,024 Done with populating the model for rss source
+2021-09-16 12:12:46,167 Done with populating the model for rss source
+2021-09-16 12:12:46,258 Done with populating the model for rss source
+2021-09-16 12:12:46,341 Done with populating the model for rss source
+2021-09-16 12:12:46,433 Done with populating the model for rss source
+2021-09-16 12:12:46,627 Done with populating the model for rss source
+2021-09-16 12:12:46,708 Done with populating the model for rss source
+2021-09-16 12:12:46,833 Done with populating the model for rss source
+2021-09-16 12:12:46,924 Done with populating the model for rss source
+2021-09-16 12:12:47,037 Done with populating the model for rss source
+2021-09-16 12:12:47,174 Done with populating the model for rss source
+2021-09-16 12:12:47,258 Done with populating the model for rss source
+2021-09-16 12:12:47,374 Done with populating the model for rss source
+2021-09-16 12:12:47,489 Done with populating the model for rss source
+2021-09-16 12:12:47,566 Done with populating the model for rss source
+2021-09-16 12:12:47,641 Done with populating the model for rss source
+2021-09-16 12:12:47,748 Done with populating the model for rss source
+2021-09-16 12:12:47,850 Done with populating the model for rss source
+2021-09-16 12:12:47,933 Done with populating the model for rss source
+2021-09-16 12:12:48,040 Done with populating the model for rss source
+2021-09-16 12:12:48,116 Done with populating the model for rss source
+2021-09-16 12:12:48,241 Done with populating the model for rss source
+2021-09-16 12:12:48,333 Done with populating the model for rss source
+2021-09-16 12:12:48,534 Done with populating the model for rss source
+2021-09-16 12:12:48,675 Done with populating the model for rss source
+2021-09-16 12:12:48,800 Done with populating the model for rss source
+2021-09-16 12:12:48,918 Done with populating the model for rss source
+2021-09-16 12:12:48,918 Done with populating the model for rss source
+2021-09-16 12:12:48,991 Done with populating the model for rss source
+2021-09-16 12:12:49,144 Done with populating the model for rss source
+2021-09-16 12:12:49,233 Done with populating the model for rss source
+2021-09-16 12:12:49,353 Done with populating the model for rss source
+2021-09-16 12:12:49,442 Done with populating the model for rss source
+2021-09-16 12:12:49,587 Done with populating the model for rss source
+2021-09-16 12:12:49,750 Done with populating the model for rss source
+2021-09-16 12:12:49,863 Done with populating the model for rss source
+2021-09-16 12:12:49,950 Done with populating the model for rss source
+2021-09-16 12:12:50,064 Done with populating the model for rss source
+2021-09-16 12:12:50,150 Done with populating the model for rss source
+2021-09-16 12:12:50,315 Done with populating the model for rss source
+2021-09-16 12:12:50,417 Done with populating the model for rss source
+2021-09-16 12:12:50,549 Done with populating the model for rss source
+2021-09-16 12:12:50,642 Done with populating the model for rss source
+2021-09-16 12:12:50,783 Done with populating the model for rss source
+2021-09-16 12:12:50,867 Done with populating the model for rss source
+2021-09-16 12:12:50,983 Done with populating the model for rss source
+2021-09-16 12:12:51,092 Done with populating the model for rss source
+2021-09-16 12:12:51,226 Done with populating the model for rss source
+2021-09-16 12:12:51,359 Done with populating the model for rss source
+2021-09-16 12:12:51,493 Done with populating the model for rss source
+2021-09-16 12:12:51,575 Done with populating the model for rss source
+2021-09-16 12:12:51,778 Done with populating the model for rss source
+2021-09-16 12:12:51,778 Done with populating the model for rss source
+2021-09-16 12:12:51,877 Done with populating the model for rss source
+2021-09-16 12:12:52,011 Done with populating the model for rss source
+2021-09-16 12:12:52,012 Done with populating the model for rss source
+2021-09-16 12:12:52,134 Done with populating the model for rss source
+2021-09-16 12:12:52,262 Done with populating the model for rss source
+2021-09-16 12:12:52,342 Done with populating the model for rss source
+2021-09-16 12:12:52,497 Done with populating the model for rss source
+2021-09-16 12:12:52,584 Done with populating the model for rss source
+2021-09-16 12:12:52,723 Done with populating the model for rss source
+2021-09-16 12:12:52,825 Done with populating the model for rss source
+2021-09-16 12:12:52,990 Done with populating the model for rss source
+2021-09-16 12:12:53,092 Done with populating the model for rss source
+2021-09-16 12:12:53,207 Done with populating the model for rss source
+2021-09-16 12:12:53,326 Done with populating the model for rss source
+2021-09-16 12:12:53,416 Done with populating the model for rss source
+2021-09-16 12:12:53,492 Done with populating the model for rss source
+2021-09-16 12:12:53,634 Done with populating the model for rss source
+2021-09-16 12:12:53,796 Done with populating the model for rss source
+2021-09-16 12:12:53,797 Done with populating the model for rss source
+2021-09-16 12:12:53,797 Done with populating the model for rss source
+2021-09-16 12:12:53,797 Done with populating the model for rss source
+2021-09-16 12:12:53,797 Done with populating the model for rss source
+2021-09-16 12:12:53,797 Done with populating the model for rss source
+2021-09-16 12:12:53,797 Done with populating the model for rss source
+2021-09-16 12:12:53,797 Done with populating the model for rss source
+2021-09-16 12:12:53,797 Done with populating the model for rss source
+2021-09-16 12:12:53,797 Done with populating the model for rss source
+2021-09-16 12:12:53,797 Done with populating the model for rss source
+2021-09-16 12:12:53,797 Done with populating the model for rss source
+2021-09-16 12:12:53,797 Done with populating the model for rss source
+2021-09-16 12:12:53,951 Done with populating the model for rss source
+2021-09-16 12:12:54,076 Done with populating the model for rss source
+2021-09-16 12:12:54,186 Done with populating the model for rss source
+2021-09-16 12:12:54,259 Done with populating the model for rss source
+2021-09-16 12:12:54,404 Done with populating the model for rss source
+2021-09-16 12:12:54,476 Done with populating the model for rss source
+2021-09-16 12:12:54,662 Done with populating the model for rss source
+2021-09-16 12:12:54,663 Done with populating the model for rss source
+2021-09-16 12:12:54,663 Done with populating the model for rss source
+2021-09-16 12:12:54,663 Done with populating the model for rss source
+2021-09-16 12:12:54,663 Done with populating the model for rss source
+2021-09-16 12:24:07,769 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 12:24:07,771 Done with configuration for Article section MIN word cout: 300
+2021-09-16 12:24:07,771 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 12:24:07,771 Done with configuration for MISC: OP MODE 4
+2021-09-16 12:24:07,771  Done with configuration for number of sites: 10
+2021-09-16 12:24:07,771  Done with configuration for RSS feed list: 1
+2021-09-16 12:24:07,772 Done Initialization
+2021-09-16 12:24:07,772 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 12:24:20,019  Crawler is done with building source  Papers:1
+2021-09-16 12:24:20,019 Done Downloading News.NLP: No Articles: 543
+2021-09-16 12:24:20,019 Done Filtering. No Articles: 232
+2021-09-16 12:29:08,008 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 12:29:08,009 Done with configuration for Article section MIN word cout: 300
+2021-09-16 12:29:08,009 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 12:29:08,009 Done with configuration for MISC: OP MODE 4
+2021-09-16 12:29:08,009  Done with configuration for number of sites: 10
+2021-09-16 12:29:08,009  Done with configuration for RSS feed list: 1
+2021-09-16 12:29:08,009 Done Initialization
+2021-09-16 12:29:08,009 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 12:29:20,283  Crawler is done with building source  Papers:1
+2021-09-16 12:29:20,283 Done Downloading News.NLP: No Articles: 0
+2021-09-16 12:29:20,283 Done Filtering. No Articles: 0
+2021-09-16 12:29:20,283 0 articles with bad url has jumped
+2021-09-16 12:50:13,468 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 12:50:13,470 Done with configuration for Article section MIN word cout: 300
+2021-09-16 12:50:13,470 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 12:50:13,470 Done with configuration for MISC: OP MODE 4
+2021-09-16 12:50:13,470  Done with configuration for number of sites: 10
+2021-09-16 12:50:13,470  Done with configuration for RSS feed list: 1
+2021-09-16 12:50:13,470 Done Initialization
+2021-09-16 12:50:13,470 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 12:50:24,583  Crawler is done with building source  Papers:1
+2021-09-16 12:50:24,584 Done Downloading News.NLP: No Articles: 10
+2021-09-16 12:50:24,584 Done Filtering. No Articles: 2
+2021-09-16 12:50:27,758 0 articles with bad url has jumped
+2021-09-16 12:56:08,623 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 12:56:08,624 Done with configuration for Article section MIN word cout: 300
+2021-09-16 12:56:08,625 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 12:56:08,625 Done with configuration for MISC: OP MODE 4
+2021-09-16 12:56:08,625  Done with configuration for number of sites: 10
+2021-09-16 12:56:08,625  Done with configuration for RSS feed list: 1
+2021-09-16 12:56:08,625 Done Initialization
+2021-09-16 12:56:08,625 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 12:57:04,501 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 12:57:04,503 Done with configuration for Article section MIN word cout: 300
+2021-09-16 12:57:04,503 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 12:57:04,503 Done with configuration for MISC: OP MODE 4
+2021-09-16 12:57:04,503  Done with configuration for number of sites: 10
+2021-09-16 12:57:04,503  Done with configuration for RSS feed list: 1
+2021-09-16 12:57:04,503 Done Initialization
+2021-09-16 12:57:04,504 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 12:57:04,504 Memoize articles is sat True
+2021-09-16 12:58:10,362  Crawler is done with building source  Papers:1
+2021-09-16 12:58:10,362 Done Downloading News.NLP: No Articles: 4
+2021-09-16 12:58:10,362 Done Filtering. No Articles: 0
+2021-09-16 12:58:10,362 0 articles with bad url has jumped
+2021-09-16 12:59:09,979 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 12:59:09,980 Done with configuration for Article section MIN word cout: 300
+2021-09-16 12:59:09,980 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 12:59:09,980 Done with configuration for MISC: OP MODE 4
+2021-09-16 12:59:09,980  Done with configuration for number of sites: 10
+2021-09-16 12:59:09,980  Done with configuration for RSS feed list: 1
+2021-09-16 12:59:09,980 Done Initialization
+2021-09-16 12:59:09,980 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-09-16 12:59:09,980 Memoize articles is sat True
+2021-09-16 12:59:25,181  Crawler is done with building source  Papers:1
+2021-09-16 12:59:25,181 Done Downloading News.NLP: No Articles: 1
+2021-09-16 12:59:25,181 Done Filtering. No Articles: 1
+2021-09-16 12:59:27,048 0 articles with bad url has jumped
+2021-09-16 12:59:27,049 Done with building a dict: keyword example: ['argumentos', 'y', 'en', 'el', 'pfizer', 'la', 'respaldan', 'los', 'que', 'las', 'informes', 'dosis', 'favor', 'refuerzo', 'vacuna']
+2021-09-16 12:59:27,049 Done with inserting tag NO NLP: example: crawl
+2021-09-16 12:59:28,037 Done parsing news, No Articles69
+2021-09-16 12:59:28,037 Done building a source tag rss, examplerss
+2021-09-16 12:59:28,037  Done merging the rss and the crawled: 70
+2021-09-16 12:59:28,037 Done retrieving news from sites
+2021-09-16 12:59:28,038 Search Index Built: 248
+2021-09-16 12:59:33,332 Done with populating the model
+2021-09-16 13:01:42,633 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 13:01:42,634 Done with configuration for Article section MIN word cout: 300
+2021-09-16 13:01:42,634 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 13:01:42,634 Done with configuration for MISC: OP MODE 0
+2021-09-16 13:01:42,634  Done with configuration for number of sites: 10
+2021-09-16 13:01:42,634  Done with configuration for RSS feed list: 1
+2021-09-16 13:01:42,634 Done Initialization
+2021-09-16 13:01:42,635 Retrieving news from sites. NO NLP Mode: 
+2021-09-16 13:01:42,635 Memoize articles is sat True
+2021-09-16 13:01:54,022  Crawler is done with building source  Papers:1
+2021-09-16 13:01:54,022 Done Filtering NONLP. No Articles: 0
+2021-09-16 13:03:51,326 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 13:03:51,327 Done with configuration for Article section MIN word cout: 30
+2021-09-16 13:03:51,328 Done with configuration for Sources setion: Memoize artices :True
+2021-09-16 13:03:51,328 Done with configuration for MISC: OP MODE 0
+2021-09-16 13:03:51,329  Done with configuration for number of sites: 10
+2021-09-16 13:03:51,329  Done with configuration for RSS feed list: 1
+2021-09-16 13:03:51,329 Done Initialization
+2021-09-16 13:03:51,329 Retrieving news from sites. NO NLP Mode: 
+2021-09-16 13:03:51,329 Memoize articles is sat True
+2021-09-16 13:04:02,800  Crawler is done with building source  Papers:1
+2021-09-16 13:04:02,801 Done Filtering NONLP. No Articles: 0
+2021-09-16 13:08:37,480 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 13:08:37,482 Done with configuration for Article section MIN word cout: 30
+2021-09-16 13:08:37,482 Done with configuration for Sources setion: Memoize artices :True40000
+2021-09-16 13:08:37,482 Done with configuration for MISC: OP MODE 0
+2021-09-16 13:08:37,482  Done with configuration for number of sites: 10
+2021-09-16 13:08:37,482  Done with configuration for RSS feed list: 1
+2021-09-16 13:08:37,483 Done Initialization
+2021-09-16 13:08:37,483 Retrieving news from sites. NO NLP Mode: 
+2021-09-16 13:08:37,483 Memoize articles is sat True
+2021-09-16 13:08:47,563  Crawler is done with building source  Papers:1
+2021-09-16 13:08:47,563 Done Filtering NONLP. No Articles: 0
+2021-09-16 13:11:16,270 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 13:11:16,271 Done with configuration for Article section MIN word cout: 30
+2021-09-16 13:11:16,271 Done with configuration for Sources setion: Memoize artices :TrueTrue
+2021-09-16 13:11:16,271 Done with configuration for MISC: OP MODE 0
+2021-09-16 13:11:16,271  Done with configuration for number of sites: 10
+2021-09-16 13:11:16,271  Done with configuration for RSS feed list: 1
+2021-09-16 13:11:16,271 Done Initialization
+2021-09-16 13:11:16,271 Retrieving news from sites. NO NLP Mode: 
+2021-09-16 13:11:16,271 Memoize articles is sat True
+2021-09-16 13:11:29,120  Crawler is done with building source  Papers:1
+2021-09-16 13:11:29,120 Done Filtering NONLP. No Articles: 0
+2021-09-16 13:12:18,496 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 13:12:18,497 Done with configuration for Article section MIN word cout: 30
+2021-09-16 13:12:18,497 Done with configuration for Sources setion: Memoize artices :TrueTrue
+2021-09-16 13:12:18,497 Done with configuration for MISC: OP MODE 0
+2021-09-16 13:12:18,497  Done with configuration for number of sites: 10
+2021-09-16 13:12:18,497  Done with configuration for RSS feed list: 1
+2021-09-16 13:12:18,497 Done Initialization
+2021-09-16 13:12:18,497 Retrieving news from sites. NO NLP Mode: 
+2021-09-16 13:12:18,497 Memoize articles is sat True
+2021-09-16 13:12:31,426  Crawler is done with building source  Papers:1
+2021-09-16 13:12:31,426 Done Filtering NONLP. No Articles: 0
+2021-09-16 13:13:49,432 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 13:13:49,433 Done with configuration for Article section MIN word cout: 30
+2021-09-16 13:13:49,433 Done with configuration for Sources setion: Memoize artices :TrueTrue
+2021-09-16 13:13:49,433 Done with configuration for MISC: OP MODE 0
+2021-09-16 13:13:49,433  Done with configuration for number of sites: 10
+2021-09-16 13:13:49,433  Done with configuration for RSS feed list: 1
+2021-09-16 13:13:49,434 Done Initialization
+2021-09-16 13:13:49,434 Retrieving news from sites. NO NLP Mode: 
+2021-09-16 13:13:49,434 Memoize articles is sat True
+2021-09-16 13:14:05,469  Crawler is done with building source  Papers:1
+2021-09-16 13:14:05,469 Done Filtering NONLP. No Articles: 0
+2021-09-16 13:27:37,109 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 13:27:37,110 Done with configuration for Article section MIN word cout: 30
+2021-09-16 13:27:37,111 Done with configuration for Sources setion: Memoize artices :FalseTrue
+2021-09-16 13:27:37,111 Done with configuration for MISC: OP MODE 0
+2021-09-16 13:27:37,111  Done with configuration for number of sites: 10
+2021-09-16 13:27:37,111  Done with configuration for RSS feed list: 1
+2021-09-16 13:27:37,111 Done Initialization
+2021-09-16 13:27:37,111 Retrieving news from sites. NO NLP Mode: 
+2021-09-16 13:27:37,111 Memoize articles is sat False
+2021-09-16 13:27:51,140  Crawler is done with building source  Papers:1
+2021-09-16 13:27:51,140 Done Filtering NONLP. No Articles: 231
+2021-09-16 13:27:51,140 Done with inserting tag NLP: example: crawl
+2021-09-16 13:31:14,051 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 13:31:14,052 Done with configuration for Article section MIN word cout: 30
+2021-09-16 13:31:14,052 Done with configuration for Sources setion: Memoize artices :False
+2021-09-16 13:31:14,052 Done with configuration for MISC: OP MODE 0
+2021-09-16 13:31:14,052  Done with configuration for number of sites: 10
+2021-09-16 13:31:14,053  Done with configuration for RSS feed list: 1
+2021-09-16 13:31:14,053 Done Initialization
+2021-09-16 13:31:14,053 Retrieving news from sites. NO NLP Mode: 
+2021-09-16 13:31:14,053 Memoize articles is sat False
+2021-09-16 13:31:27,057  Crawler is done with building source  Papers:1
+2021-09-16 13:31:27,057 Done Filtering NONLP. No Articles: 231
+2021-09-16 13:31:27,057 Done with inserting tag NLP: example: crawl
+2021-09-16 14:12:55,590 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 14:12:55,590 Done with configuration for Article section MIN word cout: 30
+2021-09-16 14:12:55,591 Done with configuration for Sources setion: Memoize artices :False
+2021-09-16 14:12:55,591 Done with configuration for MISC: OP MODE 0
+2021-09-16 14:12:55,591  Done with configuration for number of sites: 10
+2021-09-16 14:12:55,591  Done with configuration for RSS feed list: 1
+2021-09-16 14:12:55,591 Done Initialization
+2021-09-16 14:12:55,591 Retrieving news from sites. NO NLP Mode: 
+2021-09-16 14:12:55,592 Memoize articles is sat False
+2021-09-16 14:13:08,469  Crawler is done with building source  Papers:1
+2021-09-16 14:13:08,469 Done Filtering NONLP. No Articles: 231
+2021-09-16 14:13:08,469 Done with inserting tag NLP: example: crawl
+2021-09-16 14:13:08,469 Done building a source tag rss, example no rss has downloaded
+2021-09-16 14:13:08,469  Done merging the rss and the crawled: 231
+2021-09-16 14:13:08,469 Done retrieving news from sites
+2021-09-16 14:13:08,469 Search Index Built: 248
+2021-09-16 14:13:31,203 Done with populating the model
+2021-09-16 14:28:07,082 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 14:28:07,084 Done with configuration for Article section MIN word cout: 30
+2021-09-16 14:28:07,084 Done with configuration for Sources setion: Memoize artices :False
+2021-09-16 14:28:07,084 Done with configuration for MISC: OP MODE 0
+2021-09-16 14:28:07,084  Done with configuration for number of sites: 10
+2021-09-16 14:28:07,084  Done with configuration for RSS feed list: 1
+2021-09-16 14:28:07,084 Done Initialization
+2021-09-16 14:28:07,084 Retrieving news from sites. NO NLP Mode: 
+2021-09-16 14:28:07,084 Memoize articles is sat False
+2021-09-16 14:28:18,722  Crawler is done with building source  Papers:1
+2021-09-16 14:28:18,722 Done Filtering NONLP. No Articles: 231
+2021-09-16 14:28:18,723 Done with inserting tag NLP: example: crawl
+2021-09-16 14:28:18,723 Done building a source tag rss, example no rss has downloaded
+2021-09-16 14:28:18,723  Done merging the rss and the crawled: 231
+2021-09-16 14:28:18,723 Done retrieving news from sites
+2021-09-16 14:28:18,723 Search Index Built: 248
+2021-09-16 14:29:51,731 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 14:29:51,732 Done with configuration for Article section MIN word cout: 30
+2021-09-16 14:29:51,732 Done with configuration for Sources setion: Memoize artices :False
+2021-09-16 14:29:51,732 Done with configuration for MISC: OP MODE 0
+2021-09-16 14:29:51,733  Done with configuration for number of sites: 10
+2021-09-16 14:29:51,733  Done with configuration for RSS feed list: 1
+2021-09-16 14:29:51,733 Done Initialization
+2021-09-16 14:29:51,733 Retrieving news from sites. NO NLP Mode: 
+2021-09-16 14:29:51,733 Memoize articles is sat False
+2021-09-16 14:30:02,472  Crawler is done with building source  Papers:1
+2021-09-16 14:30:02,472 Done Filtering NONLP. No Articles: 231
+2021-09-16 14:30:02,472 Done with inserting tag NLP: example: crawl
+2021-09-16 14:30:02,472 Done building a source tag rss, example no rss has downloaded
+2021-09-16 14:30:02,472  Done merging the rss and the crawled: 231
+2021-09-16 14:30:02,472 Done retrieving news from sites
+2021-09-16 14:30:02,472 Search Index Built: 248
+2021-09-16 14:50:20,062 Initializing SNETnews. Conf file: ./news.ini
+2021-09-16 14:50:20,063 Done with configuration for Article section MIN word cout: 30
+2021-09-16 14:50:20,063 Done with configuration for Sources setion: Memoize artices :False
+2021-09-16 14:50:20,063 Done with configuration for MISC: OP MODE 0
+2021-09-16 14:50:20,063  Done with configuration for number of sites: 10
+2021-09-16 14:50:20,063  Done with configuration for RSS feed list: 1
+2021-09-16 14:50:20,063 Done Initialization
+2021-09-16 14:50:20,063 Retrieving news from sites. NO NLP Mode: 
+2021-09-16 14:50:20,063 Memoize articles is sat False
+2021-09-16 14:50:30,072  Crawler is done with building source  Papers:1
+2021-09-16 14:50:30,072 Done Filtering NONLP. No Articles: 231
+2021-09-16 14:50:30,072 Done with inserting tag NLP: example: crawl
+2021-09-16 14:50:30,072 Done building a source tag rss, example no rss has downloaded
+2021-09-16 14:50:30,072  Done merging the rss and the crawled: 231
+2021-09-16 14:50:30,072 Done retrieving news from sites
+2021-09-16 14:50:30,072 Search Index Built: 248
+2021-09-16 14:50:52,550 Done with populating the model

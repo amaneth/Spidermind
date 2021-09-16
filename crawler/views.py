@@ -1,11 +1,25 @@
+import logging
+import logging.handlers as loghandlers
+
 from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser 
 from crawler.models import Article
 from crawler.serializers import ArticleSerializer
 from crawler.utils.news import SNETnews
 
-@csrf_exempt
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+loghandle = loghandlers.TimedRotatingFileHandler(
+                filename="SNETnews.log",
+                when='D', interval=1, backupCount=7,
+                encoding="utf-8")
+loghandle.setFormatter(
+    logging.Formatter("%(asctime)s %(message)s"))
+logger.addHandler(loghandle)
+
+
+@api_view(['GET'])
 def download(request):
     if request.method == 'GET':
         s= SNETnews('./news.ini')
@@ -17,6 +31,7 @@ def download(request):
                                 authors = article['authors'],
                                 date = str(article['publish_date']),
                                 link = article['url'],
+                                keywords= str(article['keywords']),
                                 source_type = 'crawl')
                 article_model.save()
             elif (article['source_type'] == 'rss'):
@@ -27,10 +42,11 @@ def download(request):
                                     link = article.link,
                                     source_type = 'rss')
                     article_model.save()
+        logger.info("Done with populating the model")
         article_serialized = ArticleSerializer(Article.objects.all(), many = True)
-    return JsonResponse(article_serialized.data, safe = False)
+    return JsonResponse(article_serialized.data, safe= False)
 
-@csrf_exempt
+@api_view(['GET'])
 def get_news(request, sort_type="title", results=10):
 	if request.method == 'GET':	
 		s= SNETnews('./news.ini')
@@ -47,7 +63,7 @@ def get_news(request, sort_type="title", results=10):
 		article_serialized= ArticleSerializer(Article.objects.all(), many=True)
 		return JsonResponse(article_serialized.data, safe= False)
 
-
+@api_view(['GET'])
 def search_news(request, terms, top_results=1):
 	if request.method == 'GET':
 		s = SNETnews()
@@ -63,7 +79,7 @@ def search_news(request, terms, top_results=1):
 		article_serialized = ArticleSerializer(Article.objects.all(), many = True)
 		return JsonResponse(article_serialized.data, safe=False)
 
-
+@api_view(['GET'])
 def trending_topics(request):
 	if request.method == 'GET':
 		s= SNETnews()
@@ -78,6 +94,7 @@ def trending_topics(request):
 			article_model.save()
 		article_serialized = ArticleSerializer(Article.objects.all(), many=True)
 		return JSONResponse(article_serialized.data, safe=False)
+@api_view(['GET'])            
 def get_rss_feed(request, sort_type="title", results=10):
     if request.method == 'GET':
         s = SNETnews('./news.ini')

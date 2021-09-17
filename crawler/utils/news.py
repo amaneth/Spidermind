@@ -26,7 +26,7 @@ logger.addHandler(loghandle)
 NLP_MODE = 1
 NO_NLP_MODE = 0
 RSS_ONLY_MODE = 2
-RSS_WITH_NLP_MODE = 3
+RSS_WITH_NO_NLP_MODE = 3
 EXHAUSTIVE_MODE = 4
 
 
@@ -123,7 +123,7 @@ class SNETnews:
         if((self.op_mode != RSS_ONLY_MODE)):
             self.papers = [nwp.build(site, config=self.n_config) for site in self.source_sites]
             logger.info(" Crawler is done with building source  Papers:" + str(len(self.papers)))
-            if((self.op_mode != NO_NLP_MODE)):
+            if((self.op_mode != NO_NLP_MODE and self.op_mode != RSS_WITH_NO_NLP_MODE)):
                 #nwp.news_pool.set(self.papers, threads_per_source=2)
                 #nwp.news_pool.join() # download articles in a pool multithreadedly is \
                         # good practice but here there are also articles not filtered, downloading \
@@ -131,8 +131,7 @@ class SNETnews:
                 logger.info("Done Downloading News.NLP: No Articles: " \
                     + str(len(sum([n.articles for n in self.papers], []))))
                 self.articles = [a for a in sum([n.articles for n in self.papers],
-                                            []) \
-                if a.title != None] \
+                                            []) if a.title != None] \
                     # check all the fields if they exist may be better
                 logger.info("Done Filtering. No Articles: " + str(len(self.articles)))
                 count = 0
@@ -145,24 +144,14 @@ class SNETnews:
                         count+=1
                         continue # passing some bad urls, but fixing can save them
                 logger.info("{} articles with bad url has jumped".format(count))
-                #logger.info("Done with NLP: keyword example: { }"\
-                #        .format(str(self.articles[0].keywords)\
-                #        if len(self.articles)>0 and self.op_mode == 1 or 4 else "no keywords")) 
-                self.articles = [ a.__dict__ for a in self.articles]
-                logger.info("Done with building a dict: keyword example: "+ \
+                self.articles = [ a.__dict__ for a in self.articles] \
+                        # change it to dictionary to add source type tag
+                logger.info("Done with building a dict, NLP: keyword example: "+ \
                         str(self.articles[0]['keywords']))
                 for article in self.articles:
                     article['source_type'] = 'crawl'
                 logger.info("Done with inserting tag NO NLP: example: "+ \
                         str(self.articles[0]['source_type']))
-
-                ''' self.search_index[article] = article.keywords \
-                        + article.title.translate(
-                            str.maketrans(
-                                '', '', string.punctuation)).split(" ") \
-                        + article.summary.translate(
-                            str.maketrans(
-                                '', '', string.punctuation)).split(" ")'''
             else:
                 self.articles = \
                     [a for a in sum([n.articles for n in self.papers], self.articles) \
@@ -174,14 +163,6 @@ class SNETnews:
                     article['source_type'] = 'crawl'
                 logger.info("Done with inserting tag NLP: example: "+ \
                         str(self.articles[0]['source_type']))
-            '''     if article.title != None and article.summary != None:
-                        self.search_index[article] = \
-                            article.title.translate(
-                                str.maketrans(
-                                    '', '', string.punctuation)).split(" ") \
-                            + article.summary.translate(
-                                str.maketrans(
-                                    '', '', string.punctuation)).split(" ")'''
         if((self.op_mode != NLP_MODE) and (self.op_mode != NO_NLP_MODE)):
             self.rss_papers= [ fp.parse(site) for site in self.rss_sites]
             self.rss_articles = [x for y in [n.entries for n in self.rss_papers] for x in y] \
@@ -197,60 +178,6 @@ class SNETnews:
         logger.info("Done retrieving news from sites")
         logger.info("Search Index Built: " + str(sys.getsizeof(self.search_index)))
         return self.articles
-
-    def search_news(self, terms, top_results=1):
-        logger.info("Starting Search for " + str(len(terms)) + " and top results: " + str(top_results))
-        search_rank = {}
-        if isinstance(terms,str):
-            terms=[terms]
-        for article,keywords in self.search_index.items():
-            for term in terms:
-                rank = 0
-                st = term.translate(
-                    str.maketrans('', '', string.punctuation)).split(" ")
-                for t in st:
-                    rank += keywords.count(t)
-                search_rank[article] = rank
-        logger.info("Done Searching. Full Result: " + str(search_rank))
-        _sel_articles = sorted(search_rank.items(),
-                   key=lambda x : x[1],
-                   reverse=True)[:min(len(search_rank), top_results)]
-        if all(list(map(lambda x : x[1] == 0, _sel_articles))):
-            return "Nothing Found"
-        return dict(_sel_articles).keys()
-
-    def get_news(self, sort_type="title", results=10):
-        logger.info("Get News - Sort Type: " \
-                    + str(sort_type) \
-                    + " - Results: " \
-                    + str(results))
-        if sort_type == "title":
-            logger.info("Sort Type: title, No Articles: " + str(len(self.articles)))
-            return sorted(self.articles,
-                       key=lambda x : x.title)[:min(results, len(self.articles))]
-        elif sort_type == "date":
-            return sorted(self.articles, \
-                          key=lambda x : x.publish_date.timestamp() \
-                                         if isinstance(x.publish_date, datetime.datetime) \
-                                            and type(x.publish_date) != 'str' \
-                                         else 0.0, \
-                          reverse=True)[:min(results, len(self.articles))]
-
-    def trending_topics(self):
-        topics=nwp.hot()
-        logger.info("retrieving "+ str(len(topics)) +" trending topics")
-        return self.search_news(topics,5)
-    '''def encode_json(self, articles):
-        logger.info("Encoding to JSON: " + str(len(articles)) + " articles")
-        j = []
-        for article in articles:
-            j.append({
-                "title" : article.title,
-                "description" : article.summary,
-                "authors" : article.authors,
-                "date" : str(article.publish_date),
-                "link" : article.url})
-        return json.dumps(j)'''
     def auto_refresh(self):
         logger.info("AutoRefresh: " + str(self.continue_auto_refresh))
         if self.continue_auto_refresh:
@@ -272,23 +199,3 @@ class SNETnews:
             raise Exception("No Event Loop Timer Registered")
         self.auto_refresh_timer.cancel()
         self.continue_auto_refresh = False
-    def get_rss_feed(self, sort_type="title", results=10):
-        self.rss_papers= [ fp.parse(site) for site in self.rss_sites]
-        self.rss_articles = [x for y in [n.entries for n in self.rss_papers] for x in y]
-        logger.info("Done parsing news, No Articles" + str(len(self.rss_articles)))
-        logger.info("Get News - Sort Type: " \
-                + str(sort_type) \
-                + " -Results: " \
-                + str(results))
-        if sort_type == "title":
-            logger.info("Sort Type: title, No Articles : " + str(len(self.articles)))
-            return sorted(self.rss_articles,
-                    key=lambda x : x.title)[:min(results, len(self.rss_articles))]
-        if sort_type == "date":
-            return sorted(self.rss_articles,\
-                    key = lambda x : x.published.timestamp() \
-                                            if isinstance(x.published, datetime.datetime) \
-                                               and type(x.published) != 'str' \
-                                               else 0.0, \
-                                               reverse=True)[:min(results, len(self.rss_articles))]
-

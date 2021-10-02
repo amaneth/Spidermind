@@ -23,8 +23,11 @@ loghandle.setFormatter(
     logging.Formatter("%(asctime)s %(message)s"))
 logger.addHandler(loghandle)
 
-NLP_MODE = 0
-NONLP_MODE = 1
+NLP_MODE = 1
+NO_NLP_MODE = 0
+RSS_ONLY_MODE = 2
+RSS_WITH_NO_NLP_MODE = 3
+EXHAUSTIVE_MODE = 4
 
 
 class SNETnews:
@@ -41,7 +44,7 @@ class SNETnews:
         self.rss_articles =[]
         self.article_tags = {}
         self.article_sources = {}
-        self.op_mode = 0 # 0 -> download & nlp + 1, 1 -> title + summary + tags
+        self.op_mode = 2 # 0 -> download & nlp + 1, 1 -> title + summary + tags
         self.refresh_rate = 0
         self.auto_refresh_timer = None
         self.continue_auto_refresh = True
@@ -59,6 +62,9 @@ class SNETnews:
             self.n_config.MAX_AUTHORS = int(article_c.get("max_authors", 10))
             self.n_config.MAX_SUMMARY = int(article_c.get("max_summary", 5000))
             self.n_config.MAX_SUMMARY_SENT = int(article_c.get("max_summary_sentence", 5))
+            #self.n_config.memoize_articles=False
+            logger.info("Done with configuration for Article section MIN word cout: "+ \
+                    str(self.n_config.MIN_WORD_COUNT))
         else:
             print("Warning: Couldn't find 'Article' section in config file")
             logger.warning("Warning: Couldn't find 'Article' section in config file")
@@ -66,20 +72,22 @@ class SNETnews:
         if config_f.sections().count('Sources') == 1:
             source_c = config_f['Sources']
             self.n_config.MAX_FILE_MEMO = int(source_c.get("max_cache_item", 20000))
-            self.n_config.memoize_articles = bool(source_c.get("cache_articles", True))
-            self.n_config.fetch_images = bool(source_c.get("fetch_images", True))
+            self.n_config.memoize_articles = source_c.getboolean("cache_articles")
+            self.n_config.fetch_images = source_c.getboolean("fetch_images")
             self.n_config.image_dimension_ration = \
                         (float(source_c.get("image_dimension_width", 16)) / \
                         float(source_c.get("image_dimension_height", 9)))
             self.n_config.follow_meta_refresh = \
-                        bool(source_c.get("follow_meta_refresh", True))
+                        source_c.getboolean("follow_meta_refresh")
             self.n_config.keep_article_html = \
-                        bool(source_c.get("keep_article_html", False))
+                        source_c.getboolean("keep_article_html")
             self.n_config._language = source_c.get("default_language", 'en')
             self.n_config.browser_user_agent = \
                         source_c.get("crawler_user_agent", "singnetnews/srv")
             self.n_config.number_threads = \
                         int(source_c.get("number_of_threads", 1))
+            logger.info("Done with configuration for Sources setion: Memoize artices :"+ \
+                    str(self.n_config.memoize_articles))
         else:
             print("Warning: Couldn't find 'Source' secion in config file")
             logger.warning("Warning: Couldn't find 'Source' section in config file")
@@ -88,14 +96,17 @@ class SNETnews:
             misc_c = config_f['Misc']
             self.op_mode = int(misc_c.get("op_mode", 0))
             self.refresh_rate = int(misc_c.get("refresh_rate", 300))
+            logger.info("Done with configuration for MISC: OP MODE " + str(self.op_mode))
         if config_f.sections().count('NumberOfSites') == 1:
             site_n = config_f['NumberOfSites']
             self.number_of_sites = int(site_n.get("sites", 10))
-            self.source_sites= ['http://www.suntimes.com','http://www.businessinsider.com']
+            self.source_sites= ['http://cnn.com']
+            logger.info(" Done with configuration for number of sites: " + str(self.number_of_sites))
         if config_f.sections().count('RSSFeedList') == 1:
             rss_l = config_f['RSSFeedList']
             #self.rss_sites = rss.get("rss").replace(" ","").replace("\n", "").split(",")
             self.rss_sites = ['http://rss.cnn.com/rss/cnn_topstories.rss']
+            logger.info(" Done with configuration for RSS feed list: " + str(len(self.rss_sites)))
 
 
        # if config_f.sections().count('SiteList') == 1:
@@ -106,101 +117,67 @@ class SNETnews:
         logger.info("Done Initialization")
 
     def download_news(self):
-        logger.info("Retrieving news from sites. Op Mode: " \
-                    + "NLP Mode" if self.op_mode == 0 else "NO NLP Mode")
-        self.papers = [nwp.build(site, config=self.n_config) for site in self.source_sites]
-        logger.info("   Papers:" + str(self.papers))
-        if(self.op_mode == NLP_MODE):
-            nwp.news_pool.set(self.papers, threads_per_source=2)
-            nwp.news_pool.join()
-            logger.info("Done Downloading News. No Articles: " \
-                + str(len(sum([n.articles for n in self.papers], []))))
-            self.articles = [a for a in sum([n.articles for n in self.papers],
-                                            self.articles) \
-                if a.title != None and len(a.html) > self.min_html_chars]
-            logger.info("Done Filtering. No Articles: " + str(len(self.articles)))
-            for article in self.articles:
-                article.parse()
-                article.nlp()
-                self.search_index[article] = article.keywords \
-                    + article.title.translate(
-                        str.maketrans(
-                            '', '', string.punctuation)).split(" ") \
-                    + article.summary.translate(
-                        str.maketrans(
-                            '', '', string.punctuation)).split(" ")
-        else:
-            self.articles = \
-                [a for a in sum([n.articles for n in self.papers], self.articles) \
-                    if a.title != None]
-            logger.info("Done Filtering NONLP. No Articles: " \
-                        + str(len(self.articles)))
-            for article in self.articles:
-                if article.title != None and article.summary != None:
-                    self.search_index[article] = \
-                        article.title.translate(
-                            str.maketrans(
-                                '', '', string.punctuation)).split(" ") \
-                        + article.summary.translate(
-                            str.maketrans(
-                                '', '', string.punctuation)).split(" ")
-
+        op_map = {0: 'NO NLP', 1: 'NLP', 2: 'RSS ONLY', 3:'RSS WITH NONLP', 4: 'EXHAUSTIVE'}
+        logger.info("Retrieving news from sites. {} Mode: ".format(op_map[self.op_mode]))
+        logger.info("Memoize articles is sat " + str(self.n_config.memoize_articles))
+        if((self.op_mode != RSS_ONLY_MODE)):
+            self.papers = [nwp.build(site, config=self.n_config) for site in self.source_sites]
+            logger.info(" Crawler is done with building source  Papers:" + str(len(self.papers)))
+            if((self.op_mode != NO_NLP_MODE and self.op_mode != RSS_WITH_NO_NLP_MODE)):
+                #nwp.news_pool.set(self.papers, threads_per_source=2)
+                #nwp.news_pool.join() # download articles in a pool multithreadedly is \
+                        # good practice but here there are also articles not filtered, downloading \
+                        # them too is costly.
+                logger.info("Done Downloading News.NLP: No Articles: " \
+                    + str(len(sum([n.articles for n in self.papers], []))))
+                self.articles = [a for a in sum([n.articles for n in self.papers],
+                                            []) if a.title != None] \
+                    # check all the fields if they exist may be better
+                logger.info("Done Filtering. No Articles: " + str(len(self.articles)))
+                count = 0
+                for article in self.articles:
+                    try:
+                        article.download()
+                        article.parse()
+                        article.nlp()
+                    except:
+                        count+=1
+                        continue # passing some bad urls, but fixing can save them
+                logger.info("{} articles with bad url has jumped".format(count))
+                self.articles = [ a.__dict__ for a in self.articles] \
+                        # change it to dictionary to add source type tag
+                logger.info("Done with building a dict, NLP: keyword example: "+ \
+                        str(self.articles[0]['keywords']))
+                for article in self.articles:
+                    article['source_type'] = 'crawl'
+                logger.info("Done with inserting tag NO NLP: example: "+ \
+                        str(self.articles[0]['source_type']))
+            else:
+                self.articles = \
+                    [a for a in sum([n.articles for n in self.papers], self.articles) \
+                        if a.title != None]
+                logger.info("Done Filtering NONLP. No Articles: " \
+                            + str(len(self.articles)))
+                self.articles = [ a.__dict__ for a in self.articles]
+                for article in self.articles:
+                    article['source_type'] = 'crawl'
+                logger.info("Done with inserting tag NLP: example: "+ \
+                        str(self.articles[0]['source_type']))
+        if((self.op_mode != NLP_MODE) and (self.op_mode != NO_NLP_MODE)):
+            self.rss_papers= [ fp.parse(site) for site in self.rss_sites]
+            self.rss_articles = [x for y in [n.entries for n in self.rss_papers] for x in y] \
+                    # filtering is good to be here
+            logger.info("Done parsing news, No Articles" + str(len(self.rss_articles)))
+            for article in self.rss_articles:
+                article['source_type']='rss'
+        logger.info("Done building a source tag rss, example {}".format(
+                str(self.rss_articles[0]['source_type']) if len(self.rss_articles)>0 else\
+                        "no rss has downloaded"))
+        self.articles  += self.rss_articles # concatinating the two articles
+        logger.info(" Done merging the rss and the crawled: "+ str(len(self.articles))) 
         logger.info("Done retrieving news from sites")
         logger.info("Search Index Built: " + str(sys.getsizeof(self.search_index)))
-
-    def search_news(self, terms, top_results=1):
-        logger.info("Starting Search for " + str(len(terms)) + " and top results: " + str(top_results))
-        search_rank = {}
-        if isinstance(terms,str):
-            terms=[terms]
-        for article,keywords in self.search_index.items():
-            for term in terms:
-                rank = 0
-                st = term.translate(
-                    str.maketrans('', '', string.punctuation)).split(" ")
-                for t in st:
-                    rank += keywords.count(t)
-                search_rank[article] = rank
-        logger.info("Done Searching. Full Result: " + str(search_rank))
-        _sel_articles = sorted(search_rank.items(),
-                   key=lambda x : x[1],
-                   reverse=True)[:min(len(search_rank), top_results)]
-        if all(list(map(lambda x : x[1] == 0, _sel_articles))):
-            return "Nothing Found"
-        return dict(_sel_articles).keys()
-
-    def get_news(self, sort_type="title", results=10):
-        logger.info("Get News - Sort Type: " \
-                    + str(sort_type) \
-                    + " - Results: " \
-                    + str(results))
-        if sort_type == "title":
-            logger.info("Sort Type: title, No Articles: " + str(len(self.articles)))
-            return sorted(self.articles,
-                       key=lambda x : x.title)[:min(results, len(self.articles))]
-        elif sort_type == "date":
-            return sorted(self.articles, \
-                          key=lambda x : x.publish_date.timestamp() \
-                                         if isinstance(x.publish_date, datetime.datetime) \
-                                            and type(x.publish_date) != 'str' \
-                                         else 0.0, \
-                          reverse=True)[:min(results, len(self.articles))]
-
-    def trending_topics(self):
-        topics=nwp.hot()
-        logger.info("retrieving "+ str(len(topics)) +" trending topics")
-        return self.search_news(topics,5)
-    '''def encode_json(self, articles):
-        logger.info("Encoding to JSON: " + str(len(articles)) + " articles")
-        j = []
-        for article in articles:
-            j.append({
-                "title" : article.title,
-                "description" : article.summary,
-                "authors" : article.authors,
-                "date" : str(article.publish_date),
-                "link" : article.url})
-        return json.dumps(j)'''
+        return self.articles
     def auto_refresh(self):
         logger.info("AutoRefresh: " + str(self.continue_auto_refresh))
         if self.continue_auto_refresh:
@@ -222,23 +199,3 @@ class SNETnews:
             raise Exception("No Event Loop Timer Registered")
         self.auto_refresh_timer.cancel()
         self.continue_auto_refresh = False
-    def get_rss_feed(self, sort_type="title", results=10):
-        self.rss_papers= [ fp.parse(site) for site in self.rss_sites]
-        self.rss_articles = [x for y in [n.entries for n in self.rss_papers] for x in y]
-        logger.info("Done parsing news, No Articles" + str(len(self.rss_articles)))
-        logger.info("Get News - Sort Type: " \
-                + str(sort_type) \
-                + " -Results: " \
-                + str(results))
-        if sort_type == "title":
-            logger.info("Sort Type: title, No Articles : " + str(len(self.articles)))
-            return sorted(self.rss_articles,
-                    key=lambda x : x.title)[:min(results, len(self.rss_articles))]
-        if sort_type == "date":
-            return sorted(self.rss_articles,\
-                    key = lambda x : x.published.timestamp() \
-                                            if isinstance(x.published, datetime.datetime) \
-                                               and type(x.published) != 'str' \
-                                               else 0.0, \
-                                               reverse=True)[:min(results, len(self.rss_articles))]
-

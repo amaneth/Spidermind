@@ -1,0 +1,17 @@
+2021-09-21 06:41:20,799 Initializing SNETnews. Conf file: ./news.ini
+2021-09-21 06:41:21,038 Done with configuration for Article section MIN word cout: 30
+2021-09-21 06:41:21,038 Done with configuration for Sources setion: Memoize artices :False
+2021-09-21 06:41:21,038 Done with configuration for MISC: OP MODE 3
+2021-09-21 06:41:21,038  Done with configuration for number of sites: 10
+2021-09-21 06:41:21,038  Done with configuration for RSS feed list: 1
+2021-09-21 06:41:21,038 Done Initialization
+2021-09-21 06:41:21,038 Retrieving news from sites. RSS WITH NONLP Mode: 
+2021-09-21 06:41:21,038 Memoize articles is sat False
+2021-09-21 06:41:36,974  Crawler is done with building source  Papers:1
+2021-09-21 06:41:36,975 Done Filtering NONLP. No Articles: 234
+2021-09-21 06:41:36,975 Done with inserting tag NLP: example: crawl
+2021-09-21 06:41:38,063 Done parsing news, No Articles69
+2021-09-21 06:41:38,063 Done building a source tag rss, example rss
+2021-09-21 06:41:38,063  Done merging the rss and the crawled: 303
+2021-09-21 06:41:38,063 Done retrieving news from sites
+2021-09-21 06:41:38,064 Search Index Built: 248

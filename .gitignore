@@ -1,0 +1,11 @@
+#sql database files
+*.sqlite3
+
+# vim swap files
+*.swp
+*.swo
+
+# python cache
+__pycache__
+
+

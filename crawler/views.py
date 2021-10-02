@@ -5,6 +5,7 @@ import datetime
 from dateutil import parser
 import string
 import newspaper as nwp
+import itertools
 
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
@@ -119,7 +120,8 @@ def search_news(request, terms, top_results=1):
                         for t in st:
                             rank += keywords.count(t)
                         search_rank[article] = rank
-                logger.info("Done Searching. Full Result: " + str(search_rank))
+                logger.info("Done Searching. Full Result: " +\
+                        str(dict.(itertools.islice(search_rank.items(), 2))))
                 _sel_articles = sorted(search_rank.items(),
                         key=lambda x : x[1],
                         reverse=True)[:min(len(search_rank), top_results)]

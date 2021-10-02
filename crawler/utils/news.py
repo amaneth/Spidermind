@@ -147,11 +147,11 @@ class SNETnews:
                 self.articles = [ a.__dict__ for a in self.articles] \
                         # change it to dictionary to add source type tag
                 logger.info("Done with building a dict, NLP: keyword example: "+ \
-                        str(self.articles[0]['keywords']))
+                        str(self.articles[0].get('keywords',"Nothing found")))
                 for article in self.articles:
                     article['source_type'] = 'crawl'
                 logger.info("Done with inserting tag NO NLP: example: "+ \
-                        str(self.articles[0]['source_type']))
+                        str(self.articles[0].get('source_type',"no source type found")))
             else:
                 self.articles = \
                     [a for a in sum([n.articles for n in self.papers], self.articles) \
@@ -162,7 +162,7 @@ class SNETnews:
                 for article in self.articles:
                     article['source_type'] = 'crawl'
                 logger.info("Done with inserting tag NLP: example: "+ \
-                        str(self.articles[0]['source_type']))
+                        str(self.articles[0].get('source_type',"no source type found")))
         if((self.op_mode != NLP_MODE) and (self.op_mode != NO_NLP_MODE)):
             self.rss_papers= [ fp.parse(site) for site in self.rss_sites]
             self.rss_articles = [x for y in [n.entries for n in self.rss_papers] for x in y] \
@@ -171,7 +171,8 @@ class SNETnews:
             for article in self.rss_articles:
                 article['source_type']='rss'
         logger.info("Done building a source tag rss, example {}".format(
-                str(self.rss_articles[0]['source_type']) if len(self.rss_articles)>0 else\
+                str(self.rss_articles[0].get('source_type',"no rss source type found")) \
+                        if len(self.rss_articles)>0 else\
                         "no rss has downloaded"))
         self.articles  += self.rss_articles # concatinating the two articles
         logger.info(" Done merging the rss and the crawled: "+ str(len(self.articles))) 

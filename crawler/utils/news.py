@@ -158,31 +158,26 @@ class SNETnews:
                         if a.title != None]
                 logger.info("Done Filtering NONLP. No Articles: " \
                             + str(len(self.articles)))
+                self.articles = [ a.__dict__ for a in self.articles]
                 for article in self.articles:
-                    article.set_tags('crawl')
-
+                    article['source_type'] = 'crawl'
                 logger.info("Done with inserting tag NLP: example: "+ \
                         str(self.articles[0].get('source_type',"no source type found")))
         if((self.op_mode != NLP_MODE) and (self.op_mode != NO_NLP_MODE)):
             self.rss_papers= [ fp.parse(site) for site in self.rss_sites]
             self.rss_articles = [x for y in [n.entries for n in self.rss_papers] for x in y] \
                     # filtering is good to be here
-                    #download RSS fetched articles here
-            rss_crawl_papers= [ Article(article.link) for article in self.rss_articles]
-            nwp.news_pool(rss_crawl_papers, threds_per_source=2)
-            nwp.news_pool.join()
-            self.rss_articles = [ x for y in [n.articles for n in rss_crawl_papers] for x in y]
             logger.info("Done parsing news, No Articles" + str(len(self.rss_articles)))
             for article in self.rss_articles:
-                article.set_tags('rss')
+                article['source_type']='rss'
         logger.info("Done building a source tag rss, example {}".format(
-                str(self.rss_articles[0].tags) \
+                str(self.rss_articles[0].get('source_type',"no rss source type found")) \
                         if len(self.rss_articles)>0 else\
                         "no rss has downloaded"))
         self.articles  += self.rss_articles # concatinating the two articles
         logger.info(" Done merging the rss and the crawled: "+ str(len(self.articles))) 
         logger.info("Done retrieving news from sites")
-        #logger.info("Search Index Built: " + str(sys.getsizeof(self.search_index)))
+        logger.info("Search Index Built: " + str(sys.getsizeof(self.search_index)))
         return self.articles
     def auto_refresh(self):
         logger.info("AutoRefresh: " + str(self.continue_auto_refresh))

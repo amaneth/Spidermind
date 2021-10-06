@@ -38,7 +38,8 @@ def download(request):
         articles= s.download_news()
         count=0
         for article in articles:
-            article_model = Article(title = article.title,
+            if (article['source_type'] == 'crawl'):
+                article_model = Article(title = article['title'],
                                 description = article['summary'],
                                 authors = article['authors'],
                                 date = (article['publish_date']\
@@ -70,8 +71,8 @@ def download(request):
         logger.info("{} articles has jumped because article with the same title already exists"\
                 .format(count))
         logger.info("Done with populating the model")
-        article_serialized = ArticleSerializer(article_model, many = True)
-    return Response(article_serialized.data)
+        article_serialized = ArticleSerializer(Article.objects.all(), many = True)
+    return JsonResponse(article_serialized.data, safe= False)
 
 @api_view(['GET'])
 def get_news(request, sort_type="title", results=10):

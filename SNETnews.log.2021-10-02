@@ -1,0 +1,13 @@
+2021-09-21 06:42:02,522 66 articles has jumped because article with the same title already exists
+2021-09-21 06:42:02,522 Done with populating the model
+2021-09-21 06:43:09,039 Sort Type: title, No Articles: 168
+2021-09-21 06:43:16,895 Sort Type: title, No Articles: 168
+2021-09-21 06:43:21,240 Sort Type: title, No Articles: 168
+2021-09-21 06:43:57,782 retrieving 20 trending topics
+2021-09-21 06:43:57,792 Starting Search for 20 and top results: 5
+2021-09-21 06:43:57,809 Done Searching. Full Result: <itertools.islice object at 0x7f47205e6650>
+2021-09-21 06:44:05,727 retrieving 20 trending topics
+2021-09-21 06:44:05,736 Starting Search for 20 and top results: 5
+2021-09-21 06:44:05,753 Done Searching. Full Result: <itertools.islice object at 0x7f47221f6410>
+2021-09-21 06:46:15,736 Starting Search for 6 and top results: 3
+2021-09-21 06:46:15,737 Done Searching. Full Result: <itertools.islice object at 0x7f47221f61d0>

@@ -5,7 +5,7 @@ import datetime
 from dateutil import parser
 import string
 import newspaper as nwp
-from newspaper import Article as na
+from newspaper import Article as NewspaperArticle
 import itertools
 
 from rest_framework.response import Response
@@ -30,7 +30,8 @@ from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 
 link_param = openapi.Parameter( 'link', in_=openapi.IN_QUERY, description='link to be crawled', type=openapi.TYPE_STRING, )
-
+#TO DO proper rest api naming
+#TO DO class based view
 @api_view(['GET'])
 def download(request):
     if request.method == 'GET':
@@ -38,7 +39,7 @@ def download(request):
         articles= s.download_news()
         count=0
         for article in articles:
-            if (article['source_type'] == 'crawl'):
+            if (article['source_type'] !='rss'):
                 article_model = Article(title = article['title'],
                                 description = article['summary'],
                                 authors = article['authors'],
@@ -48,13 +49,15 @@ def download(request):
                                         else parser.parse("2012-01-01 00:00:00")),
                                 link = article['url'],
                                 keywords= str(article['keywords']),
-                                source_type = 'crawl') # assigned some old date if the date is None
+                                source_type = article['source_type']) \
+                                        # assigned some old date if the date is None
                 try:
                     article_model.save()
-                except IntegrityError:
+                except:
                     count+=1
                     pass
-            elif (article['source_type'] == 'rss'):
+            else:
+                #TO DO author of RSS feeds
                 if all(a in article for a in ['title','link','summary','published']):
                     article_model = Article(title= article.title,
                                     description = article.summary,
@@ -62,20 +65,20 @@ def download(request):
                                             if str(article.published) != "None" \
                                             else parser.parse("2012-01-01 00:00:00")),
                                     link = article.link,
-                                    source_type = 'rss')
+                                    source_type = article['source_type'])
                     try:
                         article_model.save()
-                    except IntegrityError:
+                    except:
                         count+=1
                         pass
-        logger.info("{} articles has jumped because article with the same title already exists"\
+        logger.info("{} articles has jumped because similar articles already exists"\
                 .format(count))
         logger.info("Done with populating the model")
-        article_serialized = ArticleSerializer(Article.objects.all(), many = True)
-    return JsonResponse(article_serialized.data, safe= False)
+        article_serialized = ArticleSerializer(Article.objects.all(), many=True)
+    return Response(article_serialized.data)
 
 @api_view(['GET'])
-def get_news(request, sort_type="title", results=10):
+def get_news_no_nlp(request, sort_type="title", results=10):
         if request.method == 'GET':
                 articles= Article.objects.filter(source_type='crawl')
                 if sort_type == "title":
@@ -87,8 +90,52 @@ def get_news(request, sort_type="title", results=10):
                             key= lambda x : x.date.timestamp(),\
                                     reverse=True)[:min(results, len(articles))]
                 article_serialized= ArticleSerializer(articles, many=True)
-                return JsonResponse(article_serialized.data, safe= False)
-
+                return Response(article_serialized.data)
+@api_view(['GET'])
+def get_news_nlp(request, sort_type="title", results=10):
+        if request.method == 'GET':
+                articles= Article.objects.filter(source_type='crawl_nlp')
+                if sort_type == "title":
+                    logger.info("Sort Type: title, No Articles: " + str(len(articles)))
+                    articles = sorted(articles,
+                            key=lambda x : x.title)[:min(results, len(articles))]
+                elif sort_type == "date":
+                    articles = sorted(articles,
+                            key= lambda x : x.date.timestamp(),\
+                                    reverse=True)[:min(results, len(articles))]
+                article_serialized= ArticleSerializer(articles, many=True)
+                return Response(article_serialized.data)
+@api_view(['GET'])
+def get_rss_nlp(request, sort_type="title", results=10):
+        if request.method == 'GET':
+                articles= Article.objects.filter(source_type='rss_nlp')
+                if sort_type == "title":
+                    logger.info("Sort Type: title, No Articles: " + str(len(articles)))
+                    articles = sorted(articles,
+                            key=lambda x : x.title)[:min(results, len(articles))]
+                elif sort_type == "date":
+                    articles = sorted(articles,
+                            key= lambda x : x.date.timestamp(),\
+                                    reverse=True)[:min(results, len(articles))]
+                article_serialized= ArticleSerializer(articles, many=True)
+                return Response(article_serialized.data)
+@api_view(['GET'])
+def get_rss_feed(request, sort_type="title", results=10):
+    if request.method == 'GET':
+                articles= Article.objects.filter(source_type='rss')
+                if sort_type == "title":
+                    logger.info("Sort Type: title, No Articles: " + str(len(articles)))
+                    articles = sorted(articles,
+                            key=lambda x : x.title)[:min(results, len(articles))]
+                elif sort_type == "date":
+                    articles= sorted(articles,
+                            key= lambda x : x.date.timestamp(),\
+                                    reverse=True)[:min(results, len(articles))]
+                article_serialized= ArticleSerializer(articles, many=True)
+                return Response(article_serialized.data)
+#TO DO returns unrealated news after the exact news needs a fix
+#TO DO search can be built from same articles in different modes
+#TO DO semantic search engine using NLP
 @api_view(['GET'])
 def search_news(request, terms, top_results=1):
     if request.method == 'GET':
@@ -133,7 +180,7 @@ def search_news(request, terms, top_results=1):
                 if all(list(map(lambda x : x[1] == 0, _sel_articles))):
                     return JsonResponse({"result":"Nothing Found"})
                 article_serialized = ArticleSerializer(dict(_sel_articles).keys(), many = True)
-                return JsonResponse(article_serialized.data, safe=False) # safe = True
+                return Response(article_serialized.data) 
 
 @api_view(['GET'])
 def trending_topics(request):
@@ -141,20 +188,6 @@ def trending_topics(request):
             topics=nwp.hot()
             logger.info("retrieving "+ str(len(topics)) +" trending topics")
             return search_news(request._request,topics,5)
-@api_view(['GET'])            
-def get_rss_feed(request, sort_type="title", results=10):
-    if request.method == 'GET':
-                articles= Article.objects.filter(source_type='rss')
-                if sort_type == "title":
-                    logger.info("Sort Type: title, No Articles: " + str(len(articles)))
-                    articles = sorted(articles,
-                            key=lambda x : x.title)[:min(results, len(articles))]
-                elif sort_type == "date":
-                    articles= sorted(articles,
-                            key= lambda x : x.date.timestamp(),\
-                                    reverse=True)[:min(results, len(articles))]
-                article_serialized= ArticleSerializer(articles, many=True)
-                return JsonResponse(article_serialized.data, safe = False)
 
 @swagger_auto_schema(method ='get',manual_parameters=[link_param],security=[],responses={'400': 'Validation Error (e.g. base64 is wrong)','200': ArticleSerializer})
 @api_view(['GET'])
@@ -162,7 +195,7 @@ def single_article_crawl(request):
     count =0
     if request.method == 'GET':
         link = request.GET["link"]
-        article = na(link)
+        article = NewspaperArticle(link)
         article.download()
         article.parse()
         article.nlp()

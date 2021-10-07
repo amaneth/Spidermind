@@ -12,6 +12,7 @@ import json
 
 import newspaper as nwp
 import feedparser as fp
+from newspaper import Article as NPA
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -26,8 +27,7 @@ logger.addHandler(loghandle)
 NLP_MODE = 1
 NO_NLP_MODE = 0
 RSS_ONLY_MODE = 2
-RSS_WITH_NO_NLP_MODE = 3
-EXHAUSTIVE_MODE = 4
+RSS_WITH_NLP_MODE = 3 
 
 
 class SNETnews:
@@ -100,12 +100,12 @@ class SNETnews:
         if config_f.sections().count('NumberOfSites') == 1:
             site_n = config_f['NumberOfSites']
             self.number_of_sites = int(site_n.get("sites", 10))
-            self.source_sites= ['http://cnn.com']
+            self.source_sites= ['http://www.bbc.co.uk']
             logger.info(" Done with configuration for number of sites: " + str(self.number_of_sites))
         if config_f.sections().count('RSSFeedList') == 1:
             rss_l = config_f['RSSFeedList']
             #self.rss_sites = rss.get("rss").replace(" ","").replace("\n", "").split(",")
-            self.rss_sites = ['http://rss.cnn.com/rss/cnn_topstories.rss']
+            self.rss_sites = ['http://feeds.bbci.co.uk/news/world/rss.xml']
             logger.info(" Done with configuration for RSS feed list: " + str(len(self.rss_sites)))
 
 
@@ -116,24 +116,33 @@ class SNETnews:
         
         logger.info("Done Initialization")
 
+    # TO DO while web crawling I highly recommend using proxy services as well
+    # since it will be useful in many various ways.
+    # The main reason to use such services is to avoid being detected from the website 
+    # and being banned since web crawling is automatic action and might raise suspicions
+    # (since most of the web pages doesn’t want you to crawl their data). meanwhile,
+    # when using proxies you have a big pool of IPs that are constantly changing
+    # so your actions looks more like real human activity,
+    # thus you can way easier web crawl web page.
     def download_news(self):
-        op_map = {0: 'NO NLP', 1: 'NLP', 2: 'RSS ONLY', 3:'RSS WITH NONLP', 4: 'EXHAUSTIVE'}
+        op_map = {0: 'NO_NLP', 1: 'NLP', 2: 'RSS_ONLY', 3:'RSS_WITH_NLP'}
         logger.info("Retrieving news from sites. {} Mode: ".format(op_map[self.op_mode]))
         logger.info("Memoize articles is sat " + str(self.n_config.memoize_articles))
-        if((self.op_mode != RSS_ONLY_MODE)):
+        if((self.op_mode == NLP_MODE) or (self.op_mode ==NO_NLP_MODE) ):
             self.papers = [nwp.build(site, config=self.n_config) for site in self.source_sites]
-            logger.info(" Crawler is done with building source  Papers:" + str(len(self.papers)))
-            if((self.op_mode != NO_NLP_MODE and self.op_mode != RSS_WITH_NO_NLP_MODE)):
+            logger.info("NLP & NO NLP: Crawler is done with building source  Papers:"\
+                    + str(len(self.papers)))
+            if((self.op_mode == NLP_MODE)):
                 #nwp.news_pool.set(self.papers, threads_per_source=2)
                 #nwp.news_pool.join() # download articles in a pool multithreadedly is \
                         # good practice but here there are also articles not filtered, downloading \
                         # them too is costly.
-                logger.info("Done Downloading News.NLP: No Articles: " \
+                logger.info("NLP: Done Downloading News.NLP: No Articles: " \
                     + str(len(sum([n.articles for n in self.papers], []))))
                 self.articles = [a for a in sum([n.articles for n in self.papers],
                                             []) if a.title != None] \
                     # check all the fields if they exist may be better
-                logger.info("Done Filtering. No Articles: " + str(len(self.articles)))
+                logger.info("NLP: Done Filtering. No Articles: " + str(len(self.articles)))
                 count = 0
                 for article in self.articles:
                     try:
@@ -143,43 +152,81 @@ class SNETnews:
                     except:
                         count+=1
                         continue # passing some bad urls, but fixing can save them
-                logger.info("{} articles with bad url has jumped".format(count))
+                logger.info("RSS NLP: {} articles with bad url has jumped".format(count))
                 self.articles = [ a.__dict__ for a in self.articles] \
                         # change it to dictionary to add source type tag
-                logger.info("Done with building a dict, NLP: keyword example: "+ \
-                        str(self.articles[0].get('keywords',"Nothing found")))
+                logger.info("NLP: Done with building a dict, NLP: keyword example: "+ \
+                        str(self.articles[0].get('keywords',"Nothing found"))
+                        if len(self.articles)>0 else\
+                        "no articles has crawled" )
                 for article in self.articles:
-                    article['source_type'] = 'crawl'
-                logger.info("Done with inserting tag NO NLP: example: "+ \
-                        str(self.articles[0].get('source_type',"no source type found")))
+                    article['source_type'] = 'crawl_nlp'
+                logger.info("NLP: Done with inserting tag NO NLP: example: "+ \
+                        str(self.articles[0].get('source_type',"no source type found"))
+                        if len(self.rss_articles)>0 else\
+                        "no rss has downloaded")
             else:
                 self.articles = \
                     [a for a in sum([n.articles for n in self.papers], self.articles) \
                         if a.title != None]
-                logger.info("Done Filtering NONLP. No Articles: " \
+                logger.info("NO NLP: Done Filtering NONLP. No Articles: " \
                             + str(len(self.articles)))
                 self.articles = [ a.__dict__ for a in self.articles]
                 for article in self.articles:
                     article['source_type'] = 'crawl'
-                logger.info("Done with inserting tag NLP: example: "+ \
+                logger.info("NO NLP: Done with inserting tag NLP: example: "+ \
                         str(self.articles[0].get('source_type',"no source type found")))
-        if((self.op_mode != NLP_MODE) and (self.op_mode != NO_NLP_MODE)):
-            self.rss_papers= [ fp.parse(site) for site in self.rss_sites]
-            self.rss_articles = [x for y in [n.entries for n in self.rss_papers] for x in y] \
+        #TO DO memoize articles rss
+        elif (self.op_mode == RSS_ONLY_MODE):
+            self.papers= [ fp.parse(site) for site in self.rss_sites]
+            self.articles = [x for y in [n.entries for n in self.papers] for x in y] \
                     # filtering is good to be here
-            logger.info("Done parsing news, No Articles" + str(len(self.rss_articles)))
-            for article in self.rss_articles:
+            logger.info("RSS: Done parsing news, No Articles" + str(len(self.rss_articles)))
+            for article in self.articles:
                 article['source_type']='rss'
-        logger.info("Done building a source tag rss, example {}".format(
-                str(self.rss_articles[0].get('source_type',"no rss source type found")) \
-                        if len(self.rss_articles)>0 else\
+            logger.info("RSS: Done building a source tag rss, example {}".format(
+                str(self.articles[0].get('source_type',"no rss source type found")) \
+                        if len(self.articles)>0 else\
                         "no rss has downloaded"))
-        self.articles  += self.rss_articles # concatinating the two articles
-        logger.info(" Done merging the rss and the crawled: "+ str(len(self.articles))) 
+        else:
+            #TO DO do rss_crawl with nlp_crawl just changing the site source
+            #TO DO only the content from newspaper, feedparser better on the rest
+            self.papers= [ fp.parse(site) for site in self.rss_sites]
+            self.articles = [x for y in [n.entries for n in self.papers] for x in y] \
+                    # filtering is good to be here
+            logger.info("RSS NLP: Done parsing news, No Articles" + str(len(self.articles)))
+            count = 0
+            articles_temp=[]
+            for article in self.articles:
+                article = NPA(article.link)
+                try:
+                    article.download()
+                    article.parse()
+                    article.nlp()
+                    articles_temp.append(article)
+                    #TO DO download articels in news_pool
+                except:
+                    count+=1
+                    pass
+            self.articles = articles_temp
+            logger.info("RSS NLP: {} articles with bad url has jumped".format(count))
+            self.articles = [ a.__dict__ for a in self.articles] \
+                        # change it to dictionary to add source type tag
+            logger.info("RSS NLP: Done with building a dict, NLP: keyword example: "+ \
+                str(self.articles[0].get('keywords',"Nothing found"))
+                    if len(self.articles)>0 else\
+                    "no articles has crawled" )
+            for article in self.articles:
+                article['source_type'] = 'rss_nlp'
+            logger.info("RSS NLP: Done with inserting tag NO NLP: example: "+ \
+                    str(self.articles[0].get('source_type',"no source type found"))
+                    if len(self.articles)>0 else\
+                    "no rss has downloaded")
         logger.info("Done retrieving news from sites")
-        logger.info("Search Index Built: " + str(sys.getsizeof(self.search_index)))
+        #logger.info("Search Index Built: " + str(sys.getsizeof(self.search_index)))
         return self.articles
     def auto_refresh(self):
+        #TO DO build api for refresh
         logger.info("AutoRefresh: " + str(self.continue_auto_refresh))
         if self.continue_auto_refresh:
             self.download_news();

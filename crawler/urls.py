@@ -23,13 +23,10 @@ schema_view = get_schema_view(
 
 urlpatterns = [
 		path('search/<str:terms>/<int:top_results>', views.search_news),
-                path('nlp/<str:sort_type>/<int:results>', views.get_news_nlp),
-                path('no_nlp<str:sort_type>/<int:results>', views.get_news_no_nlp),
-                path('rss_nlp<str:sort_type>/<int:results>',views.get_rss_nlp),
-                path('rss/<str:sort_type>/<int:results>',views.get_rss_feed),
+                path('articles/', views.fetch),
                 path('trending/', views.trending_topics),
                 path('download/', views.download),
-                path('singlearticle/', views.single_article_crawl),
+                path('article/', views.article_crawl),
                 path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
                 path('redoc', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 

@@ -1,0 +1,880 @@
+2021-10-05 11:53:35,216 1 articles has jumped because article with the same title already exists
+2021-10-05 11:53:35,216 Done with populating the model
+2021-10-05 11:55:39,794 1 articles has jumped because article with the same title already exists
+2021-10-05 11:55:39,794 Done with populating the model
+2021-10-05 12:56:32,330 0 articles has jumped because article with the same title already exists
+2021-10-05 12:56:32,330 Done with populating the model
+2021-10-05 12:58:24,505 1 articles has jumped because article with the same title already exists
+2021-10-05 12:58:24,505 Done with populating the model
+2021-10-05 13:17:11,174 1 articles has jumped because article with the same title already exists
+2021-10-05 13:17:11,174 Done with populating the model
+2021-10-05 13:28:18,342 0 articles has jumped because article with the same title already exists
+2021-10-05 13:28:18,342 Done with populating the model
+2021-10-05 13:30:38,300 1 articles has jumped because article with the same title already exists
+2021-10-05 13:30:38,300 Done with populating the model
+2021-10-06 08:43:12,808 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 08:43:12,809 Done with configuration for Article section MIN word cout: 30
+2021-10-06 08:43:12,809 Done with configuration for Sources setion: Memoize artices :False
+2021-10-06 08:43:12,809 Done with configuration for MISC: OP MODE 4
+2021-10-06 08:43:12,809  Done with configuration for number of sites: 10
+2021-10-06 08:43:12,809  Done with configuration for RSS feed list: 1
+2021-10-06 08:43:12,809 Done Initialization
+2021-10-06 08:43:12,809 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-10-06 08:43:12,809 Memoize articles is sat False
+2021-10-06 08:43:24,921  Crawler is done with building source  Papers:1
+2021-10-06 08:43:24,921 Done Downloading News.NLP: No Articles: 539
+2021-10-06 08:43:24,921 Done Filtering. No Articles: 236
+2021-10-06 08:47:59,814 13 articles with bad url has jumped
+2021-10-06 08:47:59,814 Done with building a dict, NLP: keyword example: ['latest', 'cnn', 'headlines', 'business']
+2021-10-06 08:47:59,814 Done with inserting tag NO NLP: example: crawl
+2021-10-06 08:50:09,620 Done parsing news, No Articles0
+2021-10-06 08:50:09,620 Done building a source tag rss, example no rss has downloaded
+2021-10-06 08:50:09,621  Done merging the rss and the crawled: 236
+2021-10-06 08:50:09,621 Done retrieving news from sites
+2021-10-06 08:50:09,621 Search Index Built: 248
+2021-10-06 08:50:34,082 11 articles has jumped because article with the same title already exists
+2021-10-06 08:50:34,082 Done with populating the model
+2021-10-06 09:00:18,071 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 09:00:18,072 Done with configuration for Article section MIN word cout: 30
+2021-10-06 09:00:18,073 Done with configuration for Sources setion: Memoize artices :False
+2021-10-06 09:00:18,073 Done with configuration for MISC: OP MODE 2
+2021-10-06 09:00:18,073  Done with configuration for number of sites: 10
+2021-10-06 09:00:18,073  Done with configuration for RSS feed list: 1
+2021-10-06 09:00:18,073 Done Initialization
+2021-10-06 09:00:18,073 Retrieving news from sites. RSS ONLY Mode: 
+2021-10-06 09:00:18,073 Memoize articles is sat False
+2021-10-06 09:00:18,858 Done parsing news, No Articles69
+2021-10-06 09:00:18,858 Done building a source tag rss, example rss
+2021-10-06 09:00:18,858  Done merging the rss and the crawled: 69
+2021-10-06 09:00:18,858 Done retrieving news from sites
+2021-10-06 09:00:18,858 Search Index Built: 248
+2021-10-06 09:00:24,227 0 articles has jumped because article with the same title already exists
+2021-10-06 09:00:24,228 Done with populating the model
+2021-10-06 09:03:09,958 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 09:03:09,959 Done with configuration for Article section MIN word cout: 30
+2021-10-06 09:03:09,959 Done with configuration for Sources setion: Memoize artices :False
+2021-10-06 09:03:09,959 Done with configuration for MISC: OP MODE 2
+2021-10-06 09:03:09,959  Done with configuration for number of sites: 10
+2021-10-06 09:03:09,959  Done with configuration for RSS feed list: 1
+2021-10-06 09:03:09,959 Done Initialization
+2021-10-06 09:03:09,959 Retrieving news from sites. RSS ONLY Mode: 
+2021-10-06 09:03:09,959 Memoize articles is sat False
+2021-10-06 09:03:10,532 Done parsing news, No Articles69
+2021-10-06 09:03:10,532 Done building a source tag rss, example rss
+2021-10-06 09:03:10,533  Done merging the rss and the crawled: 69
+2021-10-06 09:03:10,533 Done retrieving news from sites
+2021-10-06 09:03:10,533 Search Index Built: 248
+2021-10-06 09:03:10,556 51 articles has jumped because article with the same title already exists
+2021-10-06 09:03:10,557 Done with populating the model
+2021-10-06 09:03:31,554 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 09:03:31,554 Done with configuration for Article section MIN word cout: 30
+2021-10-06 09:03:31,555 Done with configuration for Sources setion: Memoize artices :False
+2021-10-06 09:03:31,555 Done with configuration for MISC: OP MODE 2
+2021-10-06 09:03:31,555  Done with configuration for number of sites: 10
+2021-10-06 09:03:31,555  Done with configuration for RSS feed list: 1
+2021-10-06 09:03:31,555 Done Initialization
+2021-10-06 09:03:31,555 Retrieving news from sites. RSS ONLY Mode: 
+2021-10-06 09:03:31,555 Memoize articles is sat False
+2021-10-06 09:03:32,114 Done parsing news, No Articles69
+2021-10-06 09:03:32,114 Done building a source tag rss, example rss
+2021-10-06 09:03:32,115  Done merging the rss and the crawled: 69
+2021-10-06 09:03:32,115 Done retrieving news from sites
+2021-10-06 09:03:32,115 Search Index Built: 248
+2021-10-06 09:03:32,138 51 articles has jumped because article with the same title already exists
+2021-10-06 09:03:32,139 Done with populating the model
+2021-10-06 09:07:50,986 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 09:07:50,987 Done with configuration for Article section MIN word cout: 30
+2021-10-06 09:07:50,987 Done with configuration for Sources setion: Memoize artices :False
+2021-10-06 09:07:50,987 Done with configuration for MISC: OP MODE 2
+2021-10-06 09:07:50,988  Done with configuration for number of sites: 10
+2021-10-06 09:07:50,988  Done with configuration for RSS feed list: 1
+2021-10-06 09:07:50,988 Done Initialization
+2021-10-06 09:07:50,988 Retrieving news from sites. RSS ONLY Mode: 
+2021-10-06 09:07:50,988 Memoize articles is sat False
+2021-10-06 09:07:52,792 Done parsing news, No Articles69
+2021-10-06 09:07:52,792 Done building a source tag rss, example rss
+2021-10-06 09:07:52,792  Done merging the rss and the crawled: 69
+2021-10-06 09:07:52,792 Done retrieving news from sites
+2021-10-06 09:07:52,792 Search Index Built: 248
+2021-10-06 09:07:52,816 51 articles has jumped because article with the same title already exists
+2021-10-06 09:07:52,816 Done with populating the model
+2021-10-06 09:16:26,780 Starting Search for 9 and top results: 10
+2021-10-06 09:17:00,491 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 09:17:00,492 Done with configuration for Article section MIN word cout: 30
+2021-10-06 09:17:00,492 Done with configuration for Sources setion: Memoize artices :True
+2021-10-06 09:17:00,492 Done with configuration for MISC: OP MODE 4
+2021-10-06 09:17:00,492  Done with configuration for number of sites: 10
+2021-10-06 09:17:00,492  Done with configuration for RSS feed list: 1
+2021-10-06 09:17:00,492 Done Initialization
+2021-10-06 09:17:00,492 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-10-06 09:17:00,492 Memoize articles is sat True
+2021-10-06 09:17:12,103  Crawler is done with building source  Papers:1
+2021-10-06 09:17:12,103 Done Downloading News.NLP: No Articles: 538
+2021-10-06 09:17:12,103 Done Filtering. No Articles: 235
+2021-10-06 09:21:17,590 13 articles with bad url has jumped
+2021-10-06 09:21:17,590 Done with building a dict, NLP: keyword example: ['headlines', 'business', 'cnn', 'latest']
+2021-10-06 09:21:17,591 Done with inserting tag NO NLP: example: crawl
+2021-10-06 09:21:18,400 Done parsing news, No Articles69
+2021-10-06 09:21:18,400 Done building a source tag rss, example rss
+2021-10-06 09:21:18,400  Done merging the rss and the crawled: 304
+2021-10-06 09:21:18,400 Done retrieving news from sites
+2021-10-06 09:21:18,400 Search Index Built: 248
+2021-10-06 09:21:19,098 281 articles has jumped because article with the same title already exists
+2021-10-06 09:21:19,098 Done with populating the model
+2021-10-06 09:23:09,082 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 09:23:09,083 Done with configuration for Article section MIN word cout: 30
+2021-10-06 09:23:09,083 Done with configuration for Sources setion: Memoize artices :True
+2021-10-06 09:23:09,083 Done with configuration for MISC: OP MODE 4
+2021-10-06 09:23:09,083  Done with configuration for number of sites: 10
+2021-10-06 09:23:09,083  Done with configuration for RSS feed list: 1
+2021-10-06 09:23:09,083 Done Initialization
+2021-10-06 09:23:09,083 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-10-06 09:23:09,083 Memoize articles is sat True
+2021-10-06 09:23:21,052  Crawler is done with building source  Papers:1
+2021-10-06 09:23:21,052 Done Downloading News.NLP: No Articles: 0
+2021-10-06 09:23:21,052 Done Filtering. No Articles: 0
+2021-10-06 09:23:21,052 0 articles with bad url has jumped
+2021-10-06 09:34:27,094 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 09:34:27,095 Done with configuration for Article section MIN word cout: 30
+2021-10-06 09:34:27,095 Done with configuration for Sources setion: Memoize artices :True
+2021-10-06 09:34:27,095 Done with configuration for MISC: OP MODE 4
+2021-10-06 09:34:27,095  Done with configuration for number of sites: 10
+2021-10-06 09:34:27,095  Done with configuration for RSS feed list: 1
+2021-10-06 09:34:27,095 Done Initialization
+2021-10-06 09:34:27,095 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-10-06 09:34:27,095 Memoize articles is sat True
+2021-10-06 09:34:40,218  Crawler is done with building source  Papers:1
+2021-10-06 09:34:40,218 Done Downloading News.NLP: No Articles: 1
+2021-10-06 09:34:40,218 Done Filtering. No Articles: 1
+2021-10-06 09:34:41,981 0 articles with bad url has jumped
+2021-10-06 09:34:41,981 no rss has downloaded
+2021-10-06 09:34:41,981 Done with inserting tag NO NLP: example: crawl
+2021-10-06 09:34:42,735 Done parsing news, No Articles69
+2021-10-06 09:34:42,735 Done building a source tag rss, example rss
+2021-10-06 09:34:42,735  Done merging the rss and the crawled: 70
+2021-10-06 09:34:42,735 Done retrieving news from sites
+2021-10-06 09:34:42,735 Search Index Built: 248
+2021-10-06 09:34:43,192 48 articles has jumped because article with the same title already exists
+2021-10-06 09:34:43,192 Done with populating the model
+2021-10-06 09:36:24,724 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 09:36:24,725 Done with configuration for Article section MIN word cout: 30
+2021-10-06 09:36:24,725 Done with configuration for Sources setion: Memoize artices :True
+2021-10-06 09:36:24,725 Done with configuration for MISC: OP MODE 4
+2021-10-06 09:36:24,725  Done with configuration for number of sites: 10
+2021-10-06 09:36:24,726  Done with configuration for RSS feed list: 1
+2021-10-06 09:36:24,726 Done Initialization
+2021-10-06 09:36:24,726 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-10-06 09:36:24,726 Memoize articles is sat True
+2021-10-06 09:36:37,149  Crawler is done with building source  Papers:1
+2021-10-06 09:36:37,150 Done Downloading News.NLP: No Articles: 0
+2021-10-06 09:36:37,150 Done Filtering. No Articles: 0
+2021-10-06 09:36:37,150 0 articles with bad url has jumped
+2021-10-06 09:36:37,150 no articles has crawled
+2021-10-06 09:37:54,152 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 09:37:54,153 Done with configuration for Article section MIN word cout: 30
+2021-10-06 09:37:54,153 Done with configuration for Sources setion: Memoize artices :True
+2021-10-06 09:37:54,153 Done with configuration for MISC: OP MODE 4
+2021-10-06 09:37:54,153  Done with configuration for number of sites: 10
+2021-10-06 09:37:54,153  Done with configuration for RSS feed list: 1
+2021-10-06 09:37:54,153 Done Initialization
+2021-10-06 09:37:54,153 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-10-06 09:37:54,153 Memoize articles is sat True
+2021-10-06 09:38:04,416 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 09:38:04,417 Done with configuration for Article section MIN word cout: 30
+2021-10-06 09:38:04,418 Done with configuration for Sources setion: Memoize artices :True
+2021-10-06 09:38:04,418 Done with configuration for MISC: OP MODE 4
+2021-10-06 09:38:04,418  Done with configuration for number of sites: 10
+2021-10-06 09:38:04,418  Done with configuration for RSS feed list: 1
+2021-10-06 09:38:04,418 Done Initialization
+2021-10-06 09:38:04,418 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-10-06 09:38:04,418 Memoize articles is sat True
+2021-10-06 09:38:05,407  Crawler is done with building source  Papers:1
+2021-10-06 09:38:05,407 Done Downloading News.NLP: No Articles: 0
+2021-10-06 09:38:05,407 Done Filtering. No Articles: 0
+2021-10-06 09:38:05,407 0 articles with bad url has jumped
+2021-10-06 09:38:05,407 no articles has crawled
+2021-10-06 09:38:17,968  Crawler is done with building source  Papers:1
+2021-10-06 09:38:17,968 Done Downloading News.NLP: No Articles: 0
+2021-10-06 09:38:17,969 Done Filtering. No Articles: 0
+2021-10-06 09:38:17,969 0 articles with bad url has jumped
+2021-10-06 09:38:17,969 no articles has crawled
+2021-10-06 09:39:12,707 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 09:39:12,708 Done with configuration for Article section MIN word cout: 30
+2021-10-06 09:39:12,708 Done with configuration for Sources setion: Memoize artices :True
+2021-10-06 09:39:12,708 Done with configuration for MISC: OP MODE 4
+2021-10-06 09:39:12,708  Done with configuration for number of sites: 10
+2021-10-06 09:39:12,708  Done with configuration for RSS feed list: 1
+2021-10-06 09:39:12,708 Done Initialization
+2021-10-06 09:39:12,708 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-10-06 09:39:12,708 Memoize articles is sat True
+2021-10-06 09:39:23,359  Crawler is done with building source  Papers:1
+2021-10-06 09:39:23,359 Done Downloading News.NLP: No Articles: 0
+2021-10-06 09:39:23,359 Done Filtering. No Articles: 0
+2021-10-06 09:39:23,360 0 articles with bad url has jumped
+2021-10-06 09:39:23,360 no articles has crawled
+2021-10-06 09:39:23,360 no rss has downloaded
+2021-10-06 09:39:24,119 Done parsing news, No Articles69
+2021-10-06 09:39:24,119 Done building a source tag rss, example rss
+2021-10-06 09:39:24,119  Done merging the rss and the crawled: 69
+2021-10-06 09:39:24,119 Done retrieving news from sites
+2021-10-06 09:39:24,119 Search Index Built: 248
+2021-10-06 09:39:24,140 51 articles has jumped because article with the same title already exists
+2021-10-06 09:39:24,141 Done with populating the model
+2021-10-06 10:24:43,170 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 10:24:43,171 Done with configuration for Article section MIN word cout: 30
+2021-10-06 10:24:43,171 Done with configuration for Sources setion: Memoize artices :True
+2021-10-06 10:24:43,171 Done with configuration for MISC: OP MODE 4
+2021-10-06 10:24:43,171  Done with configuration for number of sites: 10
+2021-10-06 10:24:43,171  Done with configuration for RSS feed list: 1
+2021-10-06 10:24:43,172 Done Initialization
+2021-10-06 10:24:43,172 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-10-06 10:24:43,172 Memoize articles is sat True
+2021-10-06 10:24:54,177  Crawler is done with building source  Papers:1
+2021-10-06 10:24:54,177 Done Downloading News.NLP: No Articles: 6
+2021-10-06 10:24:54,177 Done Filtering. No Articles: 5
+2021-10-06 10:24:59,126 0 articles with bad url has jumped
+2021-10-06 10:24:59,126 Done with building a dict, NLP: keyword example: ['wc', 'premio', 'el', 'y', 'en', 'que', 'una', 'sea', 'más', 'sobre', 'macmillan', 'nobel', 'la', 'química', 'por', 'obtienen']
+2021-10-06 10:24:59,126 no rss has downloaded
+2021-10-06 10:24:59,940 Done parsing news, No Articles69
+2021-10-06 10:24:59,941 Done building a source tag rss, example rss
+2021-10-06 10:24:59,941  Done merging the rss and the crawled: 74
+2021-10-06 10:24:59,941 Done retrieving news from sites
+2021-10-06 10:24:59,941 Search Index Built: 248
+2021-10-06 10:25:00,477 0 articles has jumped because article with the same title already exists
+2021-10-06 10:25:00,478 Done with populating the model
+2021-10-06 10:26:19,238 Starting Search for 8 and top results: 10
+2021-10-06 10:26:50,655 Starting Search for 9 and top results: 10
+2021-10-06 13:44:52,358 Initializing SNETnews. Conf file: ./news.ini
+2021-10-06 13:44:52,358 Done with configuration for Article section MIN word cout: 30
+2021-10-06 13:44:52,359 Done with configuration for Sources setion: Memoize artices :False
+2021-10-06 13:44:52,359 Done with configuration for MISC: OP MODE 4
+2021-10-06 13:44:52,359  Done with configuration for number of sites: 10
+2021-10-06 13:44:52,359  Done with configuration for RSS feed list: 1
+2021-10-06 13:44:52,359 Done Initialization
+2021-10-06 13:44:52,359 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-10-06 13:44:52,359 Memoize articles is sat False
+2021-10-06 13:45:03,416  Crawler is done with building source  Papers:1
+2021-10-06 13:45:03,416 Done Downloading News.NLP: No Articles: 534
+2021-10-06 13:45:03,416 Done Filtering. No Articles: 236
+2021-10-07 08:33:55,233 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 08:33:55,265 Done with configuration for Article section MIN word cout: 30
+2021-10-07 08:33:55,265 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 08:33:55,265 Done with configuration for MISC: OP MODE 4
+2021-10-07 08:33:55,265  Done with configuration for number of sites: 10
+2021-10-07 08:33:55,265  Done with configuration for RSS feed list: 1
+2021-10-07 08:33:55,265 Done Initialization
+2021-10-07 08:33:55,265 Retrieving news from sites. EXHAUSTIVE Mode: 
+2021-10-07 08:33:55,265 Memoize articles is sat False
+2021-10-07 08:33:57,412 RSS NLP: Crawler is done with building source  Papers:1
+2021-10-07 08:33:57,412 RSS NLP: Done Downloading News: No Articles: 0
+2021-10-07 08:33:57,412 RSS NLP: Done Filtering. No Articles: 0
+2021-10-07 08:33:57,413 no articles has crawled
+2021-10-07 08:33:57,413 no rss has downloaded
+2021-10-07 08:33:57,413 Done retrieving news from sites
+2021-10-07 08:33:57,413 0 articles has jumped because article with the same title already exists
+2021-10-07 08:33:57,413 Done with populating the model
+2021-10-07 08:38:36,757 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 08:38:36,759 Done with configuration for Article section MIN word cout: 30
+2021-10-07 08:38:36,759 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 08:38:36,759 Done with configuration for MISC: OP MODE 3
+2021-10-07 08:38:36,759  Done with configuration for number of sites: 10
+2021-10-07 08:38:36,759  Done with configuration for RSS feed list: 1
+2021-10-07 08:38:36,759 Done Initialization
+2021-10-07 08:38:36,759 Retrieving news from sites. RSS_WITH_NONLP Mode: 
+2021-10-07 08:38:36,759 Memoize articles is sat False
+2021-10-07 08:38:38,185 RSS NLP: Crawler is done with building source  Papers:1
+2021-10-07 08:38:38,185 RSS NLP: Done Downloading News: No Articles: 0
+2021-10-07 08:38:38,185 RSS NLP: Done Filtering. No Articles: 0
+2021-10-07 08:38:38,185 no articles has crawled
+2021-10-07 08:38:38,185 no rss has downloaded
+2021-10-07 08:38:38,186 Done retrieving news from sites
+2021-10-07 08:38:38,186 0 articles has jumped because article with the same title already exists
+2021-10-07 08:38:38,186 Done with populating the model
+2021-10-07 11:18:37,124 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 11:18:37,125 Done with configuration for Article section MIN word cout: 30
+2021-10-07 11:18:37,125 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 11:18:37,126 Done with configuration for MISC: OP MODE 3
+2021-10-07 11:18:37,126  Done with configuration for number of sites: 10
+2021-10-07 11:18:37,126  Done with configuration for RSS feed list: 1
+2021-10-07 11:18:37,126 Done Initialization
+2021-10-07 11:18:37,126 Retrieving news from sites. RSS_WITH_NONLP Mode: 
+2021-10-07 11:18:37,126 Memoize articles is sat False
+2021-10-07 11:26:14,028 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 11:26:14,029 Done with configuration for Article section MIN word cout: 30
+2021-10-07 11:26:14,029 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 11:26:14,029 Done with configuration for MISC: OP MODE 3
+2021-10-07 11:26:14,029  Done with configuration for number of sites: 10
+2021-10-07 11:26:14,029  Done with configuration for RSS feed list: 1
+2021-10-07 11:26:14,029 Done Initialization
+2021-10-07 11:26:14,029 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 11:26:14,029 Memoize articles is sat False
+2021-10-07 11:28:24,023 RSS NLP: Done parsing news, No Articles0
+2021-10-07 11:28:24,023 no articles has crawled
+2021-10-07 11:28:24,023 no rss has downloaded
+2021-10-07 11:28:24,023 Done retrieving news from sites
+2021-10-07 11:28:24,023 0 articles has jumped because article with the same title already exists
+2021-10-07 11:28:24,023 Done with populating the model
+2021-10-07 11:35:12,809 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 11:35:12,810 Done with configuration for Article section MIN word cout: 30
+2021-10-07 11:35:12,810 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 11:35:12,810 Done with configuration for MISC: OP MODE 3
+2021-10-07 11:35:12,810  Done with configuration for number of sites: 10
+2021-10-07 11:35:12,811  Done with configuration for RSS feed list: 1
+2021-10-07 11:35:12,811 Done Initialization
+2021-10-07 11:35:12,811 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 11:35:12,811 Memoize articles is sat False
+2021-10-07 11:35:13,226 RSS NLP: Done parsing news, No Articles0
+2021-10-07 11:35:13,226 RSS NLP: Done with building a dict, NLP: keyword example: Nothing found
+2021-10-07 11:35:13,226 no rss has downloaded
+2021-10-07 11:35:13,226 Done retrieving news from sites
+2021-10-07 11:41:03,113 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 11:41:03,114 Done with configuration for Article section MIN word cout: 30
+2021-10-07 11:41:03,114 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 11:41:03,114 Done with configuration for MISC: OP MODE 3
+2021-10-07 11:41:03,114  Done with configuration for number of sites: 10
+2021-10-07 11:41:03,114  Done with configuration for RSS feed list: 1
+2021-10-07 11:41:03,114 Done Initialization
+2021-10-07 11:41:03,114 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 11:41:03,114 Memoize articles is sat False
+2021-10-07 11:41:03,511 RSS NLP: Done parsing news, No Articles0
+2021-10-07 11:41:03,511 RSS NLP: Done with building a dict, NLP: keyword example: Nothing found
+2021-10-07 11:41:03,511 no rss has downloaded
+2021-10-07 11:41:03,511 Done retrieving news from sites
+2021-10-07 11:41:03,573 22 articles has jumped because article with the same title already exists
+2021-10-07 11:41:03,573 Done with populating the model
+2021-10-07 11:43:01,086 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 11:43:01,087 Done with configuration for Article section MIN word cout: 30
+2021-10-07 11:43:01,087 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 11:43:01,087 Done with configuration for MISC: OP MODE 3
+2021-10-07 11:43:01,087  Done with configuration for number of sites: 10
+2021-10-07 11:43:01,087  Done with configuration for RSS feed list: 1
+2021-10-07 11:43:01,087 Done Initialization
+2021-10-07 11:43:01,087 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 11:43:01,087 Memoize articles is sat False
+2021-10-07 11:43:01,494 RSS NLP: Done parsing news, No Articles0
+2021-10-07 11:43:01,495 RSS NLP: Done with building a dict, NLP: keyword example: Nothing found
+2021-10-07 11:43:01,495 no rss has downloaded
+2021-10-07 11:43:01,495 Done retrieving news from sites
+2021-10-07 11:43:01,532 23 articles has jumped because article with the same title already exists
+2021-10-07 11:43:01,532 Done with populating the model
+2021-10-07 11:43:41,557 Sort Type: title, No Articles: 1
+2021-10-07 11:49:26,629 Sort Type: title, No Articles: 0
+2021-10-07 11:49:39,407 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 11:49:39,408 Done with configuration for Article section MIN word cout: 30
+2021-10-07 11:49:39,408 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 11:49:39,408 Done with configuration for MISC: OP MODE 3
+2021-10-07 11:49:39,408  Done with configuration for number of sites: 10
+2021-10-07 11:49:39,408  Done with configuration for RSS feed list: 1
+2021-10-07 11:49:39,408 Done Initialization
+2021-10-07 11:49:39,408 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 11:49:39,408 Memoize articles is sat False
+2021-10-07 11:49:39,777 RSS NLP: Done parsing news, No Articles0
+2021-10-07 11:49:39,777 RSS NLP: Done with building a dict, NLP: keyword example: Nothing found
+2021-10-07 11:49:39,777 no rss has downloaded
+2021-10-07 11:49:39,777 Done retrieving news from sites
+2021-10-07 11:49:39,808 23 articles has jumped because article with the same title already exists
+2021-10-07 11:49:39,809 Done with populating the model
+2021-10-07 12:02:03,709 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:02:03,710 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:02:03,711 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:02:03,711 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:02:03,711  Done with configuration for number of sites: 10
+2021-10-07 12:02:03,711  Done with configuration for RSS feed list: 1
+2021-10-07 12:02:03,711 Done Initialization
+2021-10-07 12:02:03,711 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:02:03,711 Memoize articles is sat False
+2021-10-07 12:02:04,595 RSS NLP: Done parsing news, No Articles0
+2021-10-07 12:02:04,595 RSS NLP: Done with building a dict, NLP: keyword example: Nothing found
+2021-10-07 12:02:04,595 no rss has downloaded
+2021-10-07 12:02:04,595 Done retrieving news from sites
+2021-10-07 12:02:04,653 22 articles has jumped because article with the same title already exists
+2021-10-07 12:02:04,653 Done with populating the model
+2021-10-07 12:02:41,707 Sort Type: title, No Articles: 1
+2021-10-07 12:07:03,380 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:07:03,381 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:07:03,382 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:07:03,382 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:07:03,382  Done with configuration for number of sites: 10
+2021-10-07 12:07:03,382  Done with configuration for RSS feed list: 1
+2021-10-07 12:07:03,382 Done Initialization
+2021-10-07 12:07:03,382 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:07:03,382 Memoize articles is sat False
+2021-10-07 12:07:04,190 RSS NLP: Done parsing news, No Articles0
+2021-10-07 12:07:06,890 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:07:08,455 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:16,811 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:11:16,812 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:11:16,812 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:11:16,812 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:11:16,812  Done with configuration for number of sites: 10
+2021-10-07 12:11:16,812  Done with configuration for RSS feed list: 1
+2021-10-07 12:11:16,812 Done Initialization
+2021-10-07 12:11:16,812 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:11:16,812 Memoize articles is sat False
+2021-10-07 12:11:17,206 RSS NLP: Done parsing news, No Articles0
+2021-10-07 12:11:19,160 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:20,061 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:26,097 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:27,361 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:28,272 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:29,144 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:30,308 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:33,404 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:34,355 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:35,336 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:37,298 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:38,974 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:40,265 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:42,082 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:45,112 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:46,297 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:47,901 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:49,859 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:50,782 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:51,827 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:53,501 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:54,655 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:55,815 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:11:55,815 RSS NLP: Done with building a dict, NLP: keyword example: Nothing found
+2021-10-07 12:11:55,815 no rss has downloaded
+2021-10-07 12:11:55,815 Done retrieving news from sites
+2021-10-07 12:11:55,849 23 articles has jumped because article with the same title already exists
+2021-10-07 12:11:55,849 Done with populating the model
+2021-10-07 12:12:43,508 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:12:43,509 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:12:43,509 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:12:43,509 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:12:43,509  Done with configuration for number of sites: 10
+2021-10-07 12:12:43,509  Done with configuration for RSS feed list: 1
+2021-10-07 12:12:43,509 Done Initialization
+2021-10-07 12:12:43,509 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:12:43,509 Memoize articles is sat False
+2021-10-07 12:12:43,908 RSS NLP: Done parsing news, No Articles0
+2021-10-07 12:12:45,636 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:12:46,743 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:12:47,941 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:12:48,882 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:12:49,822 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:12:51,400 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:05,023 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:06,023 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:06,954 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:08,986 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:10,570 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:11,537 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:12,502 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:19,304 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:37,228 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:38,190 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:39,256 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:41,134 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:43,823 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:46,950 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:48,170 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:49,100 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:50,092 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:13:50,092 RSS NLP: Done with building a dict, NLP: keyword example: Nothing found
+2021-10-07 12:13:50,095 no rss has downloaded
+2021-10-07 12:13:50,095 Done retrieving news from sites
+2021-10-07 12:13:50,126 23 articles has jumped because article with the same title already exists
+2021-10-07 12:13:50,126 Done with populating the model
+2021-10-07 12:20:58,110 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:20:58,111 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:20:58,111 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:20:58,111 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:20:58,111  Done with configuration for number of sites: 10
+2021-10-07 12:20:58,111  Done with configuration for RSS feed list: 1
+2021-10-07 12:20:58,111 Done Initialization
+2021-10-07 12:20:58,111 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:20:58,111 Memoize articles is sat False
+2021-10-07 12:20:58,569 RSS NLP: Done parsing news, No Articles23
+2021-10-07 12:21:50,030 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:21:50,031 RSS NLP: Done with building a dict, NLP: keyword example: Nothing found
+2021-10-07 12:21:50,031 no rss has downloaded
+2021-10-07 12:21:50,031 Done retrieving news from sites
+2021-10-07 12:21:50,068 23 articles has jumped because article with the same title already exists
+2021-10-07 12:21:50,068 Done with populating the model
+2021-10-07 12:25:35,362 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:25:35,363 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:25:35,363 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:25:35,363 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:25:35,363  Done with configuration for number of sites: 10
+2021-10-07 12:25:35,363  Done with configuration for RSS feed list: 1
+2021-10-07 12:25:35,363 Done Initialization
+2021-10-07 12:25:35,363 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:25:35,363 Memoize articles is sat False
+2021-10-07 12:25:35,852 RSS NLP: Done parsing news, No Articles23
+2021-10-07 12:26:24,476 RSS NLP: 23 articles with bad url has jumped
+2021-10-07 12:26:24,476 RSS NLP: Done with building a dict, NLP: keyword example: Nothing found
+2021-10-07 12:26:24,476 no rss has downloaded
+2021-10-07 12:26:24,476 Done retrieving news from sites
+2021-10-07 12:26:24,505 23 articles has jumped because article with the same title already exists
+2021-10-07 12:26:24,505 Done with populating the model
+2021-10-07 12:28:25,667 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:28:25,668 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:28:25,669 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:28:25,669 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:28:25,669  Done with configuration for number of sites: 10
+2021-10-07 12:28:25,669  Done with configuration for RSS feed list: 1
+2021-10-07 12:28:25,669 Done Initialization
+2021-10-07 12:28:25,669 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:28:25,669 Memoize articles is sat False
+2021-10-07 12:28:26,066 RSS NLP: Done parsing news, No Articles23
+2021-10-07 12:29:31,789 RSS NLP: 23 articles with bad url has jumped
+2021-10-07 12:29:31,790 RSS NLP: Done with building a dict, NLP: keyword example: Nothing found
+2021-10-07 12:29:31,790 no rss has downloaded
+2021-10-07 12:29:31,790 Done retrieving news from sites
+2021-10-07 12:29:31,822 23 articles has jumped because article with the same title already exists
+2021-10-07 12:29:31,822 Done with populating the model
+2021-10-07 12:31:24,128 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:31:24,129 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:31:24,129 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:31:24,129 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:31:24,129  Done with configuration for number of sites: 10
+2021-10-07 12:31:24,130  Done with configuration for RSS feed list: 1
+2021-10-07 12:31:24,130 Done Initialization
+2021-10-07 12:31:24,130 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:31:24,130 Memoize articles is sat False
+2021-10-07 12:31:24,521 RSS NLP: Done parsing news, No Articles23
+2021-10-07 12:33:39,450 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:33:39,451 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:33:39,451 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:33:39,451 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:33:39,451  Done with configuration for number of sites: 10
+2021-10-07 12:33:39,451  Done with configuration for RSS feed list: 1
+2021-10-07 12:33:39,451 Done Initialization
+2021-10-07 12:33:39,451 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:33:39,451 Memoize articles is sat False
+2021-10-07 12:33:40,386 RSS NLP: Done parsing news, No Articles23
+2021-10-07 12:34:46,041 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:34:46,041 RSS NLP: Done with building a dict, NLP: keyword example: Nothing found
+2021-10-07 12:34:46,041 no rss has downloaded
+2021-10-07 12:34:46,042 Done retrieving news from sites
+2021-10-07 12:34:46,075 23 articles has jumped because article with the same title already exists
+2021-10-07 12:34:46,075 Done with populating the model
+2021-10-07 12:36:16,243 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:36:16,245 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:36:16,245 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:36:16,245 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:36:16,245  Done with configuration for number of sites: 10
+2021-10-07 12:36:16,245  Done with configuration for RSS feed list: 1
+2021-10-07 12:36:16,245 Done Initialization
+2021-10-07 12:36:16,245 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:36:16,246 Memoize articles is sat False
+2021-10-07 12:36:16,638 RSS NLP: Done parsing news, No Articles23
+2021-10-07 12:36:18,657 RSS NLP:['women', 'temporarily', 'enforcement', 'procedure', 'perform', 'sue', 'judge', 'point', 'past', 'right', 'sued', 'law', 'blocks', 'sixweek', 'texas', 'abortion']
+2021-10-07 12:36:19,633 RSS NLP:['visit', 'earthquake', 'page', 'submit', 'need', 'website', 'kills', 'question', 'reading', 'mobile', 'balochistan', 'pakistan', 'submission', 'province', '20', 'version']
+2021-10-07 12:36:21,143 RSS NLP:['solution', 'theres', 'warming', 'series', 'room', 'indias', 'struggles', 'cool', '50c', 'india', 'heatwaves', 'live', 'mohammed', 'life', 'keeping']
+2021-10-07 12:36:22,435 RSS NLP:['precisely', '2021', 'abdulrazak', 'winner', 'having', 'somebody', 'prize', 'reductive', 'sure', 'saying', 'say', 'probably', 'nobel', 'named', 'way', 'literature', 'guess', 'gurnah']
+2021-10-07 12:36:23,544 RSS NLP:['dont', 'kids', 'situation', 'return', 'nicole', 'unit', 'sweep', 'mother', 'sure', 'jack', 'know', 'insists', 'prepared', 'separated', 'state', 'islamic', 'carpet', 'stable']
+2021-10-07 12:36:24,618 RSS NLP:['trial', 'guard', '100yearold', 'germany', 'josef', 'hours', 'nazi', 'day', 'sachsenhausen', 'ss', 's', 'continue', 'court', 'half']
+2021-10-07 12:36:36,395 RSS NLP:['dont', 'went', 'wells', 'feel', 'shoes', 'andy', 'bad', 'wedding', 'ring', 'stolen', 'world', 'murray', 'books']
+2021-10-07 12:36:38,240 RSS NLP:['children', 'historic', 'work', 'goahead', 'needed', 'seven', 'month', 'vaccine', 'protect', 'months', 'requires', 'old', 'malaria', 'african', 'world', 'real']
+2021-10-07 12:36:39,286 RSS NLP:['russian', 'seen', 'russians', 'expels', 'malign', 'vigilant', 'need', 'particular', 'stoltenberg', 'mission', 'linked', 'spying', 'secretarygeneral', 'nato']
+2021-10-07 12:36:40,298 RSS NLP:['rule', 'matter', 'zubaydahs', 'case', 'mr', 'torture', 'test', 'military', 'limiting', 'poland', 'secrecy', 'testify', 'zubaydah', 'state', 'court', 'way', 'link', 'abu']
+2021-10-07 12:36:41,347 RSS NLP:['series', 'game', 'number', 'money', 'phone', 'gory', 'using', 'told', 'today', 'taken', 'numbers', 'ive', 'squid', 'edit', 'quite', 'netflix', 'key']
+2021-10-07 12:36:42,484 RSS NLP:['investigate', 'suspected', 'need', 'haul', 'discovered', 'mr', 'child', 'objects', 'abuser', 'nazi', 'unusual', 'totally', 'museum', 'collection', 'obtained', 'shocking', 'brazil']
+2021-10-07 12:36:44,511 RSS NLP:['drug', 'created', 'studies', 'ivermectin', 'world', 'miracle', 'saved', 'science', 'researchers', 'sample', 'problems', 'prevented', 'suggesting', 'terms', 'false', 'covid', 'research']
+2021-10-07 12:36:45,652 RSS NLP:['twice', 'endsars', 'protests', 'achieve', 'videos', 'point', 'trying', 'month', 'weve', 'nigerias', 'media', 'social', 'moved', 'wake']
+2021-10-07 12:36:48,076 RSS NLP:['children', 'far', 'messi', 'neymar', 'pochettino', 'forwards', 'team', 'inside', 'months', 'psg', 'lionel', 'barcelona', 'france', 'messis', 'stgermain', 'paris']
+2021-10-07 12:36:51,469 RSS NLP:['restructuring', 'xis', 'rich', 'china', 'middle', 'impact', 'changing', 'prosperity', 'society', 'robbing', 'common', 'idea', 'end', 'world', 'quite', 'used', 'good']
+2021-10-07 12:36:52,798 RSS NLP:['russian', 'elections', 'wasnt', 'billionaire', 'remember', 'general', 'asks', 'czech', 'voters', 'pushed', 'thats', 'fun', 'sphere', 'pretty', 'occupation']
+2021-10-07 12:36:55,561 RSS NLP:['ros', 'chinas', 'china', 'theyre', 'biggest', 'tackle', 'worlds', 'think', 'atkins', 'global', 'climate', 'co2', 'change', 'promises']
+2021-10-07 12:36:56,913 RSS NLP:['sandstorm', 'towns', 'paulo', 'state', 'warmed', 'turn', 'strong', 'droughts', 'cause', 'town', 'unless', 'são', 'worsethe', 'winds', 'world', 'brazil']
+2021-10-07 12:36:58,090 RSS NLP:['selbie', 'working', 'whatsapp', 'users', 'tamsin', 'affect', 'stopped', 'influencers', 'instagram', 'smith', 'facebook', 'social', 'world', 'outage', 'relief']
+2021-10-07 12:36:59,354 RSS NLP:['territorys', 'hear', 'upsurge', 'speaking', 'resistance', 'turmoilsince', 'syed', 'violenceas', 'zahoor', 'youth', 'aamir', 'unrest', 'voice', 'music', 'kashmirs']
+2021-10-07 12:37:01,196 RSS NLP:['pressure', 'public', 'journalists', 'companies', 'trawled', 'cause', 'tax', 'worlds', 'politicians', 'papers', 'documents', 'washington', 'wealth', 'act', 'pandora', 'world']
+2021-10-07 12:37:02,339 RSS NLP:['young', 'stops', 'blasts', 'weakens', 'testified', 'facebooks', 'aversion', 'users', 'zuckerberg', 'targeting', 'younger', 'whistleblower', 'usersthe', 'facebook']
+2021-10-07 12:37:02,339 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:37:02,339 RSS NLP: Done with building a dict, NLP: keyword example: Nothing found
+2021-10-07 12:37:02,340 no rss has downloaded
+2021-10-07 12:37:02,340 Done retrieving news from sites
+2021-10-07 12:37:02,375 23 articles has jumped because article with the same title already exists
+2021-10-07 12:37:02,375 Done with populating the model
+2021-10-07 12:41:55,090 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:41:55,091 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:41:55,091 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:41:55,091 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:41:55,091  Done with configuration for number of sites: 10
+2021-10-07 12:41:55,092  Done with configuration for RSS feed list: 1
+2021-10-07 12:41:55,092 Done Initialization
+2021-10-07 12:41:55,092 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:41:55,092 Memoize articles is sat False
+2021-10-07 12:41:55,462 RSS NLP: Done parsing news, No Articles23
+2021-10-07 12:42:26,709 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:43:39,825 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:43:39,826 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:43:39,826 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:43:39,826 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:43:39,826  Done with configuration for number of sites: 10
+2021-10-07 12:43:39,826  Done with configuration for RSS feed list: 1
+2021-10-07 12:43:39,826 Done Initialization
+2021-10-07 12:43:39,826 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:43:39,826 Memoize articles is sat False
+2021-10-07 12:43:40,201 RSS NLP: Done parsing news, No Articles23
+2021-10-07 12:44:09,176 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:44:09,176 RSS NLP: Done with building a dict, NLP: keyword example: ['women', 'perform', 'law', 'texas', 'sixweek', 'sue', 'procedure', 'past', 'judge', 'abortion', 'right', 'blocks', 'temporarily', 'enforcement', 'sued', 'point']
+2021-10-07 12:44:09,176 no rss has downloaded
+2021-10-07 12:44:09,176 Done retrieving news from sites
+2021-10-07 12:44:09,177 0 articles has jumped because article with the same title already exists
+2021-10-07 12:44:09,177 Done with populating the model
+2021-10-07 12:45:15,998 Sort Type: title, No Articles: 1
+2021-10-07 12:47:12,133 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:47:12,134 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:47:12,134 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:47:12,134 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:47:12,134  Done with configuration for number of sites: 10
+2021-10-07 12:47:12,134  Done with configuration for RSS feed list: 1
+2021-10-07 12:47:12,134 Done Initialization
+2021-10-07 12:47:12,134 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:47:12,134 Memoize articles is sat False
+2021-10-07 12:47:12,537 RSS NLP: Done parsing news, No Articles23
+2021-10-07 12:47:45,557 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:47:45,557 RSS NLP: Done with building a dict, NLP: keyword example: ['past', 'law', 'temporarily', 'texas', 'judge', 'perform', 'sued', 'women', 'enforcement', 'sue', 'sixweek', 'abortion', 'procedure', 'right', 'blocks', 'point']
+2021-10-07 12:47:45,557 RSS NLP: Done with inserting tag NO NLP: example: rss_nlp
+2021-10-07 12:47:45,558 Done retrieving news from sites
+2021-10-07 12:47:45,558 0 articles has jumped because article with the same title already exists
+2021-10-07 12:47:45,558 Done with populating the model
+2021-10-07 12:50:02,076 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:50:02,077 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:50:02,077 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:50:02,077 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:50:02,077  Done with configuration for number of sites: 10
+2021-10-07 12:50:02,077  Done with configuration for RSS feed list: 1
+2021-10-07 12:50:02,077 Done Initialization
+2021-10-07 12:50:02,077 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:50:02,077 Memoize articles is sat False
+2021-10-07 12:50:02,477 RSS NLP: Done parsing news, No Articles23
+2021-10-07 12:50:30,465 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:50:30,465 RSS NLP: Done with building a dict, NLP: keyword example: ['sued', 'past', 'temporarily', 'blocks', 'judge', 'enforcement', 'perform', 'law', 'sue', 'sixweek', 'women', 'point', 'procedure', 'texas', 'right', 'abortion']
+2021-10-07 12:50:30,466 RSS NLP: Done with inserting tag NO NLP: example: rss_nlp
+2021-10-07 12:50:30,466 Done retrieving news from sites
+2021-10-07 12:50:30,530 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:50:30,530 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:50:30,531 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:50:30,531 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:50:30,531  Done with configuration for number of sites: 10
+2021-10-07 12:50:30,531  Done with configuration for RSS feed list: 1
+2021-10-07 12:50:30,531 Done Initialization
+2021-10-07 12:50:30,531 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:50:30,531 Memoize articles is sat False
+2021-10-07 12:50:30,691 0 articles has jumped because article with the same title already exists
+2021-10-07 12:50:30,691 Done with populating the model
+2021-10-07 12:50:30,701 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:50:30,702 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:50:30,703 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:50:30,703 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:50:30,703  Done with configuration for number of sites: 10
+2021-10-07 12:50:30,703  Done with configuration for RSS feed list: 1
+2021-10-07 12:50:30,703 Done Initialization
+2021-10-07 12:50:30,703 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:50:30,703 Memoize articles is sat False
+2021-10-07 12:50:30,931 RSS NLP: Done parsing news, No Articles23
+2021-10-07 12:50:30,954 RSS NLP: Done parsing news, No Articles23
+2021-10-07 12:50:32,971 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 12:50:32,972 Done with configuration for Article section MIN word cout: 30
+2021-10-07 12:50:32,973 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 12:50:32,973 Done with configuration for MISC: OP MODE 3
+2021-10-07 12:50:32,973  Done with configuration for number of sites: 10
+2021-10-07 12:50:32,973  Done with configuration for RSS feed list: 1
+2021-10-07 12:50:32,973 Done Initialization
+2021-10-07 12:50:32,973 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 12:50:32,973 Memoize articles is sat False
+2021-10-07 12:50:33,179 RSS NLP: Done parsing news, No Articles23
+2021-10-07 12:50:55,605 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:50:55,605 RSS NLP: Done with building a dict, NLP: keyword example: ['sued', 'past', 'temporarily', 'blocks', 'judge', 'enforcement', 'perform', 'law', 'sue', 'sixweek', 'women', 'point', 'procedure', 'texas', 'right', 'abortion']
+2021-10-07 12:50:55,605 RSS NLP: Done with inserting tag NO NLP: example: rss_nlp
+2021-10-07 12:50:55,605 Done retrieving news from sites
+2021-10-07 12:50:55,627 23 articles has jumped because article with the same title already exists
+2021-10-07 12:50:55,628 Done with populating the model
+2021-10-07 12:50:57,881 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:50:57,881 RSS NLP: Done with building a dict, NLP: keyword example: ['sued', 'past', 'temporarily', 'blocks', 'judge', 'enforcement', 'perform', 'law', 'sue', 'sixweek', 'women', 'point', 'procedure', 'texas', 'right', 'abortion']
+2021-10-07 12:50:57,881 RSS NLP: Done with inserting tag NO NLP: example: rss_nlp
+2021-10-07 12:50:57,881 Done retrieving news from sites
+2021-10-07 12:50:57,906 23 articles has jumped because article with the same title already exists
+2021-10-07 12:50:57,906 Done with populating the model
+2021-10-07 12:50:58,796 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 12:50:58,796 RSS NLP: Done with building a dict, NLP: keyword example: ['sued', 'past', 'temporarily', 'blocks', 'judge', 'enforcement', 'perform', 'law', 'sue', 'sixweek', 'women', 'point', 'procedure', 'texas', 'right', 'abortion']
+2021-10-07 12:50:58,796 RSS NLP: Done with inserting tag NO NLP: example: rss_nlp
+2021-10-07 12:50:58,796 Done retrieving news from sites
+2021-10-07 12:50:58,823 23 articles has jumped because article with the same title already exists
+2021-10-07 12:50:58,823 Done with populating the model
+2021-10-07 12:52:23,458 Sort Type: title, No Articles: 0
+2021-10-07 12:52:42,816 Sort Type: title, No Articles: 24
+2021-10-07 12:53:18,649 Starting Search for 8 and top results: 10
+2021-10-07 13:00:39,617 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 13:00:39,618 Done with configuration for Article section MIN word cout: 30
+2021-10-07 13:00:39,619 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 13:00:39,619 Done with configuration for MISC: OP MODE 1
+2021-10-07 13:00:39,619  Done with configuration for number of sites: 10
+2021-10-07 13:00:39,619  Done with configuration for RSS feed list: 1
+2021-10-07 13:00:39,619 Done Initialization
+2021-10-07 13:00:39,619 Retrieving news from sites. NLP Mode: 
+2021-10-07 13:00:39,619 Memoize articles is sat False
+2021-10-07 13:00:50,290 NLP & NO NLP: Crawler is done with building source  Papers:1
+2021-10-07 13:00:50,290 NLP: Done Downloading News.NLP: No Articles: 547
+2021-10-07 13:00:50,291 NLP: Done Filtering. No Articles: 238
+2021-10-07 13:05:11,257 RSS NLP: 13 articles with bad url has jumped
+2021-10-07 13:05:11,257 NLP: Done with building a dict, NLP: keyword example: ['headlines', 'latest', 'cnn', 'business']
+2021-10-07 13:05:11,257 no rss has downloaded
+2021-10-07 13:05:11,257 Done retrieving news from sites
+2021-10-07 13:12:23,334 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 13:12:23,335 Done with configuration for Article section MIN word cout: 30
+2021-10-07 13:12:23,335 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 13:12:23,335 Done with configuration for MISC: OP MODE 1
+2021-10-07 13:12:23,335  Done with configuration for number of sites: 10
+2021-10-07 13:12:23,335  Done with configuration for RSS feed list: 1
+2021-10-07 13:12:23,335 Done Initialization
+2021-10-07 13:12:23,336 Retrieving news from sites. NLP Mode: 
+2021-10-07 13:12:23,336 Memoize articles is sat False
+2021-10-07 13:12:29,440 NLP & NO NLP: Crawler is done with building source  Papers:1
+2021-10-07 13:12:29,440 NLP: Done Downloading News.NLP: No Articles: 128
+2021-10-07 13:12:29,440 NLP: Done Filtering. No Articles: 100
+2021-10-07 13:14:50,801 RSS NLP: 1 articles with bad url has jumped
+2021-10-07 13:14:50,801 NLP: Done with building a dict, NLP: keyword example: ['health', 'covid', 'asks', 'coronavirus', 'getty', 'living', 'worst', 'world', 'scotland', 'long', 'condition']
+2021-10-07 13:14:50,801 no rss has downloaded
+2021-10-07 13:14:50,801 Done retrieving news from sites
+2021-10-07 13:14:51,857 3 articles has jumped because article with the same title already exists
+2021-10-07 13:14:51,857 Done with populating the model
+2021-10-07 13:15:32,675 Sort Type: title, No Articles: 102
+2021-10-07 13:16:15,735 Sort Type: title, No Articles: 0
+2021-10-07 13:25:51,549 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 13:25:51,550 Done with configuration for Article section MIN word cout: 30
+2021-10-07 13:25:51,550 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 13:25:51,550 Done with configuration for MISC: OP MODE 0
+2021-10-07 13:25:51,550  Done with configuration for number of sites: 10
+2021-10-07 13:25:51,550  Done with configuration for RSS feed list: 1
+2021-10-07 13:25:51,550 Done Initialization
+2021-10-07 13:25:51,550 Retrieving news from sites. NO_NLP Mode: 
+2021-10-07 13:25:51,550 Memoize articles is sat False
+2021-10-07 13:25:59,855 NLP & NO NLP: Crawler is done with building source  Papers:1
+2021-10-07 13:25:59,855 NO NLP: Done Filtering NONLP. No Articles: 98
+2021-10-07 13:25:59,856 NO NLP: Done with inserting tag NLP: example: crawl
+2021-10-07 13:25:59,856 Done retrieving news from sites
+2021-10-07 13:25:59,946 98 articles has jumped because article with the same title already exists
+2021-10-07 13:25:59,946 Done with populating the model
+2021-10-07 13:27:49,907 Sort Type: title, No Articles: 0
+2021-10-07 13:34:16,092 Sort Type: title, No Articles: 0
+2021-10-07 13:34:23,539 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 13:34:23,540 Done with configuration for Article section MIN word cout: 30
+2021-10-07 13:34:23,540 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 13:34:23,541 Done with configuration for MISC: OP MODE 0
+2021-10-07 13:34:23,541  Done with configuration for number of sites: 10
+2021-10-07 13:34:23,541  Done with configuration for RSS feed list: 1
+2021-10-07 13:34:23,541 Done Initialization
+2021-10-07 13:34:23,541 Retrieving news from sites. NO_NLP Mode: 
+2021-10-07 13:34:23,541 Memoize articles is sat False
+2021-10-07 13:34:28,971 NLP & NO NLP: Crawler is done with building source  Papers:1
+2021-10-07 13:34:28,971 NO NLP: Done Filtering NONLP. No Articles: 98
+2021-10-07 13:34:28,971 NO NLP: Done with inserting tag NLP: example: crawl
+2021-10-07 13:34:28,971 Done retrieving news from sites
+2021-10-07 13:34:29,071 98 articles has jumped because similar articles already exists
+2021-10-07 13:34:29,071 Done with populating the model
+2021-10-07 13:36:24,986 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 13:36:24,987 Done with configuration for Article section MIN word cout: 30
+2021-10-07 13:36:24,987 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 13:36:24,988 Done with configuration for MISC: OP MODE 0
+2021-10-07 13:36:24,988  Done with configuration for number of sites: 10
+2021-10-07 13:36:24,988  Done with configuration for RSS feed list: 1
+2021-10-07 13:36:24,988 Done Initialization
+2021-10-07 13:36:24,988 Retrieving news from sites. NO_NLP Mode: 
+2021-10-07 13:36:24,988 Memoize articles is sat False
+2021-10-07 13:36:30,465 NLP & NO NLP: Crawler is done with building source  Papers:1
+2021-10-07 13:36:30,465 NO NLP: Done Filtering NONLP. No Articles: 98
+2021-10-07 13:36:30,465 NO NLP: Done with inserting tag NLP: example: crawl
+2021-10-07 13:36:30,465 Done retrieving news from sites
+2021-10-07 13:36:31,352 19 articles has jumped because similar articles already exists
+2021-10-07 13:36:31,352 Done with populating the model
+2021-10-07 13:37:47,271 Sort Type: title, No Articles: 79
+2021-10-07 13:38:08,377 Sort Type: title, No Articles: 79
+2021-10-07 13:43:57,175 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 13:43:57,176 Done with configuration for Article section MIN word cout: 30
+2021-10-07 13:43:57,176 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 13:43:57,176 Done with configuration for MISC: OP MODE 0
+2021-10-07 13:43:57,176  Done with configuration for number of sites: 10
+2021-10-07 13:43:57,176  Done with configuration for RSS feed list: 1
+2021-10-07 13:43:57,176 Done Initialization
+2021-10-07 13:43:57,176 Retrieving news from sites. NO_NLP Mode: 
+2021-10-07 13:43:57,176 Memoize articles is sat False
+2021-10-07 13:44:02,945 NLP & NO NLP: Crawler is done with building source  Papers:1
+2021-10-07 13:44:02,946 NO NLP: Done Filtering NONLP. No Articles: 98
+2021-10-07 13:44:02,946 NO NLP: Done with inserting tag NLP: example: crawl
+2021-10-07 13:44:02,946 Done retrieving news from sites
+2021-10-07 13:44:03,690 18 articles has jumped because similar articles already exists
+2021-10-07 13:44:03,690 Done with populating the model
+2021-10-07 13:47:44,533 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 13:47:44,534 Done with configuration for Article section MIN word cout: 30
+2021-10-07 13:47:44,534 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 13:47:44,534 Done with configuration for MISC: OP MODE 2
+2021-10-07 13:47:44,534  Done with configuration for number of sites: 10
+2021-10-07 13:47:44,534  Done with configuration for RSS feed list: 1
+2021-10-07 13:47:44,534 Done Initialization
+2021-10-07 13:47:44,534 Retrieving news from sites. RSS_ONLY Mode: 
+2021-10-07 13:47:44,534 Memoize articles is sat False
+2021-10-07 13:47:44,910 RSS: Done parsing news, No Articles0
+2021-10-07 13:47:44,910 RSS: Done building a source tag rss, example no rss has downloaded
+2021-10-07 13:47:44,910 Done retrieving news from sites
+2021-10-07 13:50:21,357 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 13:50:21,358 Done with configuration for Article section MIN word cout: 30
+2021-10-07 13:50:21,358 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 13:50:21,358 Done with configuration for MISC: OP MODE 2
+2021-10-07 13:50:21,358  Done with configuration for number of sites: 10
+2021-10-07 13:50:21,358  Done with configuration for RSS feed list: 1
+2021-10-07 13:50:21,358 Done Initialization
+2021-10-07 13:50:21,359 Retrieving news from sites. RSS_ONLY Mode: 
+2021-10-07 13:50:21,359 Memoize articles is sat False
+2021-10-07 13:50:21,732 RSS: Done parsing news, No Articles0
+2021-10-07 13:50:21,733 RSS: Done building a source tag rss, example rss
+2021-10-07 13:50:21,733 Done retrieving news from sites
+2021-10-07 13:50:21,949 0 articles has jumped because similar articles already exists
+2021-10-07 13:50:21,949 Done with populating the model
+2021-10-07 13:50:37,731 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 13:50:37,732 Done with configuration for Article section MIN word cout: 30
+2021-10-07 13:50:37,732 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 13:50:37,732 Done with configuration for MISC: OP MODE 2
+2021-10-07 13:50:37,732  Done with configuration for number of sites: 10
+2021-10-07 13:50:37,732  Done with configuration for RSS feed list: 1
+2021-10-07 13:50:37,732 Done Initialization
+2021-10-07 13:50:37,732 Retrieving news from sites. RSS_ONLY Mode: 
+2021-10-07 13:50:37,732 Memoize articles is sat False
+2021-10-07 13:50:37,941 RSS: Done parsing news, No Articles0
+2021-10-07 13:50:37,941 RSS: Done building a source tag rss, example rss
+2021-10-07 13:50:37,941 Done retrieving news from sites
+2021-10-07 13:50:37,973 23 articles has jumped because similar articles already exists
+2021-10-07 13:50:37,973 Done with populating the model
+2021-10-07 13:53:00,760 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 13:53:00,761 Done with configuration for Article section MIN word cout: 30
+2021-10-07 13:53:00,761 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 13:53:00,761 Done with configuration for MISC: OP MODE 3
+2021-10-07 13:53:00,761  Done with configuration for number of sites: 10
+2021-10-07 13:53:00,761  Done with configuration for RSS feed list: 1
+2021-10-07 13:53:00,761 Done Initialization
+2021-10-07 13:53:00,761 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-07 13:53:00,761 Memoize articles is sat False
+2021-10-07 13:53:01,156 RSS NLP: Done parsing news, No Articles23
+2021-10-07 13:53:22,775 RSS NLP: 0 articles with bad url has jumped
+2021-10-07 13:53:22,775 RSS NLP: Done with building a dict, NLP: keyword example: ['past', 'procedure', 'abortion', 'judge', 'texas', 'law', 'sixweek', 'right', 'point', 'perform', 'sue', 'women', 'enforcement', 'temporarily', 'sued', 'blocks']
+2021-10-07 13:53:22,775 RSS NLP: Done with inserting tag NO NLP: example: rss_nlp
+2021-10-07 13:53:22,775 Done retrieving news from sites
+2021-10-07 13:53:22,977 0 articles has jumped because similar articles already exists
+2021-10-07 13:53:22,978 Done with populating the model
+2021-10-07 13:54:13,547 Sort Type: title, No Articles: 23
+2021-10-07 13:55:01,898 Sort Type: title, No Articles: 23
+2021-10-07 13:57:49,611 Initializing SNETnews. Conf file: ./news.ini
+2021-10-07 13:57:49,612 Done with configuration for Article section MIN word cout: 30
+2021-10-07 13:57:49,612 Done with configuration for Sources setion: Memoize artices :False
+2021-10-07 13:57:49,612 Done with configuration for MISC: OP MODE 1
+2021-10-07 13:57:49,612  Done with configuration for number of sites: 10
+2021-10-07 13:57:49,612  Done with configuration for RSS feed list: 1
+2021-10-07 13:57:49,612 Done Initialization
+2021-10-07 13:57:49,612 Retrieving news from sites. NLP Mode: 
+2021-10-07 13:57:49,612 Memoize articles is sat False
+2021-10-07 13:57:56,069 NLP & NO NLP: Crawler is done with building source  Papers:1
+2021-10-07 13:57:56,069 NLP: Done Downloading News.NLP: No Articles: 126
+2021-10-07 13:57:56,069 NLP: Done Filtering. No Articles: 98
+2021-10-07 13:59:17,367 RSS NLP: 1 articles with bad url has jumped
+2021-10-07 13:59:17,367 NLP: Done with building a dict, NLP: keyword example: ['long', 'living', 'worst', 'condition', 'covid', 'getty', 'asks', 'health', 'world', 'coronavirus', 'scotland']
+2021-10-07 13:59:17,367 no rss has downloaded
+2021-10-07 13:59:17,367 Done retrieving news from sites
+2021-10-07 13:59:18,218 9 articles has jumped because similar articles already exists
+2021-10-07 13:59:18,218 Done with populating the model

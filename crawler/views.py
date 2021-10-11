@@ -30,10 +30,30 @@ from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 
 link_param = openapi.Parameter( 'link', in_=openapi.IN_QUERY, description='link to be crawled', type=openapi.TYPE_STRING, )
+fetch_params = [openapi.Parameter('sort', in_=openapi.IN_QUERY, description= "Sort type",
+        type= openapi.TYPE_STRING, ),
+        openapi.Parameter('results', in_=openapi.IN_QUERY,
+            description= "Number of articles to be fetched", type= openapi.TYPE_STRING, ),
+        openapi.Parameter('rss', in_=openapi.IN_QUERY, description= "RSS fetch",
+        type= openapi.TYPE_BOOLEAN, ),
+        openapi.Parameter('nlp', in_=openapi.IN_QUERY, description= "NLP fetch",
+        type= openapi.TYPE_BOOLEAN, ),
+
+        ]
 #TO DO proper rest api naming
 #TO DO class based view
 @api_view(['GET'])
 def download(request):
+    '''
+    Download articles from websites based on the mode set in the configuration file and saves to 
+    the database.
+    Return the downloaded articles plus additional articles in the database
+    Get nothing
+
+    Returns: 
+            Article(Object): articles fetched from websites
+
+    '''
     if request.method == 'GET':
         s= SNETnews('./news.ini')
         articles= s.download_news()
@@ -77,62 +97,51 @@ def download(request):
         article_serialized = ArticleSerializer(Article.objects.all(), many=True)
     return Response(article_serialized.data)
 
+@swagger_auto_schema(method ='get',manual_parameters=fetch_params,security=[],
+        responses={'400': 'Validation Error','200': ArticleSerializer})
 @api_view(['GET'])
-def get_news_no_nlp(request, sort_type="title", results=10):
-        if request.method == 'GET':
-                articles= Article.objects.filter(source_type='crawl')
-                if sort_type == "title":
-                    logger.info("Sort Type: title, No Articles: " + str(len(articles)))
-                    articles = sorted(articles,
-                            key=lambda x : x.title)[:min(results, len(articles))]
-                elif sort_type == "date":
-                    articles = sorted(articles,
-                            key= lambda x : x.date.timestamp(),\
-                                    reverse=True)[:min(results, len(articles))]
-                article_serialized= ArticleSerializer(articles, many=True)
-                return Response(article_serialized.data)
-@api_view(['GET'])
-def get_news_nlp(request, sort_type="title", results=10):
-        if request.method == 'GET':
-                articles= Article.objects.filter(source_type='crawl_nlp')
-                if sort_type == "title":
-                    logger.info("Sort Type: title, No Articles: " + str(len(articles)))
-                    articles = sorted(articles,
-                            key=lambda x : x.title)[:min(results, len(articles))]
-                elif sort_type == "date":
-                    articles = sorted(articles,
-                            key= lambda x : x.date.timestamp(),\
-                                    reverse=True)[:min(results, len(articles))]
-                article_serialized= ArticleSerializer(articles, many=True)
-                return Response(article_serialized.data)
-@api_view(['GET'])
-def get_rss_nlp(request, sort_type="title", results=10):
-        if request.method == 'GET':
-                articles= Article.objects.filter(source_type='rss_nlp')
-                if sort_type == "title":
-                    logger.info("Sort Type: title, No Articles: " + str(len(articles)))
-                    articles = sorted(articles,
-                            key=lambda x : x.title)[:min(results, len(articles))]
-                elif sort_type == "date":
-                    articles = sorted(articles,
-                            key= lambda x : x.date.timestamp(),\
-                                    reverse=True)[:min(results, len(articles))]
-                article_serialized= ArticleSerializer(articles, many=True)
-                return Response(article_serialized.data)
-@api_view(['GET'])
-def get_rss_feed(request, sort_type="title", results=10):
+def fetch(request):
+    '''Return serialized articles in the database 
+    Get sort type, results, nlp, rss
+    
+    This function gets the method of sorting(title or date), the number of articles to be fetched, 
+    if RSS fetch is allowed and if NLP fetch is allowed and returns serialized articles. The sorting
+    can be title or date. If the number of articles to be fetched is bigger than available in the 
+    database, full article available in the database returned. If both rss and nlp are true, articles
+    tagged by 'rss_nlp' fetched. if rss is true and nlp is false articles tagged by 'rss' fetched. if
+    rss is false and nlp is true articles tagged by nlp fetched. if both rss and nlp are false 
+    articles tagged 'crawl'.
+    
+            Parameters:
+                sort_type (str): The method articles returned will be sorted. it can be title or date
+                results (int): The number of articles to fetched
+                rss (Boolean): if RSS fetch allowed
+                nlp (Boolean): if NLP fetch allowed
+            
+            Returns:
+                Article(object): serialized articles
+    '''
     if request.method == 'GET':
-                articles= Article.objects.filter(source_type='rss')
-                if sort_type == "title":
-                    logger.info("Sort Type: title, No Articles: " + str(len(articles)))
-                    articles = sorted(articles,
-                            key=lambda x : x.title)[:min(results, len(articles))]
-                elif sort_type == "date":
-                    articles= sorted(articles,
-                            key= lambda x : x.date.timestamp(),\
-                                    reverse=True)[:min(results, len(articles))]
-                article_serialized= ArticleSerializer(articles, many=True)
-                return Response(article_serialized.data)
+            sort_type = request.GET['sort']
+            results = int(request.GET['results'])
+            rss = True if request.GET['rss']=='true' else False
+            nlp = True if request.GET['nlp']=='true' else False
+            source_map = {(False, False): 'crawl', 
+                            (False, True):'crawl_nlp', 
+                            (True, False): 'rss',
+                            (True, True): 'rss_nlp' }
+            articles= Article.objects.filter(source_type=source_map[(rss, nlp)])
+            if sort_type == "title":
+                logger.info("Sort Type: title, No Articles: " + str(len(articles)))
+                articles = sorted(articles,
+                        key=lambda x : x.title)[:min(results, len(articles))]
+            elif sort_type == "date":
+                articles = sorted(articles,
+                        key= lambda x : x.date.timestamp(),\
+                                reverse=True)[:min(results, len(articles))]
+            article_serialized= ArticleSerializer(articles, many=True)
+            return Response(article_serialized.data)
+
 #TO DO returns unrealated news after the exact news needs a fix
 #TO DO search can be built from same articles in different modes
 #TO DO semantic search engine using NLP
@@ -189,9 +198,13 @@ def trending_topics(request):
             logger.info("retrieving "+ str(len(topics)) +" trending topics")
             return search_news(request._request,topics,5)
 
-@swagger_auto_schema(method ='get',manual_parameters=[link_param],security=[],responses={'400': 'Validation Error (e.g. base64 is wrong)','200': ArticleSerializer})
+        article_serialized = ArticleSerializer(article_model)
+        return Response(article_serialized.data)
+
+@swagger_auto_schema(method ='get',manual_parameters=[link_param],security=[],
+        responses={'400': 'Validation Error','200': ArticleSerializer})
 @api_view(['GET'])
-def single_article_crawl(request):
+def article_crawl(request):
     count =0
     if request.method == 'GET':
         link = request.GET["link"]
@@ -219,4 +232,3 @@ def single_article_crawl(request):
         logger.info("Done with populating the model")
         article_serialized = ArticleSerializer(article_model)
         return Response(article_serialized.data)
-

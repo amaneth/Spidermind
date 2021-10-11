@@ -124,6 +124,7 @@ class SNETnews:
     # when using proxies you have a big pool of IPs that are constantly changing
     # so your actions looks more like real human activity,
     # thus you can way easier web crawl web page.
+    # TO DO drop articles other than english language or mange them
     def download_news(self):
         op_map = {0: 'NO_NLP', 1: 'NLP', 2: 'RSS_ONLY', 3:'RSS_WITH_NLP'}
         logger.info("Retrieving news from sites. {} Mode: ".format(op_map[self.op_mode]))

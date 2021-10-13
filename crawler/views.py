@@ -221,7 +221,7 @@ def article_crawl(request):
                                         else parser.parse("2012-01-01 00:00:00")),
                                 link = article.url,
                                 keywords= str(article.keywords),
-                                source_type = 'crawl') # assigned some old date if the date is None
+                                source_type = 'crawl_nlp') # assigned some old date if the date is None
         try:
             article_model.save()
         except IntegrityError:

@@ -1,0 +1,23 @@
+version: "3.9"
+   
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=news
+      - POSTGRES_USER=aman
+      - POSTGRES_PASSWORD=Ihatepasswords@1234
+  crawler:
+    build: .
+    command:  >
+      bash -c
+      "python manage.py migrate &&
+      python manage.py runserver 0.0.0.0:3000"
+    volumes:
+            - .:/crawler
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

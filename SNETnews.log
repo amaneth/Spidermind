@@ -1,5 +1,57 @@
-2021-10-11 06:26:47,118 Sort Type: title, No Articles: 23
-2021-10-11 06:32:26,254 Sort Type: title, No Articles: 23
-2021-10-11 06:32:36,970 Sort Type: title, No Articles: 80
-2021-10-11 06:32:50,419 Sort Type: title, No Articles: 89
-2021-10-11 06:32:55,716 Sort Type: title, No Articles: 23
+2021-10-12 11:23:54,983 95 articles has jumped because similar articles already exists
+2021-10-12 11:23:54,983 Done with populating the model
+2021-10-12 14:33:33,844 0 articles has jumped because article with the same title already exists
+2021-10-12 14:33:33,875 Done with populating the model
+2021-10-12 14:35:18,270 Initializing SNETnews. Conf file: ./news.ini
+2021-10-12 14:35:18,272 Done with configuration for Article section MIN word cout: 30
+2021-10-12 14:35:18,272 Done with configuration for Sources setion: Memoize artices :False
+2021-10-12 14:35:18,272 Done with configuration for MISC: OP MODE 3
+2021-10-12 14:35:18,272  Done with configuration for number of sites: 10
+2021-10-12 14:35:18,272  Done with configuration for RSS feed list: 1
+2021-10-12 14:35:18,272 Done Initialization
+2021-10-12 14:35:18,272 Retrieving news from sites. RSS_WITH_NLP Mode: 
+2021-10-12 14:35:18,272 Memoize articles is sat False
+2021-10-12 14:35:18,729 RSS NLP: Done parsing news, No Articles23
+2021-10-12 14:35:40,457 RSS NLP: 0 articles with bad url has jumped
+2021-10-12 14:35:40,457 RSS NLP: Done with building a dict, NLP: keyword example: ['invincible', 'korea', 'kims', 'programme', 'way', 'military', 'vows', 'jongun', 'wants', 'kim', 'telling', 'north', 'seoul', 'build', 'right', 'pyongyang', 'mr']
+2021-10-12 14:35:40,457 RSS NLP: Done with inserting tag NO NLP: example: rss_nlp
+2021-10-12 14:35:40,457 Done retrieving news from sites
+2021-10-12 14:35:40,687 0 articles has jumped because similar articles already exists
+2021-10-12 14:35:40,687 Done with populating the model
+2021-10-12 14:41:10,029 Initializing SNETnews. Conf file: ./news.ini
+2021-10-12 14:41:10,030 Done with configuration for Article section MIN word cout: 30
+2021-10-12 14:41:10,030 Done with configuration for Sources setion: Memoize artices :False
+2021-10-12 14:41:10,030 Done with configuration for MISC: OP MODE 2
+2021-10-12 14:41:10,030  Done with configuration for number of sites: 10
+2021-10-12 14:41:10,031  Done with configuration for RSS feed list: 1
+2021-10-12 14:41:10,031 Done Initialization
+2021-10-12 14:41:10,031 Retrieving news from sites. RSS_ONLY Mode: 
+2021-10-12 14:41:10,031 Memoize articles is sat False
+2021-10-12 14:41:10,408 RSS: Done parsing news, No Articles0
+2021-10-12 14:41:10,408 RSS: Done building a source tag rss, example rss
+2021-10-12 14:41:10,408 Done retrieving news from sites
+2021-10-12 14:41:10,616 0 articles has jumped because similar articles already exists
+2021-10-12 14:41:10,616 Done with populating the model
+2021-10-12 14:42:59,616 Starting Search for 6 and top results: 5
+2021-10-13 04:51:31,614 0 articles has jumped because article with the same title already exists
+2021-10-13 04:51:31,628 Done with populating the model
+2021-10-13 04:53:10,563 0 articles has jumped because article with the same title already exists
+2021-10-13 04:53:10,564 Done with populating the model
+2021-10-13 04:53:55,363 Initializing SNETnews. Conf file: ./news.ini
+2021-10-13 04:53:55,364 Done with configuration for Article section MIN word cout: 30
+2021-10-13 04:53:55,364 Done with configuration for Sources setion: Memoize artices :False
+2021-10-13 04:53:55,365 Done with configuration for MISC: OP MODE 1
+2021-10-13 04:53:55,365  Done with configuration for number of sites: 10
+2021-10-13 04:53:55,365  Done with configuration for RSS feed list: 1
+2021-10-13 04:53:55,365 Done Initialization
+2021-10-13 04:53:55,365 Retrieving news from sites. NLP Mode: 
+2021-10-13 04:53:55,365 Memoize articles is sat False
+2021-10-13 04:54:01,982 NLP & NO NLP: Crawler is done with building source  Papers:1
+2021-10-13 04:54:01,982 NLP: Done Downloading News.NLP: No Articles: 121
+2021-10-13 04:54:01,982 NLP: Done Filtering. No Articles: 93
+2021-10-13 04:55:37,455 RSS NLP: 0 articles with bad url has jumped
+2021-10-13 04:55:37,455 NLP: Done with building a dict, NLP: keyword example: ['local', 'thats']
+2021-10-13 04:55:37,455 no rss has downloaded
+2021-10-13 04:55:37,455 Done retrieving news from sites
+2021-10-13 04:55:38,229 11 articles has jumped because similar articles already exists
+2021-10-13 04:55:38,230 Done with populating the model

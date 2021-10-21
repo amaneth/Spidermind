@@ -9,10 +9,16 @@ import configparser as cp
 import threading
 import datetime
 import json
+from dateutil import parser
+
 
 import newspaper as nwp
 import feedparser as fp
-from newspaper import Article as NPA
+from newspaper import Article as NewsPaperArticle
+
+from crawler.models import Article
+from crawler.serializers import ArticleSerializer
+from django.db import IntegrityError
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -41,7 +47,6 @@ class SNETnews:
         self.rss_sites= ['http://rss.cnn.com/rss/cnn_topstories.rss']
         self.search_index = {}
         self.articles = []
-        self.rss_articles =[]
         self.article_tags = {}
         self.article_sources = {}
         self.op_mode = 2 # 0 -> download & nlp + 1, 1 -> title + summary + tags
@@ -116,7 +121,7 @@ class SNETnews:
         
         logger.info("Done Initialization")
 
-    # TO DO while web crawling I highly recommend using proxy services as well
+    # TODO while web crawling I highly recommend using proxy services as well
     # since it will be useful in many various ways.
     # The main reason to use such services is to avoid being detected from the website 
     # and being banned since web crawling is automatic action and might raise suspicions
@@ -124,7 +129,7 @@ class SNETnews:
     # when using proxies you have a big pool of IPs that are constantly changing
     # so your actions looks more like real human activity,
     # thus you can way easier web crawl web page.
-    # TO DO drop articles other than english language or mange them
+    # TODO drop articles other than english language or mange them
     def download_news(self):
         op_map = {0: 'NO_NLP', 1: 'NLP', 2: 'RSS_ONLY', 3:'RSS_WITH_NLP'}
         logger.info("Retrieving news from sites. {} Mode: ".format(op_map[self.op_mode]))
@@ -164,7 +169,7 @@ class SNETnews:
                     article['source_type'] = 'crawl_nlp'
                 logger.info("NLP: Done with inserting tag NO NLP: example: "+ \
                         str(self.articles[0].get('source_type',"no source type found"))
-                        if len(self.rss_articles)>0 else\
+                        if len(self.articles)>0 else\
                         "no rss has downloaded")
             else:
                 self.articles = \
@@ -177,12 +182,12 @@ class SNETnews:
                     article['source_type'] = 'crawl'
                 logger.info("NO NLP: Done with inserting tag NLP: example: "+ \
                         str(self.articles[0].get('source_type',"no source type found")))
-        #TO DO memoize articles rss
+        #TODO memoize articles rss
         elif (self.op_mode == RSS_ONLY_MODE):
             self.papers= [ fp.parse(site) for site in self.rss_sites]
             self.articles = [x for y in [n.entries for n in self.papers] for x in y] \
                     # filtering is good to be here
-            logger.info("RSS: Done parsing news, No Articles" + str(len(self.rss_articles)))
+            logger.info("RSS: Done parsing news, No Articles" + str(len(self.articles)))
             for article in self.articles:
                 article['source_type']='rss'
             logger.info("RSS: Done building a source tag rss, example {}".format(
@@ -190,8 +195,8 @@ class SNETnews:
                         if len(self.articles)>0 else\
                         "no rss has downloaded"))
         else:
-            #TO DO do rss_crawl with nlp_crawl just changing the site source
-            #TO DO only the content from newspaper, feedparser better on the rest
+            #TODO do rss_crawl with nlp_crawl just changing the site source
+            #TODO only the content from newspaper, feedparser better on the rest
             self.papers= [ fp.parse(site) for site in self.rss_sites]
             self.articles = [x for y in [n.entries for n in self.papers] for x in y] \
                     # filtering is good to be here
@@ -199,13 +204,13 @@ class SNETnews:
             count = 0
             articles_temp=[]
             for article in self.articles:
-                article = NPA(article.link)
+                article = NewsPaperArticle(article.link)
                 try:
                     article.download()
                     article.parse()
                     article.nlp()
                     articles_temp.append(article)
-                    #TO DO download articels in news_pool
+                    #TODO download articels in news_pool
                 except:
                     count+=1
                     pass
@@ -225,26 +230,118 @@ class SNETnews:
                     "no rss has downloaded")
         logger.info("Done retrieving news from sites")
         #logger.info("Search Index Built: " + str(sys.getsizeof(self.search_index)))
-        return self.articles
-    def auto_refresh(self):
-        #TO DO build api for refresh
-        logger.info("AutoRefresh: " + str(self.continue_auto_refresh))
-        if self.continue_auto_refresh:
-            self.download_news();
-            self.auto_refresh_timer = threading.Timer(self.refresh_rate,
-                                                      self.auto_refresh)
-            self.auto_refresh_timer.start()
+        return self.serializer(self.articles)
 
-    def start_auto_refresh(self):
-        logger.info("Start Autorefresh")
-        self.auto_refresh_timer = threading.Timer(self.refresh_rate,
-                                                  self.auto_refresh)
-        self.auto_refresh_timer.start()
-        self.continue_auto_refresh = True
 
-    def stop_auto_refresh(self):
-        logger.info("Stop Autorefresh")
-        if self.auto_refresh_timer == None:
-            raise Exception("No Event Loop Timer Registered")
-        self.auto_refresh_timer.cancel()
-        self.continue_auto_refresh = False
+    def serializer(self, articles):
+        count=0
+        for article in articles:
+            if (article['source_type'] !='rss'):
+                article_model = Article(title = article['title'],
+                                 description = article['summary'],
+                                authors = article['authors'],
+                                date = (article['publish_date']\
+                                        if isinstance(article['publish_date'],datetime.datetime) \
+                                        and type(article['publish_date']) != 'str'\
+                                        else parser.parse("2012-01-01 00:00:00")),
+                                link = article['url'],
+                                keywords= str(article['keywords']),
+                                                    source_type = article['source_type']) \
+                                        # assigned some old date if the date is None
+                try:
+                    article_model.save()
+                except:
+                    count+=1
+                    pass
+            else:
+                #TODO author of RSS feeds
+                if all(a in article for a in ['title','link','summary','published']):
+                    article_model = Article(title= article.title,
+                                    description = article.summary,
+                                    date = (parser.parse(article.published) \
+                                            if str(article.published) != "None" \
+                                            else parser.parse("2012-01-01 00:00:00")),
+                                    link = article.link,
+                                    source_type = article['source_type'])
+                    try:
+                        article_model.save()
+                    except:
+                        count+=1
+                        pass
+        logger.info("{} articles has jumped because similar articles already exists"\
+                .format(count))
+        logger.info("Done with populating the model")
+        article_serialized = ArticleSerializer(Article.objects.all(), many=True)
+        return article_serialized
+
+    def search(self, terms, top_results=10):
+                search_rank ={}
+                articles= Article.objects.all()
+                for article in articles:
+                        if article.title != None and article.description\
+                                != None and article.keywords != None :
+                            self.search_index[article] = list(article.keywords) \
+                                    + article.title.translate(
+                                        str.maketrans(
+                                            '', '', string.punctuation)).split(" ") \
+                                    + article.description.translate(
+                                    str.maketrans(
+                                            '', '', string.punctuation)).split(" ")
+                        elif article != None and article.description !=None:
+                            self.search_index[article] = \
+                                article.title.translate(
+                                    str.maketrans(
+                                        '', '', string.punctuation)).split(" ") \
+                                + article.description.translate(
+                                    str.maketrans(
+                                        '', '', string.punctuation)).split(" ")
+                logger.info("Starting Search for " + str(len(terms)) + \
+                        " and top results: " + str(top_results)) # improve seach lemmantizing words
+                if isinstance(terms,str):
+                    terms=[terms]
+                for article,keywords in self.search_index.items():
+                    for term in terms:
+                        rank = 0
+                        st = term.translate(
+                            str.maketrans('', '', string.punctuation)).split(" ")
+                        for t in st:
+                            rank += keywords.count(t)
+                        search_rank[article] = rank
+                #logger.info("Done Searching. Full Result: " +\
+                #        str(dict.(itertools.islice(search_rank.items(), 2))))
+                _sel_articles = sorted(search_rank.items(),
+                        key=lambda x : x[1],
+                        reverse=True)[:min(len(search_rank), top_results)]
+                if all(list(map(lambda x : x[1] == 0, _sel_articles))):
+                    return json.dumps({"result":"Nothing Found"})
+                article_serialized = ArticleSerializer(dict(_sel_articles).keys(), many = True)
+                return article_serialized.data
+
+
+    def article_crawl(self, link):
+            count =0
+            article = NewsPaperArticle(link)
+            article.download()
+            article.parse()
+            article.nlp()
+            article_model = Article(title = article.title,
+                                    description = article.summary,
+                                    authors = article.authors,
+                                    date = (article.publish_date\
+                                            if isinstance(article.publish_date ,datetime.datetime) \
+                                            and type(article.publish_date) != 'str'\
+                                            else parser.parse("2012-01-01 00:00:00")),
+                                    link = article.url,
+                                    keywords= str(article.keywords),
+                                    source_type = 'crawl_nlp')
+            # assigned some old date if the date is None
+            try:
+                article_model.save()
+            except IntegrityError:
+                count+=1
+                pass
+            logger.info("{} articles has jumped because article with the same title already exists"\
+                    .format(count))
+            logger.info("Done with populating the model")
+            article_serialized = ArticleSerializer(article_model)
+            return article_serialized

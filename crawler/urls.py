@@ -22,11 +22,12 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-		path('search/<str:terms>/<int:top_results>', views.search_news),
-                path('articles/', views.fetch),
-                path('trending/', views.trending_topics),
-                path('download/', views.download),
-                path('article/', views.article_crawl),
+		path('search', views.SearchNews.as_view()),
+                path('articles', views.Fetch.as_view()),
+                path('trending', views.Trending.as_view()),
+                path('article',  views.ArticleCrawl.as_view()),
+                path('refresh',  views.Refresh.as_view()),
+                path('auto-refresh',views.AutoRefresh.as_view()),
                 path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
                 path('redoc', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 

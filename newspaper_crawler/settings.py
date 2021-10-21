@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'crawler.apps.CrawlerConfig',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -82,8 +83,8 @@ DATABASES = {
         'NAME': 'news',
         'USER': 'aman',
         'PASSWORD': 'Ihatepasswords@1234',
-        'HOST':'db',
-        'PORT':5432,
+        'HOST':'localhost',
+        'PORT':'',
     }
 }
 
@@ -130,3 +131,4 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CELERY_BROKER_URL = 'redis://localhost:6379'

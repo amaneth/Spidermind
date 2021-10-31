@@ -45,11 +45,10 @@ fetch_params = [openapi.Parameter('sort', in_=openapi.IN_QUERY, description= "So
         type= openapi.TYPE_BOOLEAN, ),
 
         ]
-search_params = [openapi.Parameter('terms', in_=openapi.IN_QUERY, description= "terms to search",
-        type= openapi.TYPE_ARRAY, items= openapi.Items(type=openapi.TYPE_STRING), required=True ),
-        openapi.Parameter('results', in_=openapi.IN_QUERY,
-            description= "top n results to be returned", type= openapi.TYPE_INTEGER, ),
-        ]
+search_params= [openapi.Parameter('terms', in_=openapi.IN_QUERY,
+            description= "text to be searched", type= openapi.TYPE_STRING, ),
+            openapi.Parameter('results', in_=openapi.IN_QUERY,
+                description= "Top n articles to be returned", type= openapi.TYPE_STRING, ),]
 
 snet= SNETnews('./news.ini')
 
@@ -139,7 +138,7 @@ class SearchNews(APIView):
         search_index = {}
         search_rank = {}
         article_serialized = snet.search(terms, top_results)
-        return Response(article_serialized.data) 
+        return Response(article_serialized) 
 
 
 

@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+SESSIONS_ENGINE='django.contrib.sessions.backends.cache'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -42,6 +42,13 @@ INSTALLED_APPS = [
     'crawler.apps.CrawlerConfig',
     'django_celery_beat',
 ]
+
+CACHES = { 
+  'default' : { 
+     'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache', 
+     'LOCATION' : 'memcached:11211',
+  }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -83,8 +90,8 @@ DATABASES = {
         'NAME': 'news',
         'USER': 'aman',
         'PASSWORD': 'Ihatepasswords@1234',
-        'HOST':'localhost',
-        'PORT':'',
+        'HOST':'db',
+        'PORT':'5432',
     }
 }
 
@@ -131,4 +138,4 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_BROKER_URL = 'redis://redis:6379'

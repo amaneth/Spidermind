@@ -19,6 +19,7 @@ from newspaper import Article as NewsPaperArticle
 from crawler.models import Article
 from crawler.serializers import ArticleSerializer
 from django.db import IntegrityError
+from django.core.cache import cache
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -229,6 +230,9 @@ class SNETnews:
                     if len(self.articles)>0 else\
                     "no rss has downloaded")
         logger.info("Done retrieving news from sites")
+        unlock=cache.delete(op_map[self.op_mode]) # release the lock for "a download at 
+                                        # some operation mode is to be done one at a time"
+        logger.debug("Release lock is  done is :"+ str(unlock))
         #logger.info("Search Index Built: " + str(sys.getsizeof(self.search_index)))
         return self.serializer(self.articles)
 
@@ -313,9 +317,9 @@ class SNETnews:
                         key=lambda x : x[1],
                         reverse=True)[:min(len(search_rank), top_results)]
                 if all(list(map(lambda x : x[1] == 0, _sel_articles))):
-                    return json.dumps({"result":"Nothing Found"})
+                    return {"result":"Nothing Found"}
                 article_serialized = ArticleSerializer(dict(_sel_articles).keys(), many = True)
-                return article_serialized.data
+                return article_serialized
 
 
     def article_crawl(self, link):

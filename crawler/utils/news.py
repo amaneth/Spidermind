@@ -293,22 +293,13 @@ class SNETnews:
                         if article.title != None and article.description\
                                 != None and article.keywords != None :
                             self.search_index[article] = [token.lower() for token in\
-                                    (list(article.keywords) + article.title.translate(
-                                        str.maketrans(
-                                            '', '', string.punctuation)).split(" ") \
-                                    + article.description.translate(
-                                    str.maketrans(
-                                            '', '', string.punctuation)).split(" "))\
-                                    if token not in english_stopset]
+                                (list(article.keywords) +\
+                                re.sub("[^a-zA-Z0-9]+", " ", article.title+" "+article.description).\
+                                split(" ")) if token not in english_stopset]
                         elif article != None and article.description !=None:
                             self.search_index[article] = [token.lower() for token in 
-                                (article.title.translate(
-                                    str.maketrans(
-                                        '', '', string.punctuation)).split(" ") \
-                                + article.description.translate(
-                                    str.maketrans(
-                                        '', '', string.punctuation)).split(" "))\
-                                    if token not in english_stopset]
+                                re.sub("[^a-zA-Z0-9]+", " ", article.title+" "+article.description).\
+                                        split(" ") if token not in english_stopset]
                 logger.info("Starting Search for " + str(len(terms)) + \
                         " and top results: " + str(top_results)) # improve seach lemmantizing words
                 if isinstance(terms,str):
@@ -316,9 +307,9 @@ class SNETnews:
                 for article,keywords in self.search_index.items():
                     rank = 0
                     for term in terms:
-                        st = [token.lower() for token in term.translate(
-                            str.maketrans('', '', string.punctuation)).split(" ") \
-                                    if token not in english_stopset]
+                        st = [token.lower() for token in \
+                            re.sub("[^a-zA-Z0-9]+", " ", term).\
+                            split(" ") if token not in english_stopset]
                         for t in st:
                             rank += keywords.count(t)
                         search_rank[article] = rank

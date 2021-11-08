@@ -10,16 +10,18 @@ import threading
 import datetime
 import json
 from dateutil import parser
-
+import re
 
 import newspaper as nwp
 import feedparser as fp
 from newspaper import Article as NewsPaperArticle
+from nltk.corpus import stopwords
 
 from crawler.models import Article
 from crawler.serializers import ArticleSerializer
 from django.db import IntegrityError
 from django.core.cache import cache
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -280,46 +282,57 @@ class SNETnews:
 
     def search(self, terms, top_results=10):
                 search_rank ={}
+                english_stopset = set(stopwords.words('english')).union(
+                  {"things", "that's", "something", "take", "don't", "may", "want", "you're",
+                   "set", "might", "says", "including", "lot", "much", "said", "know",
+                   "good", "step", "often", "going", "thing", "things", "think",
+                  "back", "actually", "better", "look", "find", "right", "example",
+                   "verb", "verbs"})
                 articles= Article.objects.all()
                 for article in articles:
                         if article.title != None and article.description\
                                 != None and article.keywords != None :
-                            self.search_index[article] = list(article.keywords) \
-                                    + article.title.translate(
+                            self.search_index[article] = [token.lower() for token in\
+                                    (list(article.keywords) + article.title.translate(
                                         str.maketrans(
                                             '', '', string.punctuation)).split(" ") \
                                     + article.description.translate(
                                     str.maketrans(
-                                            '', '', string.punctuation)).split(" ")
+                                            '', '', string.punctuation)).split(" "))\
+                                    if token not in english_stopset]
                         elif article != None and article.description !=None:
-                            self.search_index[article] = \
-                                article.title.translate(
+                            self.search_index[article] = [token.lower() for token in 
+                                (article.title.translate(
                                     str.maketrans(
                                         '', '', string.punctuation)).split(" ") \
                                 + article.description.translate(
                                     str.maketrans(
-                                        '', '', string.punctuation)).split(" ")
+                                        '', '', string.punctuation)).split(" "))\
+                                    if token not in english_stopset]
                 logger.info("Starting Search for " + str(len(terms)) + \
                         " and top results: " + str(top_results)) # improve seach lemmantizing words
                 if isinstance(terms,str):
                     terms=[terms]
                 for article,keywords in self.search_index.items():
+                    rank = 0
                     for term in terms:
-                        rank = 0
-                        st = term.translate(
-                            str.maketrans('', '', string.punctuation)).split(" ")
+                        st = [token.lower() for token in term.translate(
+                            str.maketrans('', '', string.punctuation)).split(" ") \
+                                    if token not in english_stopset]
                         for t in st:
                             rank += keywords.count(t)
                         search_rank[article] = rank
                 #logger.info("Done Searching. Full Result: " +\
                 #        str(dict.(itertools.islice(search_rank.items(), 2))))
+               
+                if all(list(map(lambda x : x[1] == 0, search_rank.items()))):
+                    return {"result":"Nothing Found"}
+                search_rank = {key:val for key, val in search_rank.items() if val !=0}
                 _sel_articles = sorted(search_rank.items(),
                         key=lambda x : x[1],
                         reverse=True)[:min(len(search_rank), top_results)]
-                if all(list(map(lambda x : x[1] == 0, _sel_articles))):
-                    return {"result":"Nothing Found"}
                 article_serialized = ArticleSerializer(dict(_sel_articles).keys(), many = True)
-                return article_serialized
+                return article_serialized.data
 
 
     def article_crawl(self, link):

@@ -251,6 +251,7 @@ class SNETnews:
                                         and type(article['publish_date']) != 'str'\
                                         else parser.parse("2012-01-01 00:00:00")),
                                 link = article['url'],
+                                top_image = article['top_image'],
                                 keywords= str(article['keywords']),
                                                     source_type = article['source_type']) \
                                         # assigned some old date if the date is None
@@ -268,7 +269,9 @@ class SNETnews:
                                             if str(article.published) != "None" \
                                             else parser.parse("2012-01-01 00:00:00")),
                                     link = article.link,
-                                    source_type = article['source_type'])
+                                    top_image = 'None', 
+                                    source_type = article['source_type']) # TODO top image of rss\
+                                            # fetched articles
                     try:
                         article_model.save()
                     except:

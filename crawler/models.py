@@ -7,6 +7,7 @@ class Article(models.Model):
     authors = models.CharField(max_length=40, blank=True, default='')
     date = models.DateTimeField(auto_now_add = True)
     link = models.CharField(max_length=400, blank=True, default='')
+    top_image = models.CharField(max_length=400, blank=True, default='')
     keywords= models.CharField(max_length=400, blank=True, default='')
     source_type = models.CharField(max_length=100)
     

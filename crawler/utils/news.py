@@ -320,7 +320,7 @@ class SNETnews:
                                 (list(article.keywords) +\
                                 re.sub("[^a-zA-Z0-9]+", " ", article.title+" "+article.description).\
                                 split(" ")) if token not in english_stopset]
-                        elif article != None and article.description !=None:
+                        elif article.title != None and article.description !=None:
                             self.search_index[article] = [token.lower() for token in 
                                 re.sub("[^a-zA-Z0-9]+", " ", article.title+" "+article.description).\
                                         split(" ") if token not in english_stopset]

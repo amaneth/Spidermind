@@ -8,14 +8,17 @@ import logging.handlers as loghandlers
 import configparser as cp
 import threading
 import datetime
+import time
 import json
 from dateutil import parser
 import re
+import requests
 
 import newspaper as nwp
 import feedparser as fp
 from newspaper import Article as NewsPaperArticle
 from nltk.corpus import stopwords
+import uuid
 
 from crawler.models import Article
 from crawler.serializers import ArticleSerializer
@@ -241,42 +244,83 @@ class SNETnews:
 
     def serializer(self, articles):
         count=0
+        url = 'http://188.166.77.75:8020/articles'
         for article in articles:
+            random_id = str(uuid.uuid4())
+            logger.debug("source url of the article: "+ article['url'])
             if (article['source_type'] !='rss'):
-                article_model = Article(title = article['title'],
-                                 description = article['summary'],
+                source_name=re.search('https?://(www\.)?([a-zA-Z0-9]+)?(\.com)?', 
+                        article['source_url'])
+                date_orignal = (article['publish_date']\
+                                    if isinstance(article['publish_date'],datetime.datetime) \
+                                    and type(article['publish_date']) != 'str'\
+                                    else parser.parse("2012-01-01 00:00:00"))
+                logger.debug("The date the article published in:"+str(date_orignal)+str(article['publish_date']))
+                article_model = Article(content_id = random_id,
+                                title = article['title'],
+                                description = article['summary'],
                                 authors = article['authors'],
-                                date = (article['publish_date']\
-                                        if isinstance(article['publish_date'],datetime.datetime) \
-                                        and type(article['publish_date']) != 'str'\
-                                        else parser.parse("2012-01-01 00:00:00")),
+                                date = date_orignal,
                                 link = article['url'],
                                 top_image = article['top_image'],
                                 keywords= str(article['keywords']),
-                                                    source_type = article['source_type']) \
+                                source_type = article['source_type'],
+                                source=  source_name.group(2) if source_name!= None else 'unknown' ) \
                                         # assigned some old date if the date is None
                 try:
                     article_model.save()
                 except:
                     count+=1
                     pass
+                else:
+                    timestamp=time.mktime(datetime.datetime\
+                            .strptime(str(date_orignal), "%Y-%m-%d %H:%M:%S")\
+                            .timetuple()) 
+                    article_body ={"timestamp": int(timestamp),
+                            "content_id": random_id,
+                            "author_person_id": "crawler",
+                            "author_country": "NA",
+                            "url": article['url'],
+                            "title": article['title'],
+                            "content": article['summary'],
+                            "source":( source_name.group(2) if source_name!= None else 'unknown' )}
+                    response=requests.post(url, data=article_body)
+                    logger.info("post request response"+ str(response.text))
+                    
             else:
                 #TODO author of RSS feeds
                 if all(a in article for a in ['title','link','summary','published']):
-                    article_model = Article(title= article.title,
+                    article_model = Article(content_id=random_id,
+                                    title= article.title,
                                     description = article.summary,
                                     date = (parser.parse(article.published) \
                                             if str(article.published) != "None" \
                                             else parser.parse("2012-01-01 00:00:00")),
                                     link = article.link,
                                     top_image = 'None', 
-                                    source_type = article['source_type']) # TODO top image of rss\
+                                    source_type = article['source_type'],
+                                    source='rss') # TODO top image of rss\
                                             # fetched articles
                     try:
                         article_model.save()
                     except:
                         count+=1
-                        pass
+                    else:
+                        timestamp = time.mktime(datetime.datetime\
+                                .strptime(article.published, "%a, %d %b %Y %H:%M:%S GMT")\
+                                .timetuple())
+                        article_body ={"timestamp": int(timestamp),
+                                "content_id": random_id,
+                                "author_person_id": "crawler",
+                                "author_country": "NA",
+                                "url": article.link,
+                                "title": article.title,
+                                "content": article.summary,
+                                "source":'rss'}
+                        response=requests.post(url, data=article_body)
+                        logger.info("post request response"+ str(response.text))
+
+                        requests.post(url, data=article_body)
         logger.info("{} articles has jumped because similar articles already exists"\
                 .format(count))
         logger.info("Done with populating the model")

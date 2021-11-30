@@ -13,6 +13,8 @@ services:
       - POSTGRES_PASSWORD=Ihatepasswords@1234
   crawler:
     build: .
+    volumes:
+       - .:/crawler
     command:  >
       bash -c
       "python manage.py makemigrations && python manage.py migrate  &&
@@ -34,8 +36,7 @@ services:
     build: .
     command: >
         bash -c
-        "python manage.py makemigrations && python manage.py migrate && celery -A newspaper_crawler beat -l info --scheduler 
-        django_celery_beat.schedulers:DatabaseScheduler"
+        "python manage.py makemigrations && python manage.py migrate && celery -A newspaper_crawler beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler"
     depends_on:
         - crawler
         - celery

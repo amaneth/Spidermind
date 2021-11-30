@@ -208,6 +208,7 @@ class SNETnews:
                     # filtering is good to be here
             logger.info("RSS NLP: Done parsing news, No Articles" + str(len(self.articles)))
             count = 0
+            article_count =0
             articles_temp=[]
             for article in self.articles:
                 article = NewsPaperArticle(article.link)
@@ -216,6 +217,26 @@ class SNETnews:
                     article.parse()
                     article.nlp()
                     articles_temp.append(article)
+                    if article_count>20: # pause the download and save to the database
+                        logger.info("Cut download is running, cut at Article count of: "\
+                                +str(article_count))
+                        self.articles = [ a.__dict__ for a in articles_temp] \
+                        # change it to dictionary to add source type tag
+                        logger.info("RSS NLP: Done with building a dict, NLP: keyword example: "+ \
+                        str(self.articles[0].get('keywords',"Nothing found"))\
+                            if len(self.articles)>0 else\
+                                "no articles has crawled" )
+                        for article in self.articles:
+                            article['source_type'] = 'rss_nlp'
+                        logger.info("RSS NLP: Done with inserting tag NO NLP: example: "+ \
+                        str(self.articles[0].get('source_type',"no source type found"))
+                        if len(self.articles)>0 else\
+                            "no rss has downloaded")
+
+                        self.serializer(self.articles)
+                        article_count =0
+                        articles_temp =[]
+                    article_count+=1
                     #TODO download articels in news_pool
                 except:
                     count+=1
@@ -343,7 +364,7 @@ class SNETnews:
                                 (list(article.keywords) +\
                                 re.sub("[^a-zA-Z0-9]+", " ", article.title+" "+article.description).\
                                 split(" ")) if token not in english_stopset]
-                        elif article != None and article.description !=None:
+                        elif article.title != None and article.description !=None:
                             self.search_index[article] = [token.lower() for token in 
                                 re.sub("[^a-zA-Z0-9]+", " ", article.title+" "+article.description).\
                                         split(" ") if token not in english_stopset]

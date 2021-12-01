@@ -11,5 +11,6 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 RUN python -m nltk.downloader punkt
 RUN [ "python", "-c", "import nltk; nltk.download('stopwords')" ]
+RUN python -m spacy download en
 COPY . /crawler
 

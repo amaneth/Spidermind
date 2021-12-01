@@ -20,11 +20,18 @@ from newspaper import Article as NewsPaperArticle
 from nltk.corpus import stopwords
 import uuid
 
+from sklearn.feature_extraction.text import TfidfVectorizer
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from sklearn.metrics.pairwise import cosine_similarity
+
 from crawler.models import Article
 from crawler.serializers import ArticleSerializer
 from django.db import IntegrityError
 from django.core.cache import cache
 
+import spacy
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -349,48 +356,70 @@ class SNETnews:
         return article_serialized
 
     def search(self, terms, top_results=10):
-                search_rank ={}
+                spacy_nlp = spacy.load('en_core_web_sm')
+                bag_of_articles=[]
+
                 english_stopset = set(stopwords.words('english')).union(
                   {"things", "that's", "something", "take", "don't", "may", "want", "you're",
                    "set", "might", "says", "including", "lot", "much", "said", "know",
                    "good", "step", "often", "going", "thing", "things", "think",
                   "back", "actually", "better", "look", "find", "right", "example",
                    "verb", "verbs"})
+                
                 articles= Article.objects.all()
                 for article in articles:
-                        if article.title != None and article.description\
-                                != None and article.keywords != None :
-                            self.search_index[article] = [token.lower() for token in\
-                                (list(article.keywords) +\
-                                re.sub("[^a-zA-Z0-9]+", " ", article.title+" "+article.description).\
-                                split(" ")) if token not in english_stopset]
-                        elif article.title != None and article.description !=None:
-                            self.search_index[article] = [token.lower() for token in 
-                                re.sub("[^a-zA-Z0-9]+", " ", article.title+" "+article.description).\
-                                        split(" ") if token not in english_stopset]
-                logger.info("Starting Search for " + str(len(terms)) + \
-                        " and top results: " + str(top_results)) # improve seach lemmantizing words
-                if isinstance(terms,str):
-                    terms=[terms]
-                for article,keywords in self.search_index.items():
-                    rank = 0
-                    for term in terms:
-                        st = [token.lower() for token in \
-                            re.sub("[^a-zA-Z0-9]+", " ", term).\
-                            split(" ") if token not in english_stopset]
-                        for t in st:
-                            rank += keywords.count(t)
-                        search_rank[article] = rank
-                #logger.info("Done Searching. Full Result: " +\
-                #        str(dict.(itertools.islice(search_rank.items(), 2))))
-               
-                if all(list(map(lambda x : x[1] == 0, search_rank.items()))):
-                    return {"result":"Nothing Found"}
-                search_rank = {key:val for key, val in search_rank.items() if val !=0}
-                _sel_articles = sorted(search_rank.items(),
-                        key=lambda x : x[1],
-                        reverse=True)[:min(len(search_rank), top_results)]
-                article_serialized = ArticleSerializer(dict(_sel_articles).keys(), many = True)
+                    if article.title != None and article.description != None and article.keywords != None:
+                
+                        article_words = article.title + " " + article.description + " "+ article.keywords
+                        cleard = (re.sub("[^a-zA-Z0-9]+", " ", article_words))
+                        
+                        article_tokens = spacy_nlp(article_words)
+                        article_lemmantized = ' '.join([token.lemma_.lower().strip() \
+                                                if token.lemma_ != "-PRON-" else token.lower_ for token in article_tokens ])
+                        bag_of_articles.append(article_lemmantized)
+                
+
+                
+            
+                    elif article.title != None and article['description'] != None:
+                        article_words = article.title + " "+ article.description
+                        cleard = (re.sub("[^a-zA-Z0-9]+", " ", article_words))
+                        
+                        article_tokens = spacy_nlp(article['title']+" "+article['description'])
+                        article_lemmantized = ' '.join([token.lemma_.lower().strip() \
+                                            if token.lemma_ != "-PRON-" else token.lower_ for token in article_tokens ])
+                        bag_of_articles.append(article_lemmantized)
+        
+                logger.info("Starting Search for: " + str(terms) + \
+                        " and top results: ")
+    
+                vectorizer = TfidfVectorizer(analyzer='word',
+                                            ngram_range=(1, 2),
+                                            max_features=10000,
+                                            lowercase=True,
+                                            stop_words=english_stopset)
+                tfidf_matrix = vectorizer.fit_transform(bag_of_articles)
+                query_tokens= spacy_nlp(terms)
+                query_lemmantized = ' '.join([token.lemma_.lower().strip() if token.lemma_ != "-PRON-" else token.lower_ for token in query_tokens ])
+
+                query_vector= vectorizer.transform([query_lemmantized])
+
+                cosine_similarities = cosine_similarity(query_vector, tfidf_matrix)
+                similar = cosine_similarities[0]
+
+                if all(val==0.0 for val in similar):
+                    return [{"Nothing found"}]
+            
+            
+                similar_sorted = sorted(similar, reverse=True)
+                similar_sorted= [val for val in similar_sorted if val!=0.0]
+                similar_sorted=[x.item() for x in similar_sorted]
+                similar = [x.item() for x in similar]
+        
+                
+
+                result= [articles[similar.index(i)] for i in similar_sorted][:min(len(similar_sorted), top_results)]
+                article_serialized = ArticleSerializer([article for article in result], many = True)
                 return article_serialized.data
 
 

@@ -132,7 +132,7 @@ class SearchNews(APIView):
     @swagger_auto_schema(manual_parameters=search_params,security=[],
             responses={'400': 'Validation Error','200': ArticleSerializer})
     def get(self, request, format=None):
-        terms = request.GET['terms'].split(",")
+        terms = request.GET['terms']
         logger.info('{}--- are the terms to be searched'.format(type(terms)))
         top_results= int(request.GET['results'])
         search_index = {}

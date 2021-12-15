@@ -13,5 +13,9 @@ class Article(models.Model):
     source_type = models.CharField(max_length=100)
     source = models.CharField(max_length=100, default='unknown')
     
-
+class Setting(models.model):
+    section_name= models.CharField(max_length=60)
+    setting_name= models.CharField(max_length=60)
+    setting_type= models.IntegerField()
+    setting_value= models.CharField(max_length=60)
 

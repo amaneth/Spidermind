@@ -272,7 +272,8 @@ class SNETnews:
 
     def serializer(self, articles):
         count=0
-        url = 'http://188.166.77.75:8020/articles'
+        #url = 'http://188.166.77.75:8020/articles'
+        url = 'http://172.17.0.1:8020/articles'
         for article in articles:
             random_id = str(uuid.uuid4())
             logger.debug("source url of the article: "+ article['url'])

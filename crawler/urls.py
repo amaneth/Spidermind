@@ -23,6 +23,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
 		path('search', views.SearchNews.as_view()),
+      path('filtered', views.Filtered.as_view()),      #####
                 path('articles', views.Fetch.as_view()),
                 path('trending', views.Trending.as_view()),
                 path('article',  views.ArticleCrawl.as_view()),

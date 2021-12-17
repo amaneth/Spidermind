@@ -1,5 +1,7 @@
 from django.db import models
 
+from newspaper_crawler.settings import LANGUAGE_CODE
+
 # Create your models here.
 class Article(models.Model):
     content_id = models.CharField(max_length=60, default='')
@@ -13,9 +15,15 @@ class Article(models.Model):
     source_type = models.CharField(max_length=100)
     source = models.CharField(max_length=100, default='unknown')
     
-class Setting(models.model):
-    section_name= models.CharField(max_length=60)
-    setting_name= models.CharField(max_length=60)
+class Setting(models.Model):
+    section_name= models.CharField(max_length=255)
+    setting_name= models.CharField(max_length=255)
     setting_type= models.IntegerField()
-    setting_value= models.CharField(max_length=60)
+    setting_value= models.CharField(max_length=255)
+
+    ################################# make default values from news.init
+#setting_type is the type of data to be saved the settings 0-integer 1-boolean 2-string 3-float
+
+
+
 

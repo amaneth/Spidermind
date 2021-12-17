@@ -16,7 +16,7 @@ from rest_framework.response import Response
 from django.http import HttpResponse, JsonResponse
 from rest_framework.views import APIView
 from rest_framework.parsers import JSONParser 
-from crawler.models import Article
+from crawler.models import Article,Setting
 from crawler.serializers import ArticleSerializer
 from crawler.utils.news import SNETnews
 from django.db import IntegrityError
@@ -49,17 +49,22 @@ fetch_params = [openapi.Parameter('sort', in_=openapi.IN_QUERY, description= "So
         type= openapi.TYPE_BOOLEAN, ),
         ]
 
-search_params= [openapi.Parameter('terms', in_=openapi.IN_QUERY,
+search_params= [openapi.Parameter('terms'
+, in_=openapi.IN_QUERY,
             description= "text to be searched", type= openapi.TYPE_STRING, ),
             openapi.Parameter('results', in_=openapi.IN_QUERY,
                 description= "Top n articles to be returned", type= openapi.TYPE_STRING, ),]
 
-catagory_params = [openapi.Parameter('catagory', in_=openapi.IN_QUERY, 
-            description= "catagory to be filtered", type= openapi.TYPE_STRING, ),
+catagory_params = [openapi.Parameter('category', in_=openapi.IN_QUERY, 
+            description= "catagory to be filtered", type= openapi.TYPE_STRING, enum=['ai','blockchain', 'computer', 'programming'] ),
             openapi.Parameter('results', in_=openapi.IN_QUERY,
                 description= "Top n catagory_articles to be returned", type= openapi.TYPE_STRING, ),]
 
-snet= SNETnews('./news.ini')
+
+"""from crawler.models import News_ini  ####
+setting_news = News_ini.objects.all()"""
+
+snet= SNETnews('./news.ini') 
 
 
 
@@ -133,6 +138,7 @@ class Fetch(APIView):
 
 
 class Filtered(APIView):
+    #from .apps import CrawlerConfig
     @swagger_auto_schema(manual_parameters=catagory_params,security=[],
             responses={'400': 'Validation Error','200': ArticleSerializer})
     def get(self, request, format=None):
@@ -143,7 +149,7 @@ class Filtered(APIView):
                 Returns:
                     Article(object): Tech Related Articles'''
  
-                ai = 'AI artificial intelligence robotics robote natural-language-processing \
+                """ai = 'AI artificial intelligence robotics robote natural-language-processing \
                       nlp machine-learning knowledge intelligent'
 
                 blockchain = 'cryptographic blockchain token ethereum bitcoin\
@@ -153,24 +159,18 @@ class Filtered(APIView):
                            microcomputer mainframe supercomputer automation telecommunications electronics'
 
                 programming = 'hack coding software application programming \
-                              software java python ruby mysql php laravel JavaScript C# arduino'
+                              software java python ruby mysql php laravel JavaScript C# arduino'"""
 
                
-                catagory = request.GET['catagory']
+                catagory_name = request.GET['category']
                 top_results= int(request.GET['results'])
-                logger.info('{}--- are the terms to be filtered'.format(type(catagory)))
+                logger.info('{}--- are the terms to be filtered'.format(catagory_name))
 
-
-                if catagory == 'ai':
-                    return Response(snet.search( ai,top_results ))
-                elif catagory == 'blockchain':
-                    return Response(snet.search(blockchain, top_results))
-                elif catagory == 'computer':
-                    return Response(snet.search(computer, top_results))
-                elif catagory == 'programming':
-                    return Response(snet.search(programming, top_results))
+                category_related_word=Setting.objects.get(section_name='category', setting_name=catagory_name).setting_value
+                print("HEEEEEEEEEEEEEEEEEEEE:"+category_related_word)
+                return Response(snet.search(category_related_word,top_results ))
+              
                  
-                return Response(snet.search(SearchNews.get()))
 
 #TODO search index can be built from same articles in different modes
 #TODO semantic search engine using NLP

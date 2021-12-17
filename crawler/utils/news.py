@@ -124,7 +124,7 @@ class SNETnews:
         if config_f.sections().count('RSSFeedList') == 1:
             rss_l = config_f['RSSFeedList']
             #self.rss_sites = rss.get("rss").replace(" ","").replace("\n", "").split(",")
-            self.rss_sites = ['http://feeds.bbci.co.uk/news/world/rss.xml']
+            self.rss_sites = ['http://aitrends.com/feed']
             logger.info(" Done with configuration for RSS feed list: " + str(len(self.rss_sites)))
 
 

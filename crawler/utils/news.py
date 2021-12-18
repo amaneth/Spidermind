@@ -13,6 +13,7 @@ import json
 from dateutil import parser
 import re
 import requests
+import pickle
 
 import newspaper as nwp
 import feedparser as fp
@@ -23,7 +24,6 @@ import uuid
 from sklearn.feature_extraction.text import TfidfVectorizer
 import nltk
 from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 from crawler.models import Article
@@ -42,6 +42,7 @@ loghandle = loghandlers.TimedRotatingFileHandler(
 loghandle.setFormatter(
     logging.Formatter("%(asctime)s %(message)s"))
 logger.addHandler(loghandle)
+spacy_nlp = spacy.load('en_core_web_sm')
 
 NLP_MODE = 1
 NO_NLP_MODE = 0
@@ -123,7 +124,7 @@ class SNETnews:
         if config_f.sections().count('RSSFeedList') == 1:
             rss_l = config_f['RSSFeedList']
             #self.rss_sites = rss.get("rss").replace(" ","").replace("\n", "").split(",")
-            self.rss_sites = ['http://feeds.bbci.co.uk/news/world/rss.xml']
+            self.rss_sites = ['http://aitrends.com/feed']
             logger.info(" Done with configuration for RSS feed list: " + str(len(self.rss_sites)))
 
 
@@ -168,6 +169,8 @@ class SNETnews:
                         article.download()
                         article.parse()
                         article.nlp()
+                        with open('tfidf_matrix_term.pickle', 'wb') as file:                 #Download mode#######################
+                            pickle.dump(article, file, protocol= pickle.HIGHEST_PROTOCOL)
                     except:
                         count+=1
                         continue # passing some bad urls, but fixing can save them
@@ -224,6 +227,10 @@ class SNETnews:
                     article.parse()
                     article.nlp()
                     articles_temp.append(article)
+                    
+                    with open('tfidf_matrix_term.pickle', 'wb') as file:                 #Download mode#######################
+                        pickle.dump(article, file, protocol= pickle.HIGHEST_PROTOCOL)
+
                     if article_count>20: # pause the download and save to the database
                         logger.info("Cut download is running, cut at Article count of: "\
                                 +str(article_count))
@@ -264,9 +271,12 @@ class SNETnews:
                     "no rss has downloaded")
         logger.info("Done retrieving news from sites")
         unlock=cache.delete(op_map[self.op_mode]) # release the lock for "a download at 
-                                        # some operation mode is to be done one at a time"
+                                        # some operation mode is to be done one at a time
+
         logger.debug("Release lock is  done is :"+ str(unlock))
+
         #logger.info("Search Index Built: " + str(sys.getsizeof(self.search_index)))
+
         return self.serializer(self.articles)
 
 
@@ -354,58 +364,65 @@ class SNETnews:
                 .format(count))
         logger.info("Done with populating the model")
         article_serialized = ArticleSerializer(Article.objects.all(), many=True)
+        self.prepare_tfidf()
         return article_serialized
 
-    def search(self, terms, top_results=10):
-                spacy_nlp = spacy.load('en_core_web_sm')
-                bag_of_articles=[]
+    def prepare_tfidf(self):
+        bag_of_articles=[]
 
-                english_stopset = set(stopwords.words('english')).union(
+        english_stopset = set(stopwords.words('english')).union(
                   {"things", "that's", "something", "take", "don't", "may", "want", "you're",
                    "set", "might", "says", "including", "lot", "much", "said", "know",
                    "good", "step", "often", "going", "thing", "things", "think",
                   "back", "actually", "better", "look", "find", "right", "example",
                    "verb", "verbs"})
                 
-                articles= Article.objects.all()
-                for article in articles:
-                    if article.title != None and article.description != None and article.keywords != None:
+        articles= Article.objects.all()
+        for article in articles:
+            if article.title != None and article.description != None and article.keywords != None:
                 
-                        article_words = article.title + " " + article.description + " "+ article.keywords
-                        cleard = (re.sub("[^a-zA-Z0-9]+", " ", article_words))
+                article_words = article.title + " " + article.description + " "+ article.keywords
+                cleard = (re.sub("[^a-zA-Z0-9]+", " ", article_words))
                         
-                        article_tokens = spacy_nlp(article_words)
-                        article_lemmantized = ' '.join([token.lemma_.lower().strip() \
+                article_tokens = spacy_nlp(article_words)
+                article_lemmantized = ' '.join([token.lemma_.lower().strip() \
                                                 if token.lemma_ != "-PRON-" else token.lower_ for token in article_tokens ])
-                        bag_of_articles.append(article_lemmantized)
+                bag_of_articles.append(article_lemmantized)
                 
 
                 
             
-                    elif article.title != None and article['description'] != None:
-                        article_words = article.title + " "+ article.description
-                        cleard = (re.sub("[^a-zA-Z0-9]+", " ", article_words))
+            elif article.title != None and article['description'] != None:
+                article_words = article.title + " "+ article.description
+                cleard = (re.sub("[^a-zA-Z0-9]+", " ", article_words))
                         
-                        article_tokens = spacy_nlp(article['title']+" "+article['description'])
-                        article_lemmantized = ' '.join([token.lemma_.lower().strip() \
-                                            if token.lemma_ != "-PRON-" else token.lower_ for token in article_tokens ])
-                        bag_of_articles.append(article_lemmantized)
-        
-                logger.info("Starting Search for: " + str(terms) + \
-                        " and top results: ")
-    
-                vectorizer = TfidfVectorizer(analyzer='word',
+                article_tokens = spacy_nlp(article['title']+" "+article['description'])
+                article_lemmantized = ' '.join([token.lemma_.lower().strip() \
+                                    if token.lemma_ != "-PRON-" else token.lower_ for token in article_tokens ])
+                bag_of_articles.append(article_lemmantized)
+         
+        vectorizer = TfidfVectorizer(analyzer='word',
                                             ngram_range=(1, 2),
                                             max_features=10000,
                                             lowercase=True,
                                             stop_words=english_stopset)
-                tfidf_matrix = vectorizer.fit_transform(bag_of_articles)
+        tfidf_matrix = vectorizer.fit_transform(bag_of_articles)
+        tfidf= {"matrix":tfidf_matrix, "vectorizer": vectorizer}
+        with open('tfidf.pickle', 'wb') as read: #read mode
+            pickle.dump(tfidf, read, protocol=pickle.HIGHEST_PROTOCOL)  
+
+    def search(self, terms, top_results=10):
+                articles= Article.objects.all()
+
+                with open('tfidf.pickle', 'rb') as read: #read mode
+                    tfidf = pickle.load(read) 
+
                 query_tokens= spacy_nlp(terms)
                 query_lemmantized = ' '.join([token.lemma_.lower().strip() if token.lemma_ != "-PRON-" else token.lower_ for token in query_tokens ])
 
-                query_vector= vectorizer.transform([query_lemmantized])
+                query_vector= tfidf['vectorizer'].transform([query_lemmantized])
 
-                cosine_similarities = cosine_similarity(query_vector, tfidf_matrix)
+                cosine_similarities = cosine_similarity(query_vector, tfidf['matrix']) ####tfidf_matrix_term if it work
                 similar = cosine_similarities[0]
 
                 if all(val==0.0 for val in similar):
@@ -422,7 +439,6 @@ class SNETnews:
                 result= [articles[similar.index(i)] for i in similar_sorted][:min(len(similar_sorted), top_results)]
                 article_serialized = ArticleSerializer([article for article in result], many = True)
                 return article_serialized.data
-
 
     def article_crawl(self, link):
             count =0

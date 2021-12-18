@@ -2,17 +2,21 @@ import logging
 import logging.handlers as loghandlers
 
 import datetime
+from re import search
 from dateutil import parser
 import string
 import newspaper as nwp
 from newspaper import Article as NewspaperArticle
 import itertools
 
+import nltk
+from nltk.stem import WordNetLemmatizer
+
 from rest_framework.response import Response
 from django.http import HttpResponse, JsonResponse
 from rest_framework.views import APIView
 from rest_framework.parsers import JSONParser 
-from crawler.models import Article
+from crawler.models import Article,Setting
 from crawler.serializers import ArticleSerializer
 from crawler.utils.news import SNETnews
 from django.db import IntegrityError
@@ -43,14 +47,24 @@ fetch_params = [openapi.Parameter('sort', in_=openapi.IN_QUERY, description= "So
         type= openapi.TYPE_BOOLEAN, ),
         openapi.Parameter('nlp', in_=openapi.IN_QUERY, description= "NLP fetch",
         type= openapi.TYPE_BOOLEAN, ),
-
         ]
-search_params= [openapi.Parameter('terms', in_=openapi.IN_QUERY,
+
+search_params= [openapi.Parameter('terms'
+, in_=openapi.IN_QUERY,
             description= "text to be searched", type= openapi.TYPE_STRING, ),
             openapi.Parameter('results', in_=openapi.IN_QUERY,
                 description= "Top n articles to be returned", type= openapi.TYPE_STRING, ),]
 
-snet= SNETnews('./news.ini')
+catagory_params = [openapi.Parameter('category', in_=openapi.IN_QUERY, 
+            description= "catagory to be filtered", type= openapi.TYPE_STRING, enum=['ai','blockchain', 'computer', 'programming'] ),
+            openapi.Parameter('results', in_=openapi.IN_QUERY,
+                description= "Top n catagory_articles to be returned", type= openapi.TYPE_STRING, ),]
+
+
+"""from crawler.models import News_ini  ####
+setting_news = News_ini.objects.all()"""
+
+snet= SNETnews('./news.ini') 
 
 
 
@@ -123,11 +137,44 @@ class Fetch(APIView):
         return Response(article_serialized.data)
 
 
+class Filtered(APIView):
+    #from .apps import CrawlerConfig
+    @swagger_auto_schema(manual_parameters=catagory_params,security=[],
+            responses={'400': 'Validation Error','200': ArticleSerializer})
+    def get(self, request, format=None):
 
+                '''Return Tech Related Articles serialized articles
+                This function gets the method of sorting(title or date), full article
+                available in the database returned.
+                Returns:
+                    Article(object): Tech Related Articles'''
+ 
+                """ai = 'AI artificial intelligence robotics robote natural-language-processing \
+                      nlp machine-learning knowledge intelligent'
 
-#TODO returns unrealated news after the exact news needs a fix
+                blockchain = 'cryptographic blockchain token ethereum bitcoin\
+                             crypto crypto-currency cyber cyber-cash'
+
+                computer = 'pc computer laptop desktop netbook mobile tablet multiprocessor microprocessor \
+                           microcomputer mainframe supercomputer automation telecommunications electronics'
+
+                programming = 'hack coding software application programming \
+                              software java python ruby mysql php laravel JavaScript C# arduino'"""
+
+               
+                catagory_name = request.GET['category']
+                top_results= int(request.GET['results'])
+                logger.info('{}--- are the terms to be filtered'.format(catagory_name))
+
+                category_related_word=Setting.objects.get(section_name='category', setting_name=catagory_name).setting_value
+                print("HEEEEEEEEEEEEEEEEEEEE:"+category_related_word)
+                return Response(snet.search(category_related_word,top_results ))
+              
+                 
+
 #TODO search index can be built from same articles in different modes
 #TODO semantic search engine using NLP
+
 class SearchNews(APIView):
     @swagger_auto_schema(manual_parameters=search_params,security=[],
             responses={'400': 'Validation Error','200': ArticleSerializer})
@@ -172,4 +219,3 @@ class AutoRefresh(APIView):
             periodic_task.enabled = start
             periodic_task.save()
             return Response({'enable':str(start)})
-

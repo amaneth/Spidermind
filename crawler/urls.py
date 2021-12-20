@@ -26,7 +26,7 @@ urlpatterns = [
       path('filtered', views.Filtered.as_view()),      #####
                 path('articles', views.Fetch.as_view()),
                 path('trending', views.Trending.as_view()),
-                path('article',  views.ArticleCrawl.as_view()),
+                path('config',  views.CrawlerSettings.as_view()),
                 path('refresh',  views.Refresh.as_view()),
                 path('auto-refresh',views.AutoRefresh.as_view()),
                 path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

@@ -147,10 +147,12 @@ class SNETnews:
     # thus you can way easier web crawl web page.
     # TODO drop articles other than english language or mange them
     def download_news(self):
+
         self.rss_source_sites = [e.setting_value for e in Setting.objects.filter(section_name='rss_source')]
         self.regular_source_sites = [e.setting_value for e in\
                 Setting.objects.filter(section_name='regular_source')]
         self.regular_links = [e.setting_value for e in Setting.objects.filter(section_name='link')]
+
         logger.info("Retrieving news from sites. {} Mode: ".format(self.op_map[self.op_mode]))
         logger.info("Memoize articles is sat " + str(self.n_config.memoize_articles))
         if((self.op_mode == NLP_MODE) or (self.op_mode ==NO_NLP_MODE) ):

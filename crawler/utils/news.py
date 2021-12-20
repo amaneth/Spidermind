@@ -26,7 +26,7 @@ import nltk
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 
-from crawler.models import Article
+from crawler.models import Article, Setting
 from crawler.serializers import ArticleSerializer
 from django.db import IntegrityError
 from django.core.cache import cache
@@ -57,8 +57,9 @@ class SNETnews:
         config_f.read(conf_file)
         self.papers = []
         self.number_of_sites=0
-        self.source_sites = []
-        self.rss_sites= ['http://rss.cnn.com/rss/cnn_topstories.rss']
+        self.regular_source_sites = []
+        self.rss_source_sites= ['http://rss.cnn.com/rss/cnn_topstories.rss']
+        self.regular_links=[]
         self.search_index = {}
         self.articles = []
         self.article_tags = {}
@@ -69,6 +70,7 @@ class SNETnews:
         self.continue_auto_refresh = True
         self.n_config = nwp.Config()
         self.min_html_chars = 0
+        self.op_map = {0: 'NO_NLP', 1: 'NLP', 2: 'RSS_ONLY', 3:'RSS_WITH_NLP'}
 
         if config_f.sections().count('Article') == 1:
             article_c = config_f['Article']
@@ -119,18 +121,18 @@ class SNETnews:
         if config_f.sections().count('NumberOfSites') == 1:
             site_n = config_f['NumberOfSites']
             self.number_of_sites = int(site_n.get("sites", 10))
-            self.source_sites= ['http://www.bbc.co.uk']
+            self.regular_source_sites= ['http://www.bbc.co.uk']
             logger.info(" Done with configuration for number of sites: " + str(self.number_of_sites))
         if config_f.sections().count('RSSFeedList') == 1:
             rss_l = config_f['RSSFeedList']
-            #self.rss_sites = rss.get("rss").replace(" ","").replace("\n", "").split(",")
-            self.rss_sites = ['http://aitrends.com/feed']
-            logger.info(" Done with configuration for RSS feed list: " + str(len(self.rss_sites)))
+            #self.rss_source_sites = rss.get("rss").replace(" ","").replace("\n", "").split(",")
+            self.rss_source_sites = []
+            logger.info(" Done with configuration for RSS feed list: " + str(len(self.rss_source_sites)))
 
 
        # if config_f.sections().count('SiteList') == 1:
        #     site_l = config_f['SiteList']
-       #     self.source_sites = \
+       #     self.regular_source_sites = \
        #         site_l.get("sites").replace(" ","").replace("\n","").split(",")
         
         logger.info("Done Initialization")
@@ -145,11 +147,14 @@ class SNETnews:
     # thus you can way easier web crawl web page.
     # TODO drop articles other than english language or mange them
     def download_news(self):
-        op_map = {0: 'NO_NLP', 1: 'NLP', 2: 'RSS_ONLY', 3:'RSS_WITH_NLP'}
-        logger.info("Retrieving news from sites. {} Mode: ".format(op_map[self.op_mode]))
+        self.rss_source_sites = [e.setting_value for e in Setting.objects.filter(section_name='rss_source')]
+        self.regular_source_sites = [e.setting_value for e in\
+                Setting.objects.filter(section_name='regular_source')]
+        self.regular_links = [e.setting_value for e in Setting.objects.filter(section_name='link')]
+        logger.info("Retrieving news from sites. {} Mode: ".format(self.op_map[self.op_mode]))
         logger.info("Memoize articles is sat " + str(self.n_config.memoize_articles))
         if((self.op_mode == NLP_MODE) or (self.op_mode ==NO_NLP_MODE) ):
-            self.papers = [nwp.build(site, config=self.n_config) for site in self.source_sites]
+            self.papers = [nwp.build(site, config=self.n_config) for site in self.regular_source_sites]
             logger.info("NLP & NO NLP: Crawler is done with building source  Papers:"\
                     + str(len(self.papers)))
             if((self.op_mode == NLP_MODE)):
@@ -169,8 +174,6 @@ class SNETnews:
                         article.download()
                         article.parse()
                         article.nlp()
-                        with open('tfidf_matrix_term.pickle', 'wb') as file:                 #Download mode#######################
-                            pickle.dump(article, file, protocol= pickle.HIGHEST_PROTOCOL)
                     except:
                         count+=1
                         continue # passing some bad urls, but fixing can save them
@@ -200,7 +203,7 @@ class SNETnews:
                         str(self.articles[0].get('source_type',"no source type found")))
         #TODO memoize articles rss
         elif (self.op_mode == RSS_ONLY_MODE):
-            self.papers= [ fp.parse(site) for site in self.rss_sites]
+            self.papers= [ fp.parse(site) for site in self.rss_source_sites]
             self.articles = [x for y in [n.entries for n in self.papers] for x in y] \
                     # filtering is good to be here
             logger.info("RSS: Done parsing news, No Articles" + str(len(self.articles)))
@@ -213,51 +216,50 @@ class SNETnews:
         else:
             #TODO do rss_crawl with nlp_crawl just changing the site source
             #TODO only the content from newspaper, feedparser better on the rest
-            self.papers= [ fp.parse(site) for site in self.rss_sites]
+            #TODO cut download, ignore existing articles: for the other modes of download
+            self.papers= [ fp.parse(site) for site in self.rss_source_sites]
             self.articles = [x for y in [n.entries for n in self.papers] for x in y] \
                     # filtering is good to be here
+            article_links= [article.link for article in self.articles]
             logger.info("RSS NLP: Done parsing news, No Articles" + str(len(self.articles)))
             count = 0
-            article_count =0
             articles_temp=[]
-            for article in self.articles:
-                article = NewsPaperArticle(article.link)
-                try:
-                    article.download()
-                    article.parse()
-                    article.nlp()
-                    articles_temp.append(article)
-                    
-                    with open('tfidf_matrix_term.pickle', 'wb') as file:                 #Download mode#######################
-                        pickle.dump(article, file, protocol= pickle.HIGHEST_PROTOCOL)
+            for article_link in (self.regular_links + article_links):
+                if not Article.objects.filter(link=article_link, source_type='rss_nlp').exists():
+                    article = NewsPaperArticle(article_link)
+                    try:
+                        article.download()
+                        article.parse()
+                        article.nlp()
+                        articles_temp.append(article)
+                        logger.info("{} articles has downloaded".format(len(articles_temp))) 
 
-                    if article_count>20: # pause the download and save to the database
-                        logger.info("Cut download is running, cut at Article count of: "\
-                                +str(article_count))
-                        self.articles = [ a.__dict__ for a in articles_temp] \
-                        # change it to dictionary to add source type tag
-                        logger.info("RSS NLP: Done with building a dict, NLP: keyword example: "+ \
-                        str(self.articles[0].get('keywords',"Nothing found"))\
+                        if len(articles_temp)>20: # pause the download and save to the database
+                            logger.info("Cut download is running, cut at Article count of: "\
+                                    +str(len(articles_temp)))
+                            self.articles = [ a.__dict__ for a in articles_temp] \
+                            # change it to dictionary to add source type tag
+                            logger.info("RSS NLP: Done with building a dict, NLP: keyword example: "+ \
+                            str(self.articles[0].get('keywords',"Nothing found"))\
+                                if len(self.articles)>0 else\
+                                    "no articles has crawled" )
+                            for article in self.articles:
+                                article['source_type'] = 'rss_nlp'
+                            logger.info("RSS NLP: Done with inserting tag NO NLP: example: "+ \
+                            str(self.articles[0].get('source_type',"no source type found"))
                             if len(self.articles)>0 else\
-                                "no articles has crawled" )
-                        for article in self.articles:
-                            article['source_type'] = 'rss_nlp'
-                        logger.info("RSS NLP: Done with inserting tag NO NLP: example: "+ \
-                        str(self.articles[0].get('source_type',"no source type found"))
-                        if len(self.articles)>0 else\
-                            "no rss has downloaded")
+                                "no rss has downloaded")
 
-                        self.serializer(self.articles)
-                        article_count =0
-                        articles_temp =[]
-                    article_count+=1
-                    #TODO download articels in news_pool
-                except:
-                    count+=1
-                    pass
-            self.articles = articles_temp
+                            self.serializer(self.articles)
+                            articles_temp =[]
+                        #TODO download articels in news_pool
+                    except:
+                        count+=1
+                        pass
+                else:
+                    logger.info("Article already exists in the database.")
             logger.info("RSS NLP: {} articles with bad url has jumped".format(count))
-            self.articles = [ a.__dict__ for a in self.articles] \
+            self.articles = [ a.__dict__ for a in articles_temp] \
                         # change it to dictionary to add source type tag
             logger.info("RSS NLP: Done with building a dict, NLP: keyword example: "+ \
                 str(self.articles[0].get('keywords',"Nothing found"))
@@ -270,14 +272,10 @@ class SNETnews:
                     if len(self.articles)>0 else\
                     "no rss has downloaded")
         logger.info("Done retrieving news from sites")
-        unlock=cache.delete(op_map[self.op_mode]) # release the lock for "a download at 
-                                        # some operation mode is to be done one at a time
-
-        logger.debug("Release lock is  done is :"+ str(unlock))
 
         #logger.info("Search Index Built: " + str(sys.getsizeof(self.search_index)))
-
-        return self.serializer(self.articles)
+        self.serializer(self.articles)
+        self.prepare_tfidf()
 
 
     def serializer(self, articles):
@@ -313,7 +311,7 @@ class SNETnews:
                     pass
                 else:
                     timestamp=time.mktime(datetime.datetime\
-                            .strptime(str(date_orignal), "%Y-%m-%d %H:%M:%S")\
+                            .strptime(str(date_orignal)[:19], "%Y-%m-%d %H:%M:%S")\
                             .timetuple()) 
                     article_body ={"timestamp": int(timestamp),
                             "content_id": random_id,
@@ -323,8 +321,13 @@ class SNETnews:
                             "title": article['title'],
                             "content": article['summary'],
                             "source":( source_name.group(2) if source_name!= None else 'unknown' )}
-                    response=requests.post(url, data=article_body)
-                    logger.info("post request response"+ str(response.text))
+                    try:
+                        response=requests.post(url, data=article_body)
+                        logger.info("post request response"+ str(response.text))
+                    except requests.ConnectionError:
+                        logger.info("Post request is not sent to the recommendation engine because\
+                                of Connection Error")
+
                     
             else:
                 #TODO author of RSS feeds
@@ -356,18 +359,18 @@ class SNETnews:
                                 "title": article.title,
                                 "content": article.summary,
                                 "source":'rss'}
-                        response=requests.post(url, data=article_body)
-                        logger.info("post request response"+ str(response.text))
-
-                        requests.post(url, data=article_body)
+                        try: 
+                          response=requests.post(url, data=article_body)
+                          logger.info("post request response"+ str(response.text))
+                        except requests.ConnectionError:
+                            looger.info("Post request is not sent to the recommendation engine because\
+                                    of Connection Error")
         logger.info("{} articles has jumped because similar articles already exists"\
                 .format(count))
         logger.info("Done with populating the model")
-        article_serialized = ArticleSerializer(Article.objects.all(), many=True)
-        self.prepare_tfidf()
-        return article_serialized
 
     def prepare_tfidf(self):
+        logger.info("Preparing tfidif has started....")
         bag_of_articles=[]
 
         english_stopset = set(stopwords.words('english')).union(
@@ -378,6 +381,8 @@ class SNETnews:
                    "verb", "verbs"})
                 
         articles= Article.objects.all()
+        logger.info("{} articles are in the database which tfiidf is is gonna be prepared for"\
+                .format(len(articles)))
         for article in articles:
             if article.title != None and article.description != None and article.keywords != None:
                 
@@ -408,17 +413,23 @@ class SNETnews:
                                             stop_words=english_stopset)
         tfidf_matrix = vectorizer.fit_transform(bag_of_articles)
         tfidf= {"matrix":tfidf_matrix, "vectorizer": vectorizer}
-        with open('tfidf.pickle', 'wb') as read: #read mode
-            pickle.dump(tfidf, read, protocol=pickle.HIGHEST_PROTOCOL)  
+        with open('tfidf.pickle', 'wb') as read: 
+            pickle.dump(tfidf, read, protocol=pickle.HIGHEST_PROTOCOL) 
+        logger.info("Prepare Tfidf is done::::::")
+        unlock=cache.delete(self.op_map[self.op_mode]) # release the lock for "a download at 
+                                        # some operation mode is to be done one at a time
+
+        logger.debug("Release lock is  done is :"+ str(unlock))
 
     def search(self, terms, top_results=10):
                 articles= Article.objects.all()
 
-                with open('tfidf.pickle', 'rb') as read: #read mode
+                with open('tfidf.pickle', 'rb') as read:
                     tfidf = pickle.load(read) 
 
                 query_tokens= spacy_nlp(terms)
-                query_lemmantized = ' '.join([token.lemma_.lower().strip() if token.lemma_ != "-PRON-" else token.lower_ for token in query_tokens ])
+                query_lemmantized = ' '.join([token.lemma_.lower().strip() if\
+                        token.lemma_ != "-PRON-" else token.lower_ for token in query_tokens ])
 
                 query_vector= tfidf['vectorizer'].transform([query_lemmantized])
 

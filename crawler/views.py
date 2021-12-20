@@ -14,6 +14,7 @@ from nltk.stem import WordNetLemmatizer
 
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.pagination import PageNumberPagination
 from django.http import HttpResponse, JsonResponse
 from rest_framework.views import APIView
 from rest_framework.parsers import JSONParser 
@@ -31,8 +32,10 @@ auto_refresh_param = openapi.Parameter( 'enable', in_=openapi.IN_QUERY,
         description='if set true auto refresh will be on',type=openapi.TYPE_BOOLEAN, )
 fetch_params = [openapi.Parameter('sort', in_=openapi.IN_QUERY, description= "Sort type",
         type= openapi.TYPE_STRING, ),
-        openapi.Parameter('results', in_=openapi.IN_QUERY,
-            description= "Number of articles to be fetched", type= openapi.TYPE_STRING, ),
+        openapi.Parameter('page_size', in_=openapi.IN_QUERY,
+            description= "Page size of the articles to be returned", type= openapi.TYPE_STRING, ),
+        openapi.Parameter('page', in_=openapi.IN_QUERY,
+            description= "Page number of the articles to be returned", type= openapi.TYPE_STRING, ),
         openapi.Parameter('rss', in_=openapi.IN_QUERY, description= "RSS fetch",
         type= openapi.TYPE_BOOLEAN, ),
         openapi.Parameter('nlp', in_=openapi.IN_QUERY, description= "NLP fetch",
@@ -77,7 +80,7 @@ class Refresh(APIView):
 
 
 
-class Fetch(APIView):
+class Fetch(APIView, PageNumberPagination):
 
     @swagger_auto_schema(manual_parameters=fetch_params,security=[],
             responses={'400': 'Validation Error','200': ArticleSerializer})
@@ -105,7 +108,7 @@ class Fetch(APIView):
                     Article(object): serialized articles
         '''
         sort_type = request.GET['sort']
-        results = int(request.GET['results'])
+        self.page_size = int(request.GET['page_size'])
         rss = True if request.GET['rss']=='true' else False
         nlp = True if request.GET['nlp']=='true' else False
         source_map = {(False, False): 'crawl', 
@@ -116,13 +119,14 @@ class Fetch(APIView):
         if sort_type == "title":
             logger.info("Sort Type: title, No Articles: " + str(len(articles)))
             articles = sorted(articles,
-                    key=lambda x : x.title)[:min(results, len(articles))]
+                    key=lambda x : x.title)
         elif sort_type == "date":
             articles = sorted(articles,
                     key= lambda x : x.date.timestamp(),\
-                            reverse=True)[:min(results, len(articles))]
-        article_serialized= ArticleSerializer(articles, many=True)
-        return Response(article_serialized.data)
+                            reverse=True)
+        result_page = self.paginate_queryset(articles, request)
+        article_serialized= ArticleSerializer(result_page, many=True)
+        return self.get_paginated_response(article_serialized.data)
 
 
 class Filtered(APIView):

@@ -5,8 +5,8 @@ services:
     image: postgres
     ports:
       - "5432:5432"
-        #volumes:
-        # - ./data/db:/var/lib/postgresql/data
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=news
       - POSTGRES_USER=aman
@@ -24,14 +24,18 @@ services:
     depends_on:
       - db
       - memcached
+      - celery
   redis:
     image: redis:alpine
   celery:
     build: .
+    volumes:
+       - .:/crawler
     restart: always
     command: celery -A newspaper_crawler worker --loglevel=info 
     depends_on:
         - redis
+        - db
   celery-beat:
     build: .
     command: >

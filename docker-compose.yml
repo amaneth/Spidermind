@@ -42,7 +42,6 @@ services:
         bash -c
         "python manage.py makemigrations && python manage.py migrate && celery -A newspaper_crawler beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler"
     depends_on:
-        - crawler
         - celery
         - redis
         - db

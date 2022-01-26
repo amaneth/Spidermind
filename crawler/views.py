@@ -42,14 +42,14 @@ fetch_params = [openapi.Parameter('sort', in_=openapi.IN_QUERY, description= "So
         type= openapi.TYPE_BOOLEAN, ),
         ]
 
-search_params= [openapi.Parameter('terms'
-, in_=openapi.IN_QUERY,
+search_params= [openapi.Parameter('terms', in_=openapi.IN_QUERY,
             description= "text to be searched", type= openapi.TYPE_STRING, ),
             openapi.Parameter('results', in_=openapi.IN_QUERY,
                 description= "Top n articles to be returned", type= openapi.TYPE_STRING, ),]
 
 catagory_params = [openapi.Parameter('category', in_=openapi.IN_QUERY, 
-            description= "catagory to be filtered", type= openapi.TYPE_STRING, enum=['ai','blockchain', 'computer', 'programming'] ),
+            description= "catagory to be filtered", type= openapi.TYPE_STRING, enum=['ai',
+                'blockchain', 'computer', 'programming'] ),
             openapi.Parameter('results', in_=openapi.IN_QUERY,
                 description= "Top n catagory_articles to be returned", type= openapi.TYPE_STRING, ),]
 
@@ -130,7 +130,6 @@ class Fetch(APIView, PageNumberPagination):
 
 
 class Filtered(APIView):
-    #from .apps import CrawlerConfig
     @swagger_auto_schema(manual_parameters=catagory_params,security=[],
             responses={'400': 'Validation Error','200': ArticleSerializer})
     def get(self, request, format=None):
@@ -141,31 +140,17 @@ class Filtered(APIView):
                 Returns:
                     Article(object): Tech Related Articles'''
  
-                """ai = 'AI artificial intelligence robotics robote natural-language-processing \
-                      nlp machine-learning knowledge intelligent'
-
-                blockchain = 'cryptographic blockchain token ethereum bitcoin\
-                             crypto crypto-currency cyber cyber-cash'
-
-                computer = 'pc computer laptop desktop netbook mobile tablet multiprocessor microprocessor \
-                           microcomputer mainframe supercomputer automation telecommunications electronics'
-
-                programming = 'hack coding software application programming \
-                              software java python ruby mysql php laravel JavaScript C# arduino'"""
-
-               
                 catagory_name = request.GET['category']
                 top_results= int(request.GET['results'])
                 logger.info('{}--- are the terms to be filtered'.format(catagory_name))
 
-                category_related_word=Setting.objects.get(section_name='category', setting_name=catagory_name).setting_value
-                print("HEEEEEEEEEEEEEEEEEEEE:"+category_related_word)
+                category_related_word=Setting.objects.get(section_name='category',
+                        setting_name=catagory_name).setting_value
                 return Response(snet.search(category_related_word,top_results ))
               
                  
 
 #TODO search index can be built from same articles in different modes
-#TODO semantic search engine using NLP
 
 class SearchNews(APIView):
     @swagger_auto_schema(manual_parameters=search_params,security=[],
@@ -191,15 +176,18 @@ class Trending(APIView):
 
 
 class CrawlerSettings(APIView):
-    '''
-    setting value is according to the following
-    0:integer
-    1:boolean
-    2:string
-    3:float
-    4:list
-    5:dict
-    '''
+    
+    '''The setting is saved in the database in a key-value pair structure. The section name is the name of 
+    secition where different related settings can be in. The setting name is the name of the setting.
+    The setting value is the value to be changed/saved. The setting type is the data type of the setting 
+    to be sat. Setting type is according to the following:
+        0:integer
+        1:boolean
+        2:string
+        3:float
+        4:list
+        5:dict'''
+
     @swagger_auto_schema(request_body=openapi.Schema(
         type=openapi.TYPE_OBJECT,
         properties={

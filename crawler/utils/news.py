@@ -282,8 +282,8 @@ class SNETnews:
 
     def serializer(self, articles):
         count=0
-        #url = 'http://188.166.77.75:8020/articles'
-        url = 'http://172.17.0.1:8020/articles'
+        url = 'http://188.166.77.75:8020/articles'
+        #url = 'http://172.17.0.1:8020/articles'
         for article in articles:
             random_id = str(uuid.uuid4())
             logger.debug("source url of the article: "+ article['url'])
@@ -312,6 +312,7 @@ class SNETnews:
                     count+=1
                     pass
                 else:
+                    # post the article to the recommendation engine
                     timestamp=time.mktime(datetime.datetime\
                             .strptime(str(date_orignal)[:19], "%Y-%m-%d %H:%M:%S")\
                             .timetuple()) 
@@ -320,12 +321,14 @@ class SNETnews:
                             "author_person_id": "crawler",
                             "author_country": "NA",
                             "url": article['url'],
+                            "top_image" : article['top_image'],
                             "title": article['title'],
                             "content": article['summary'],
-                            "source":( source_name.group(2) if source_name!= None else 'unknown' )}
+                            "source":( source_name.group(2) if source_name!= None else 'unknown' ),
+                            "community_id": 24}
                     try:
                         response=requests.post(url, data=article_body)
-                        logger.info("post request response"+ str(response.text))
+                        logger.info("post request response"+ str(response.reason))
                     except requests.ConnectionError:
                         logger.info("Post request is not sent to the recommendation engine because\
                                 of Connection Error")
@@ -350,6 +353,7 @@ class SNETnews:
                     except:
                         count+=1
                     else:
+                        # post the article to the recommendation engine
                         timestamp = time.mktime(datetime.datetime\
                                 .strptime(article.published, "%a, %d %b %Y %H:%M:%S GMT")\
                                 .timetuple())
@@ -358,9 +362,11 @@ class SNETnews:
                                 "author_person_id": "crawler",
                                 "author_country": "NA",
                                 "url": article.link,
+                                "top_image": 'None',
                                 "title": article.title,
                                 "content": article.summary,
-                                "source":'rss'}
+                                "source":'rss',
+                                "community_id": 24}
                         try: 
                           response=requests.post(url, data=article_body)
                           logger.info("post request response"+ str(response.text))

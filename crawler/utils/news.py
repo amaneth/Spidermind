@@ -49,6 +49,8 @@ NO_NLP_MODE = 0
 RSS_ONLY_MODE = 2
 RSS_WITH_NLP_MODE = 3 
 
+#RECOMMENDER_API = 'http://188.166.77.75:8020/articles'
+RECOMMENDER_API = 'http://172.17.0.1:8020/articles'
 
 class SNETnews:
     def __init__(self, conf_file='./news.ini'):
@@ -282,8 +284,6 @@ class SNETnews:
 
     def serializer(self, articles):
         count=0
-        url = 'http://188.166.77.75:8020/articles'
-        #url = 'http://172.17.0.1:8020/articles'
         for article in articles:
             random_id = str(uuid.uuid4())
             logger.debug("source url of the article: "+ article['url'])
@@ -327,7 +327,7 @@ class SNETnews:
                             "source":( source_name.group(2) if source_name!= None else 'unknown' ),
                             "community_id": 24}
                     try:
-                        response=requests.post(url, data=article_body)
+                        response=requests.post(RECOMMENDER_API, data=article_body)
                         logger.info("post request response"+ str(response.reason))
                     except requests.ConnectionError:
                         logger.info("Post request is not sent to the recommendation engine because\
@@ -368,7 +368,7 @@ class SNETnews:
                                 "source":'rss',
                                 "community_id": 24}
                         try: 
-                          response=requests.post(url, data=article_body)
+                          response=requests.post(RECOMMENDER_API, data=article_body)
                           logger.info("post request response"+ str(response.text))
                         except requests.ConnectionError:
                             looger.info("Post request is not sent to the recommendation engine because\
@@ -441,7 +441,8 @@ class SNETnews:
 
                 query_vector= tfidf['vectorizer'].transform([query_lemmantized])
 
-                cosine_similarities = cosine_similarity(query_vector, tfidf['matrix']) ####tfidf_matrix_term if it work
+                cosine_similarities = cosine_similarity(query_vector, tfidf['matrix']) 
+                #tfidf_matrix_term if it work
                 similar = cosine_similarities[0]
 
                 if all(val==0.0 for val in similar):
@@ -455,7 +456,8 @@ class SNETnews:
         
                 
 
-                result= [articles[similar.index(i)] for i in similar_sorted][:min(len(similar_sorted), top_results)]
+                result= [articles[similar.index(i)] for i in similar_sorted][:min(len(similar_sorted), 
+                    top_results)]
                 article_serialized = ArticleSerializer([article for article in result], many = True)
                 return article_serialized.data
 

@@ -23,6 +23,7 @@ from crawler.serializers import ArticleSerializer, SettingSerializer
 from crawler.utils.news import SNETnews, logger
 from django.db import IntegrityError
 from django_celery_beat.models import PeriodicTask, IntervalSchedule
+from crawler.tasks import download
 
 
 from drf_yasg import openapi
@@ -73,8 +74,8 @@ class Refresh(APIView):
             Article(Object): articles fetched from websites
 
     '''
-    def get(self, request, format=None):
-        snet.download_news()
+    def post(self, request, format=None):
+        download.delay()
         return Response({"Message": "Refresh is in progress...  "})
 
 
@@ -210,10 +211,16 @@ class CrawlerSettings(APIView):
 
 
 class AutoRefresh(APIView):
-    @swagger_auto_schema(manual_parameters=[auto_refresh_param],security=[],
-            responses={'400': 'Validation Error','200': ArticleSerializer})
-    def get(self, request):
-            start = True if request.GET['enable']=='true' else False
+    
+    @swagger_auto_schema(request_body=openapi.Schema(
+        type=openapi.TYPE_OBJECT,
+        properties={
+            'enable': openapi.Schema(type=openapi.TYPE_BOOLEAN,
+                description='If set true auto refresh will be on')}))
+
+    def post(self, request, format=None):
+            start = request.data['enable']
+            logger.info("AutoRefresh has set to : {}".format(start))
             periodic_task = PeriodicTask.objects.get(name='refreshing the database')
             periodic_task.enabled = start
             periodic_task.save()

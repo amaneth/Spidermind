@@ -19,10 +19,8 @@ class Setting(models.Model):
     section_name= models.CharField(max_length=255)
     setting_name= models.CharField(max_length=255)
     setting_type= models.IntegerField()
-    setting_value= models.CharField(max_length=255)
+    setting_value= models.CharField(max_length=1000)
 
-    ################################# make default values from news.init
-#setting_type is the type of data to be saved the settings 0-integer 1-boolean 2-string 3-float 4-list 5-dict
 
 
 

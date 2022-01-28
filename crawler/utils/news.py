@@ -55,8 +55,6 @@ RECOMMENDER_API = 'http://172.17.0.1:8020/articles'
 class SNETnews:
     def __init__(self, conf_file='./news.ini'):
         logger.info("Initializing SNETnews. Conf file: " + conf_file)
-        config_f = cp.ConfigParser()
-        config_f.read(conf_file)
         self.papers = []
         self.number_of_sites=0
         self.regular_source_sites = []
@@ -74,70 +72,107 @@ class SNETnews:
         self.min_html_chars = 0
         self.op_map = {0: 'NO_NLP', 1: 'NLP', 2: 'RSS_ONLY', 3:'RSS_WITH_NLP'}
 
-        if config_f.sections().count('Article') == 1:
-            article_c = config_f['Article']
-            self.n_config.MIN_WORD_COUNT = int(article_c.get("min_word_count", 300))
-            self.n_config.MIN_SENT_COUNT = int(article_c.get("min_sentence_count", 7))
-            self.min_html_chars = int(article_c.get("min_html", 3000))
-            self.n_config.MAX_TITLE = int(article_c.get("max_title", 200))
-            self.n_config.MAX_TEXT = int(article_c.get("max_text", 100000))
-            self.n_config.MAX_KEYWORDS = int(article_c.get("max_keywords", 35))
-            self.n_config.MAX_AUTHORS = int(article_c.get("max_authors", 10))
-            self.n_config.MAX_SUMMARY = int(article_c.get("max_summary", 5000))
-            self.n_config.MAX_SUMMARY_SENT = int(article_c.get("max_summary_sentence", 5))
+
+        if Setting.objects.filter(section_name='article').exists():
+            self.n_config.MIN_WORD_COUNT = int(Setting.objects.get(section_name='article',
+                    setting_name='min_word_count').setting_value)
+            self.n_config.MIN_SENT_COUNT = int(Setting.objects.get(section_name='article',
+                    setting_name='min_sentence_count').setting_value)
+            self.html_chars = int(Setting.objects.get(section_name='article',
+                    setting_name='min_html').setting_value)
+            self.n_config.MAX_TITLE = int(Setting.objects.get(section_name='article',
+                    setting_name='max_title').setting_value)
+            self.n_config.MAX_TEXT = int(Setting.objects.get(section_name='article',
+                    setting_name='max_text').setting_value)
+            self.n_config.MAX_KEYWORDS = int(Setting.objects.get(section_name='article',
+                    setting_name='max_keywords').setting_value)
+            self.n_config.MAX_AUTHORS = int(Setting.objects.get(section_name='article',
+                    setting_name='max_authors').setting_value)
+            self.n_config.MAX_SUMMARY = int(Setting.objects.get(section_name='article',
+                    setting_name='max_summary').setting_value)
+            self.n_config.MAX_SUMMARY_SENT = int(Setting.objects.get(section_name='article',
+                    setting_name='max_summary_sentence').setting_value)
             #self.n_config.memoize_articles=False
             logger.info("Done with configuration for Article section MIN word cout: "+ \
                     str(self.n_config.MIN_WORD_COUNT))
         else:
-            print("Warning: Couldn't find 'Article' section in config file")
-            logger.warning("Warning: Couldn't find 'Article' section in config file")
+            print("Warning: Couldn't find 'Article' secion in the Setting database table")
+            logger.warning("Warning: Couldn't find 'Article' section in the Setting database table")
 
-        if config_f.sections().count('Sources') == 1:
-            source_c = config_f['Sources']
-            self.n_config.MAX_FILE_MEMO = int(source_c.get("max_cache_item", 20000))
-            self.n_config.memoize_articles = source_c.getboolean("cache_articles")
-            self.n_config.fetch_images = source_c.getboolean("fetch_images")
-            self.n_config.image_dimension_ration = \
-                        (float(source_c.get("image_dimension_width", 16)) / \
-                        float(source_c.get("image_dimension_height", 9)))
+        if Setting.objects.filter(section_name='source').exists():
+            self.n_config.MAX_FILE_MEMO = int(Setting.objects.get(section_name='source',
+                setting_name='max_cache_item').setting_value)
+            self.n_config.memoize_articles = (Setting.objects.get(section_name='source',
+                setting_name='cache_articles').setting_value)=='True'
+            self.n_config.fetch_images = (Setting.objects.get(section_name='source',
+                setting_name='fetch_images').setting_value) == 'True'
+
+            self.n_config.image_dimension_ration =\
+                    float(Setting.objects.get(section_name='source', setting_name='image_dimention_width')\
+                    .setting_value)/\
+                    float(Setting.objects.get(section_name='source', setting_name='image_dimention_height')\
+                    .setting_value)
             self.n_config.follow_meta_refresh = \
-                        source_c.getboolean("follow_meta_refresh")
+                        Setting.objects.get(section_name='source', setting_name='follow_meta_refresh')\
+                        .setting_value=='True'
             self.n_config.keep_article_html = \
-                        source_c.getboolean("keep_article_html")
-            self.n_config._language = source_c.get("default_language", 'en')
+                        Setting.objects.get(section_name='source', setting_name='keep_article_html')\
+                        .setting_value=='True'
+            self.n_config._language = Setting.objects.get(section_name='source', setting_name='default_language')\
+                    .setting_value
             self.n_config.browser_user_agent = \
-                        source_c.get("crawler_user_agent", "singnetnews/srv")
+                        Setting.objects.get(section_name='source', setting_name='crawler_user_agent')\
+                        .setting_value
             self.n_config.number_threads = \
-                        int(source_c.get("number_of_threads", 1))
-            logger.info("Done with configuration for Sources setion: Memoize artices :"+ \
-                    str(self.n_config.memoize_articles))
+                        int(Setting.objects.get(section_name='source', setting_name='number_of_threads')\
+                        .setting_value)
+            logger.info("Done with configuration for Sources setion: Memoize artices value: {} ".\
+                    format(self.n_config.memoize_articles))
         else:
             print("Warning: Couldn't find 'Source' secion in config file")
             logger.warning("Warning: Couldn't find 'Source' section in config file")
 
-        if config_f.sections().count('Misc') == 1:
-            misc_c = config_f['Misc']
-            self.op_mode = int(misc_c.get("op_mode", 0))
-            self.refresh_rate = int(misc_c.get("refresh_rate", 300))
-            logger.info("Done with configuration for MISC: OP MODE " + str(self.op_mode))
-        if config_f.sections().count('NumberOfSites') == 1:
-            site_n = config_f['NumberOfSites']
-            self.number_of_sites = int(site_n.get("sites", 10))
-            self.regular_source_sites= ['http://www.bbc.co.uk']
-            logger.info(" Done with configuration for number of sites: " + str(self.number_of_sites))
-        if config_f.sections().count('RSSFeedList') == 1:
-            rss_l = config_f['RSSFeedList']
-            #self.rss_source_sites = rss.get("rss").replace(" ","").replace("\n", "").split(",")
-            self.rss_source_sites = []
-            logger.info(" Done with configuration for RSS feed list: " + str(len(self.rss_source_sites)))
+        if Setting.objects.filter(section_name='misc').exists():
+            self.op_mode = int(Setting.objects.get(section_name='misc', setting_name='operation_mode').\
+                    setting_value)
+            self.refresh_rate = int(Setting.objects.get(section_name='misc', setting_name='refresh_rate').\
+                    setting_value)
+            logger.info("Done with configuration for MISC: OPERATION MODE: {} ".format(self.op_mode))
+        else:
+            print("Warning: Couldn't find 'misc' section in the database Setting tabel")
+            logger.warning("Warning: Couldn't find 'misc' section in the database Setting table")
 
+        #We have three type of links links for rss feeds(rss_source), regular source links(regular_source) like
+        # bbc.com and specific article links(link)
+        if Setting.objects.filter(section_name='rss_source'):
+            self.rss_source_sites = [e.setting_value for e in Setting.objects.filter(section_name='rss_source')]
+            logger.info(" Done with configuration for RssFeed of number of sites: {}"\
+                    .format(len(self.rss_source_sites)))
+        else:
+            print("Warning: Couldn't find 'rss_source' secion in the database Setting table")
+            logger.warning("Warning: Couldn't find 'rss_source' section in the database Setting table")
 
-       # if config_f.sections().count('SiteList') == 1:
-       #     site_l = config_f['SiteList']
-       #     self.regular_source_sites = \
-       #         site_l.get("sites").replace(" ","").replace("\n","").split(",")
-        
+        if Setting.objects.filter(section_name='regular_source').exists():
+            self.regular_source_sites = [e.setting_value for e in\
+                Setting.objects.filter(section_name='regular_source')]
+            logger.info(" Done with configuration for regular source, number of sites: {}"\
+                    .format(len(self.regular_source_sites)))
+        else:
+            print("Warning: Couldn't find 'regular_source' secion in the database Setting table")
+            logger.warning("Warning: Couldn't find 'regular_source' section in the database Setting table")
+
+        if Setting.objects.filter(section_name='link').exists():
+            self.regular_links = [e.setting_value for e in Setting.objects.filter(section_name='link')]
+            logger.info(" Done with configuration for regular links number of links: {}"\
+                    .format(len(self.regular_links)))
+        else:
+            print("Warning: Couldn't find 'link' secion in the database Setting table")
+            logger.warning("Warning: Couldn't find 'link' in the database Setting table")
+
         logger.info("Done Initialization")
+
+
+
 
     # TODO while web crawling I highly recommend using proxy services as well
     # since it will be useful in many various ways.
@@ -149,11 +184,6 @@ class SNETnews:
     # thus you can way easier web crawl web page.
     # TODO drop articles other than english language or mange them
     def download_news(self):
-
-        self.rss_source_sites = [e.setting_value for e in Setting.objects.filter(section_name='rss_source')]
-        self.regular_source_sites = [e.setting_value for e in\
-                Setting.objects.filter(section_name='regular_source')]
-        self.regular_links = [e.setting_value for e in Setting.objects.filter(section_name='link')]
 
         logger.info("Retrieving news from sites. {} Mode: ".format(self.op_map[self.op_mode]))
         logger.info("Memoize articles is sat " + str(self.n_config.memoize_articles))
@@ -460,31 +490,5 @@ class SNETnews:
                     top_results)]
                 article_serialized = ArticleSerializer([article for article in result], many = True)
                 return article_serialized.data
+    
 
-    def article_crawl(self, link):
-            count =0
-            article = NewsPaperArticle(link)
-            article.download()
-            article.parse()
-            article.nlp()
-            article_model = Article(title = article.title,
-                                    description = article.summary,
-                                    authors = article.authors,
-                                    date = (article.publish_date\
-                                            if isinstance(article.publish_date ,datetime.datetime) \
-                                            and type(article.publish_date) != 'str'\
-                                            else parser.parse("2012-01-01 00:00:00")),
-                                    link = article.url,
-                                    keywords= str(article.keywords),
-                                    source_type = 'crawl_nlp')
-            # assigned some old date if the date is None
-            try:
-                article_model.save()
-            except IntegrityError:
-                count+=1
-                pass
-            logger.info("{} articles has jumped because article with the same title already exists"\
-                    .format(count))
-            logger.info("Done with populating the model")
-            article_serialized = ArticleSerializer(article_model)
-            return article_serialized

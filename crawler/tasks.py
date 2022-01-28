@@ -6,9 +6,11 @@ from celery import shared_task
 from django.core.cache import cache
 from django.core.cache import caches
 from hashlib import md5
-from crawler.views import snet
+from crawler.utils.news import SNETnews
 from crawler.utils.news import logger
 LOCK_EXPIRE = 60 * 10  # Lock expires in 10 minutes
+
+snet = SNETnews()
 
 @shared_task
 def download(): 

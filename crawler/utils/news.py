@@ -53,7 +53,7 @@ RSS_WITH_NLP_MODE = 3
 RECOMMENDER_API = 'http://172.17.0.1:8020/articles'
 
 class SNETnews:
-    def __init__(self, ):
+    def __init__(self):
         logger.info("Initializing SNETnews... " )
         self.papers = []
         self.number_of_sites=0

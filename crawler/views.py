@@ -55,7 +55,7 @@ catagory_params = [openapi.Parameter('category', in_=openapi.IN_QUERY,
 
 
 
-snet= SNETnews('./news.ini') 
+snet= SNETnews() 
 
 
 

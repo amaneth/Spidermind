@@ -4,9 +4,9 @@ services:
   db:
     image: postgres
     ports:
-      - "5432:5432"
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - "5436:5432"
+        #volumes:
+        #- ./data/db:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=news
       - POSTGRES_USER=aman
@@ -24,20 +24,20 @@ services:
     depends_on:
       - db
       - memcached
-      - celery
   redis:
     image: redis:alpine
   celery:
     build: .
     volumes:
        - .:/crawler
-    restart: always
     command: celery -A newspaper_crawler worker --loglevel=info 
     depends_on:
         - redis
-        - db
+        - crawler
   celery-beat:
     build: .
+    volumes:
+      - .:/crawler
     command: >
         bash -c
         "python manage.py makemigrations && python manage.py migrate && celery -A newspaper_crawler beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler"
